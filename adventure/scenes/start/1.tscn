@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://adventure/pics/startRooms/1.png" type="Texture" id=1]
+[ext_resource path="res://adventure/objects/travongle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://adventure/objects/phm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://adventure/objects/aini.tscn" type="PackedScene" id=4]
+[ext_resource path="res://adventure/scripts/thing.gd" type="Script" id=5]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"../../scripts/room.gd\"
+
+func start():
+	if (!global.hasSwitch(\"firstSpeak\")):
+		fadeIn()
+		yield(say(\"OI!\\nWake UP\",\"aini\"),S)
+		yield(say(\"\"\"it's time to get out of this hell hole, the cops have stopped
+		patrolling the streets for some reason.
+		I can't wait to get out of this fucking dump.
+		Thanks for letting us stay here though, Travongle\"\"\",\"phm\"),S)
+		yield(say(\"Yeah, no worries bro, so, uh,\\nDo you know where we're going?\",\"travongle\"),S)
+		pose(ANGRY,\"aini\")
+		yield(say(\"He's coming with us?\",\"aini\"),S)
+		pose(NORMAL,\"aini\")
+		yield(say(\"\"\"Well we can't really leave Travongle here now he's kept us hidden from the cops
+		for three days, they'll find out eventually.
+		No clue where we should go though, I guess we can just figure it out.\"\"\",\"phm\"),S)
+		yield(say(\"\"\"Don't worry cunts, I know a spot in the bush.
+		I used to grow weed out that way before I got too paranoid for that shit.
+		Anyway, there's an alain village, so I reckon they'll let us stay
+		for a while til we can all figure something out.\"\"\",\"travongle\"),S)
+		yield(say(\"\"\"Don't have a car though, lol
+		Most of the time if somebody parks their car around here
+		someone lights it on fire anyway.\"\"\",\"travongle\"),S)
+		yield(say(\"\"\"Well stealing a car does sound pretty fun,
+		we'll just have to actually find one.\"\"\",\"aini\"),S)
+		print(get_tree().get_current_scene().get_name())
+		global.setSwitch(\"firstSpeak\",true)
+	
+
+func phm():
+	say(\"we need to find a vehicle while there's no cops around\")
+	
+	
+func aini():
+	say(\"We've gotta get going. I want to find a car!\")
+
+
+func travongle():
+	say(\"Hey bro, I need some space right now\")
+
+func door():
+	global.enterAdventure(\"start/2\")"
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 822.74, 126.234, 854.661, 115.184, 841.156, 495.782, 816.601, 447.901 )
+
+[node name="room" type="Node2D"]
+
+script = SubResource( 1 )
+music = "ambience"
+
+[node name="background" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="actives" type="Node2D" parent="."]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="travongle" parent="actives" instance=ExtResource( 2 )]
+
+position = Vector2( 440.623, 336.404 )
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="phm" parent="actives" instance=ExtResource( 3 )]
+
+position = Vector2( 687.199, 311.631 )
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="aini" parent="actives" instance=ExtResource( 4 )]
+
+position = Vector2( 273.168, 351.579 )
+deathSwitch = "ainiGo"
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="door" type="Area2D" parent="actives"]
+
+input_pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script = ExtResource( 5 )
+realName = "Inanimate Object"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/door"]
+
+build_mode = 0
+polygon = PoolVector2Array( 822.74, 126.234, 854.661, 115.184, 841.156, 495.782, 816.601, 447.901 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="gui" type="Node2D" parent="."]
+
+__meta__ = {
+"_edit_lock_": true
+}

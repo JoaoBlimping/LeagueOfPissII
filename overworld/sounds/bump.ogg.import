@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bump.ogg-8518465b5e66aaa35d0b0e1be5c86a7e.oggstr"
+
+[deps]
+
+source_file="res://overworld/sounds/bump.ogg"
+source_md5="0796b7f96a7dfabcca0120b4d80e9905"
+
+dest_files=[ "res://.import/bump.ogg-8518465b5e66aaa35d0b0e1be5c86a7e.oggstr" ]
+dest_md5="083e6326f8084eeadb14cd4257ed97e8"
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[gd_scene load_steps=1 format=2]
+
+[ext_resource path="res://things/theme.tres" type="Theme" id=1]
+
+[node name="Panel" type="Panel"]
+
+focus_ignore_mouse = false
+focus_stop_mouse = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = ExtResource( 1 )
+margin_left = 400.0
+margin_top = 417.0
+margin_right = 661.0
+margin_bottom = 541.0

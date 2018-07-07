@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ticker.wav-9674057cec918d921423ea18b4162a99.sample"
+
+[deps]
+
+source_file="res://samples/ticker.wav"
+source_md5="81041fc7766fe6859b8525717590fbfe"
+
+dest_files=[ "res://.import/ticker.wav-9674057cec918d921423ea18b4162a99.sample" ]
+dest_md5="1e1e0cc9bf7a72e4cd8543c5727254bf"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

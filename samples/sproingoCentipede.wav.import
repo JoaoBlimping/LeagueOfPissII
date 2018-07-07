@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sproingoCentipede.wav-26f6e31540f8a0ca6eabc9c1b4b030a2.sample"
+
+[deps]
+
+source_file="res://samples/sproingoCentipede.wav"
+source_md5="08e37659548085aa1adc46bd7ed684ba"
+
+dest_files=[ "res://.import/sproingoCentipede.wav-26f6e31540f8a0ca6eabc9c1b4b030a2.sample" ]
+dest_md5="6bd2d4b37d9adfb67c57a2deb182f276"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

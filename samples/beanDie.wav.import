@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/beanDie.wav-46fdaafbd0dcf739fa5d5ad77fa8786d.sample"
+
+[deps]
+
+source_file="res://samples/beanDie.wav"
+source_md5="5077581289d981aa6a11e61927b95795"
+
+dest_files=[ "res://.import/beanDie.wav-46fdaafbd0dcf739fa5d5ad77fa8786d.sample" ]
+dest_md5="68932c4485309f814864c79cb9a6a2f7"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

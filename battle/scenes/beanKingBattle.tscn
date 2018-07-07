@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://battle/scripts/level.gd" type="Script" id=1]
+[ext_resource path="res://battle/objects/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://battle/objects/beanKing.tscn" type="PackedScene" id=3]
+
+[node name="level" type="Node2D"]
+
+script = ExtResource( 1 )
+song = "clammel"
+
+[node name="actors" type="Node2D" parent="." index="0"]
+
+[node name="player" parent="actors" index="0" instance=ExtResource( 2 )]
+
+[node name="beanKing" parent="actors" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 489.156, 79.5177 )
+
+

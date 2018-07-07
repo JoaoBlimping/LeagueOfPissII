@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/infowars.wav-ac88c0dece7d3c67517daa445461a015.sample"
+
+[deps]
+
+source_file="res://menu/sounds/infowars.wav"
+source_md5="31cbde5bdc9f0b3473b5f4a92cad2059"
+
+dest_files=[ "res://.import/infowars.wav-ac88c0dece7d3c67517daa445461a015.sample" ]
+dest_md5="5c68c6c736e1a50be818a5f90de07099"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

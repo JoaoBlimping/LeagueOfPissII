@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menu/pics/credits.png" type="Texture" id=1]
+[ext_resource path="res://cards/pics/face1.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Sprite
+
+const speed = 30
+
+func _ready():
+	set_process(true)
+	get_node(\"/root/global\").playSong(\"end\")
+
+func _process(delta):
+	var pos = get_offset()
+	set_offset(pos - Vector2(0,speed) * delta)
+	if (pos.y < 0 - get_texture().get_height()): get_tree().change_scene(\"res://menu/scenes/menu.tscn\")
+"
+
+[node name="credits" type="Sprite"]
+
+texture = ExtResource( 1 )
+centered = false
+script = SubResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+
+show_behind_parent = true
+scale = Vector2( 8.54594, 5.05388 )
+texture = ExtResource( 2 )
+centered = false

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/advancedCorral.wav-b8249f098c13b0f27dd05503c0d36477.sample"
+
+[deps]
+
+source_file="res://samples/advancedCorral.wav"
+source_md5="f3ed62bbe1bb7eb6a2cc87b44da09ea1"
+
+dest_files=[ "res://.import/advancedCorral.wav-b8249f098c13b0f27dd05503c0d36477.sample" ]
+dest_md5="73a26d0ed0a8996b11456ddf5df7851d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

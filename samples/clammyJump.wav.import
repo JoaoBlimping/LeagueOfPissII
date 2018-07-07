@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/clammyJump.wav-8e34ae4768aa4741a062f15e5291e28e.sample"
+
+[deps]
+
+source_file="res://samples/clammyJump.wav"
+source_md5="3dac0f6382c0623c9b11f7552bbe9fcd"
+
+dest_files=[ "res://.import/clammyJump.wav-8e34ae4768aa4741a062f15e5291e28e.sample" ]
+dest_md5="87e71f7df903b2e8d07a3f0c6d63115a"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

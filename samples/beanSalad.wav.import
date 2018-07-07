@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/beanSalad.wav-9d14558de4524dfc400de1f36b2ef6ee.sample"
+
+[deps]
+
+source_file="res://samples/beanSalad.wav"
+source_md5="e6b1b4595130a1c1fa470829c77ea10f"
+
+dest_files=[ "res://.import/beanSalad.wav-9d14558de4524dfc400de1f36b2ef6ee.sample" ]
+dest_md5="7e541da34ebf95a1b597b7b2ace93e87"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

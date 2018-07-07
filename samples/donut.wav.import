@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/donut.wav-ae4ee63369d85c62cf6bc84e377809d4.sample"
+
+[deps]
+
+source_file="res://samples/donut.wav"
+source_md5="244e42f5abe47af6e246db38a1498f9f"
+
+dest_files=[ "res://.import/donut.wav-ae4ee63369d85c62cf6bc84e377809d4.sample" ]
+dest_md5="e024e25bd07e60da80d92479560e1f76"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

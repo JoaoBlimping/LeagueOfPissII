@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/beanSpikes3.wav-48cec11b86189815697e63f720778ef8.sample"
+
+[deps]
+
+source_file="res://samples/beanSpikes3.wav"
+source_md5="2bee82c95800edf12ba8c82e8fd951d2"
+
+dest_files=[ "res://.import/beanSpikes3.wav-48cec11b86189815697e63f720778ef8.sample" ]
+dest_md5="00049e982b110a1ffb7c6cbd467ebd62"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

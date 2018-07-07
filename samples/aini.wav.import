@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/aini.wav-7a2eeeec836450afee62cf03198f3196.sample"
+
+[deps]
+
+source_file="res://samples/aini.wav"
+source_md5="363d621ab0aba27454a0af38747da45b"
+
+dest_files=[ "res://.import/aini.wav-7a2eeeec836450afee62cf03198f3196.sample" ]
+dest_md5="7672e94c7e6f04747b87257b804d0a41"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

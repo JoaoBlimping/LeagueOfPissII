@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jamdonut.wav-38d97873327bbfa747c3b0b256836648.sample"
+
+[deps]
+
+source_file="res://samples/jamdonut.wav"
+source_md5="763988f6d0361888ae414fa0cdd723e2"
+
+dest_files=[ "res://.import/jamdonut.wav-38d97873327bbfa747c3b0b256836648.sample" ]
+dest_md5="dff6e23741a020e427b2f4cb51396d6d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

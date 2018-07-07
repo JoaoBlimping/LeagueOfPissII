@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bing.wav-b995aa9226c62bd33740658ec3d81503.sample"
+
+[deps]
+
+source_file="res://adventure/sounds/bing.wav"
+source_md5="0346fb2debae0c09792054cb4dcebc69"
+
+dest_files=[ "res://.import/bing.wav-b995aa9226c62bd33740658ec3d81503.sample" ]
+dest_md5="7645c62a9e3e923a629c1d67ad2b98ef"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

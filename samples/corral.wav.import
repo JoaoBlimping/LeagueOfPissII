@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/corral.wav-6356508a583ac9e8a7dcf05c8c7fb96b.sample"
+
+[deps]
+
+source_file="res://samples/corral.wav"
+source_md5="99a11a8195d51b1dc0e7628ac60fc91b"
+
+dest_files=[ "res://.import/corral.wav-6356508a583ac9e8a7dcf05c8c7fb96b.sample" ]
+dest_md5="3a4fd5199e2b4ad48ca6788ceff22dd1"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://battle/pics/wave.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"../scripts/actor.gd\"
+
+onready var water = preload(\"res://battle/objects/waterBullet.tscn\")
+onready var foam = preload(\"res://battle/objects/foamBullet.tscn\")
+onready var player = get_node(\"../player\")
+
+
+func _ready():
+	addRoutine(\"flirt1\")
+
+	
+	
+func flirt1():
+	health = 120
+	var height = 13
+	var tick = createTimer(0.14)
+	shootFrom(water,DOWN,Vector2(player.position.x,0),100)
+	while (true):
+		yield(tick.r(),T)
+		for i in range(2,height):
+			for b in range(i):
+				if (!(b == 0 || b == i - 1)): continue
+				var offset = ((b + 2) - float(i + 2) / 2)
+				var pos = Vector2(player.position.x + offset * 20,0)
+				shootFrom(foam,pos.angle_to_point(player.position),pos,100)
+			yield(tick.r(),T)
+		shootFrom(water,DOWN,Vector2(player.position.x,0),100)
+		if (isDone()): return"
+
+[node name="wave" type="Sprite" index="0"]
+
+position = Vector2( -5.9596, -10.7181 )
+texture = ExtResource( 1 )
+offset = Vector2( 5.9596, 10.7181 )
+script = SubResource( 1 )
+flippy = false
+walky = false
+target = true
+speed = 100
+
+[node name="hitbox" type="Area2D" parent="." index="0"]
+
+visible = false
+use_parent_material = true
+position = Vector2( 5.9596, 10.7181 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox" index="0"]
+
+show_behind_parent = true
+build_mode = 0
+polygon = PoolVector2Array( -88.4636, 68.2862, 96.7245, 69.0611, 58.176, 51.4333, 85.8767, -22.177, 59.1445, -67.6992, -59.7943, -39.2236, -56.8886, -10.9418, 36.2866, 34.5804, -93.3064, 44.6534 )
+
+

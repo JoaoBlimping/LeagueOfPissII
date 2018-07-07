@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/phm.wav-f80246585278569b9465b96cbe94d0fb.sample"
+
+[deps]
+
+source_file="res://samples/phm.wav"
+source_md5="dc42e2023481b4dd326cbbeefa054a12"
+
+dest_files=[ "res://.import/phm.wav-f80246585278569b9465b96cbe94d0fb.sample" ]
+dest_md5="b442ac6de88b0c714d4d09c01193d28e"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,218 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://adventure/pics/factory.png" type="Texture" id=1]
+[ext_resource path="res://adventure/objects/trog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://adventure/scripts/thing.gd" type="Script" id=3]
+[ext_resource path="res://adventure/pics/benaiah.png" type="Texture" id=4]
+[ext_resource path="res://adventure/pics/coolerRobot.png" type="Texture" id=5]
+[ext_resource path="res://adventure/pics/robotMask.png" type="Texture" id=6]
+[ext_resource path="res://adventure/objects/travarsom.tscn" type="PackedScene" id=7]
+[ext_resource path="res://adventure/objects/aini.tscn" type="PackedScene" id=8]
+[ext_resource path="res://adventure/objects/phm.tscn" type="PackedScene" id=9]
+[ext_resource path="res://adventure/objects/clammy.tscn" type="PackedScene" id=10]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"../../scripts/room.gd\"
+
+
+func start():
+	fadeIn()
+	yield(say(\"\"\"The Cicada Terrorists...\"\"\",\"ben\"),S)
+	yield(say(\"\"\"Alright cunt you'd better be ready to experience the void because you are
+	going to do so real fucking soon. It was a long time before I saw that bloody Cicada
+	that I knew the world as it is curated today was all fucked up, and it's weaklings like
+	you that let it get like this\"\"\",\"john\"),S)
+	yield(say(\"\"\"Firstly, we did nothing wrong, and secondly, the alains out in the bush
+	did even more nothing wrong than us, so I don't know what makes you think that it is
+	ok to do this, but it is certainly not some kind of morality\"\"\",\"john\"),S)
+	yield(say(\"\"\"Huh, John can talk.\"\"\",\"travarsom\"),S)
+	yield(say(\"\"\"Seems a little ironic that a terrorist who killed a police officer
+	and destroyed a building would bring up morality, but it doesn't really matter
+	much because I have a robot.\"\"\",\"ben\"),S)
+	yield(battle(\"robotBattle\"),S)
+	yield(say(\"\"\"Don't add another dead man to your record John Fogle, I know you
+	don't really hate me\"\"\",\"ben\"),S)
+	yield(say(\"\"\"I've never hated anybody more in my life than I hate you, and I don't
+	even know your name. Hahha wait it says on your name tag your name is Ben\"\"\",\"john\"),S)
+	yield(say(\"\"\"Why? All I did was do my job, that doesn't make me a monster does it?\"\"\",\"ben\"),S)
+	yield(say(\"\"\"I hate you because I can imagine myself doing the same things and making
+	that same excuse and all the time feeling that fucking knawing in my head and just
+	telling myself it's nothing when I know it's not nothing at all, and it was eating
+	away at my fucking soul\"\"\",\"john\"),S)
+	yield(say(\"\"\"You may not be a monster but you do facilitate them.\"\"\",\"john\"),S)
+	yield(say(\"\"\"I have no clue what you are talking about.\"\"\",\"ben\"),S)
+	yield(say(\"\"\"You do. Anyway, get the fuck out of here before I make myself
+	angry\"\"\",\"john\"),S)
+	yield(say(\"\"\"lol nice\"\"\",\"phm\"),S)
+	yield(say(\"\"\"John!\"\"\",\"aini\"),S)
+	yield(say(\"\"\"We did it!\"\"\",\"clammy\"),S)
+	yield(say(\"\"\"I think I'm going to go back to my family now\"\"\",\"travarsom\"),S)
+	yield(say(\"\"\"Hmmmm I suppose the rest of us are going to have to hit the road after this
+	little incident\"\"\",\"phm\"),S)
+	yield(say(\"\"\"Another road trip?
+	~
+	I'm kinda getting into the smell of seabreeze hotels\"\"\",\"aini\"),S)
+	yield(say(\"\"\"Well actually we might have to go places where they don't have roads
+	for a while\"\"\",\"phm\"),S)
+	yield(say(\"\"\"But you said we will hit the road\"\"\",\"john\"),S)
+	yield(say(\"\"\"It's a metaphor.\"\"\",\"phm\"),S)
+	yield(say(\"\"\"ohh lol\"\"\",\"john\"),S)
+	yield(say(\"\"\"John why did you go three days without talking?\"\"\",\"aini\"),S)
+	yield(say(\"\"\"I was just thinking about stuff lol. Thanks for waking me up each day
+	though\"\"\",\"john\"),S)
+	if (s(\"smonk\")): yield(say(\"\"\"You Got ending B\"\"\",\"ben\"),S)
+	else: yield(say(\"\"\"You Got ending A\"\"\",\"ben\"),S)
+	global.end()"
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 189.805, 406.87, 198.095, 173.276, 336.594, 180.103, 236.621, 408.333 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 236.621, 408.333, 336.594, 180.103, 338.057, 489.287, 238.572, 488.799 )
+
+[node name="room" type="Node2D"]
+
+script = SubResource( 1 )
+music = "factory"
+
+[node name="background" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="trog" parent="background" instance=ExtResource( 2 )]
+
+visible = false
+position = Vector2( 438.999, 287.452 )
+
+[node name="offset" type="Position2D" parent="background"]
+
+position = Vector2( 0.540352, -4.86321 )
+
+[node name="actives" type="Node2D" parent="."]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ben" type="Area2D" parent="actives"]
+
+editor/display_folded = true
+position = Vector2( 823.782, 169.755 )
+input_pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script = ExtResource( 3 )
+realName = "Benaiah Green"
+pointer = "talk"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="Sprite" type="Sprite" parent="actives/ben"]
+
+texture = ExtResource( 4 )
+hframes = 2
+
+[node name="john" type="Area2D" parent="actives"]
+
+position = Vector2( 823.782, 169.755 )
+input_pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script = ExtResource( 3 )
+realName = "John Fogle"
+pointer = "talk"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="dave" type="Area2D" parent="actives"]
+
+editor/display_folded = true
+position = Vector2( 265.552, 168.676 )
+input_pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script = ExtResource( 3 )
+realName = "Dave Walker"
+pointer = "talk"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="body" type="Sprite" parent="actives/dave"]
+
+texture = ExtResource( 5 )
+
+[node name="mask" type="Sprite" parent="actives/dave"]
+
+position = Vector2( -5.00998, 66.7925 )
+rotation_deg = 1.88008
+texture = ExtResource( 6 )
+offset = Vector2( 0.931854, 45.2479 )
+hframes = 2
+frame = 1
+
+[node name="travarsom" parent="actives" instance=ExtResource( 7 )]
+
+position = Vector2( 787.877, 337.533 )
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="aini" parent="actives" instance=ExtResource( 8 )]
+
+position = Vector2( 886.249, 376.34 )
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="phm" parent="actives" instance=ExtResource( 9 )]
+
+position = Vector2( 956.038, 387.818 )
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="clammy" parent="actives" instance=ExtResource( 10 )]
+
+position = Vector2( 830.266, 512.622 )
+
+[node name="gui" type="Node2D" parent="."]
+
+__meta__ = {
+"_edit_lock_": true
+}

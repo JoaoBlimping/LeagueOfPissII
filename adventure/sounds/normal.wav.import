@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/normal.wav-20501d09823bd3226218c6081c70a1cd.sample"
+
+[deps]
+
+source_file="res://adventure/sounds/normal.wav"
+source_md5="50f72be3516eae64f9a554244b2ca44e"
+
+dest_files=[ "res://.import/normal.wav-20501d09823bd3226218c6081c70a1cd.sample" ]
+dest_md5="8d740dec9ccaa009771ff6ecc94621c8"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
