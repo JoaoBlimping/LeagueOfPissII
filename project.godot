@@ -10,13 +10,14 @@ config_version=3
 
 [application]
 
+config/name="League of Piss II"
+config/main_scene="Null"
+config/icon="res://icon.png"
 run/main_scene="res://menu/scenes/splash.tscn"
 boot_splash/image="res://battle/pics/ainiSplash.png"
 boot_bg_color=Color( 0.376471, 0.764706, 0.611765, 1 )
 boot_splash="res://battle/pics/ainiSplash.png"
-name="League of Piss II"
-icon="icon.png"
-main_scene="Null"
+
 
 [autoload]
 

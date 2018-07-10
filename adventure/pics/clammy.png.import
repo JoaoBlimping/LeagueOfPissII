@@ -7,10 +7,7 @@ path="res://.import/clammy.png-cfc9fb3bb58dc2a3b577e3e9aa5fb37d.stex"
 [deps]
 
 source_file="res://adventure/pics/clammy.png"
-source_md5="b87bfc0fabf65e8c092ce0b6f1ffaff6"
-
 dest_files=[ "res://.import/clammy.png-cfc9fb3bb58dc2a3b577e3e9aa5fb37d.stex" ]
-dest_md5="b870e99489ed650222ac553b92a7f117"
 
 [params]
 

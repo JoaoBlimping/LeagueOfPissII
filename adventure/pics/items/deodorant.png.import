@@ -7,10 +7,7 @@ path="res://.import/deodorant.png-d41636a39a55d0b491e839e7d2ead5a8.stex"
 [deps]
 
 source_file="res://adventure/pics/items/deodorant.png"
-source_md5="28d6e3691475b9015395ca90e80548c4"
-
 dest_files=[ "res://.import/deodorant.png-d41636a39a55d0b491e839e7d2ead5a8.stex" ]
-dest_md5="0486b001a4d2ce29865611e6e266cc4f"
 
 [params]
 

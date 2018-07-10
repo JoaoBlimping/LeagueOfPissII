@@ -7,10 +7,7 @@ path="res://.import/bang.wav-3abc44c67c5c0d949d23f32c2e439d5f.sample"
 [deps]
 
 source_file="res://adventure/sounds/bang.wav"
-source_md5="afc9fb3cd0ee0082bdb4c56fdbbbbb85"
-
 dest_files=[ "res://.import/bang.wav-3abc44c67c5c0d949d23f32c2e439d5f.sample" ]
-dest_md5="65010a36910d071600dec550b9732d00"
 
 [params]
 

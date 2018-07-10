@@ -7,10 +7,7 @@ path="res://.import/waves.png-67217f4068ef0af29b6723e69aac7fd6.stex"
 [deps]
 
 source_file="res://overworld/pics/waves.png"
-source_md5="c50343f2ca3315620b48ac50bef75e85"
-
 dest_files=[ "res://.import/waves.png-67217f4068ef0af29b6723e69aac7fd6.stex" ]
-dest_md5="241784945f67f00d02fa80ac13dd943b"
 
 [params]
 

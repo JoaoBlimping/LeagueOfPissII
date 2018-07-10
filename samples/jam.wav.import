@@ -7,10 +7,7 @@ path="res://.import/jam.wav-badfabcc764b87e52f88b7fe5139e48f.sample"
 [deps]
 
 source_file="res://samples/jam.wav"
-source_md5="b6d0e22595e3b7d9d0486db06574e597"
-
 dest_files=[ "res://.import/jam.wav-badfabcc764b87e52f88b7fe5139e48f.sample" ]
-dest_md5="4cbcdf3c54624e511ad79002134ff2ff"
 
 [params]
 

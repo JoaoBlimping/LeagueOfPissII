@@ -7,10 +7,7 @@ path="res://.import/power.png-66f01dc165ca0cfe69e2fafb84e3c151.stex"
 [deps]
 
 source_file="res://battle/pics/power.png"
-source_md5="1ee4d5427a96d217e2b8226e8fd847da"
-
 dest_files=[ "res://.import/power.png-66f01dc165ca0cfe69e2fafb84e3c151.stex" ]
-dest_md5="f134544fafa1e6f0288d0d28f711e661"
 
 [params]
 

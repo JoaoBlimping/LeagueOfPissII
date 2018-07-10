@@ -7,10 +7,7 @@ path="res://.import/fade.png-88448e7713ac7893eb605adccbbb9fca.stex"
 [deps]
 
 source_file="res://adventure/pics/fade.png"
-source_md5="0f484725446e8179aaf7617345afcf96"
-
 dest_files=[ "res://.import/fade.png-88448e7713ac7893eb605adccbbb9fca.stex" ]
-dest_md5="cf9d6cff7bfc4f0750226d3dc34587e4"
 
 [params]
 

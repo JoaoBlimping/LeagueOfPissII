@@ -7,10 +7,7 @@ path="res://.import/vampite.png-07834f9a191e793fba9b8a0dd412e15a.stex"
 [deps]
 
 source_file="res://battle/pics/vampite.png"
-source_md5="d15465b98e516f3ef1b129c327fb3760"
-
 dest_files=[ "res://.import/vampite.png-07834f9a191e793fba9b8a0dd412e15a.stex" ]
-dest_md5="98ed9f38692995ac31df994a5444e707"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/laptop.png-9e09f8ddbe86bd132d7b9e73c60c7ea5.stex"
 [deps]
 
 source_file="res://adventure/pics/laptop.png"
-source_md5="7e63e956523c71d617722913f97ea657"
-
 dest_files=[ "res://.import/laptop.png-9e09f8ddbe86bd132d7b9e73c60c7ea5.stex" ]
-dest_md5="0728ff598c973516547a756999c00cc5"
 
 [params]
 

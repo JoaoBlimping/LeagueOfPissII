@@ -7,10 +7,7 @@ path="res://.import/spineFlower.png-d3e64be100777c39722f7b2b0b15cf53.stex"
 [deps]
 
 source_file="res://adventure/pics/spineFlower.png"
-source_md5="dd48105654b6320676580e0c76f32809"
-
 dest_files=[ "res://.import/spineFlower.png-d3e64be100777c39722f7b2b0b15cf53.stex" ]
-dest_md5="4210d220a31432085e9e48485766d025"
 
 [params]
 

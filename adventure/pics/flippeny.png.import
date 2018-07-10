@@ -7,10 +7,7 @@ path="res://.import/flippeny.png-ab1f1e1922df0afd2b445e944588df1a.stex"
 [deps]
 
 source_file="res://adventure/pics/flippeny.png"
-source_md5="fcabb6a6df1ae0644f5a50c20445e82a"
-
 dest_files=[ "res://.import/flippeny.png-ab1f1e1922df0afd2b445e944588df1a.stex" ]
-dest_md5="c944945d12b8ae9d1fa75848dad7c4af"
 
 [params]
 

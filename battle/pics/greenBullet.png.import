@@ -7,10 +7,7 @@ path="res://.import/greenBullet.png-db9e230df60e2b3234f4edc765d2d4ec.stex"
 [deps]
 
 source_file="res://battle/pics/greenBullet.png"
-source_md5="13015bec03d1a907f575d61a6051b83c"
-
 dest_files=[ "res://.import/greenBullet.png-db9e230df60e2b3234f4edc765d2d4ec.stex" ]
-dest_md5="df9fa6d3565cfbf296b5212e3d4eeb4f"
 
 [params]
 

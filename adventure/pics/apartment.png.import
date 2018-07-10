@@ -7,10 +7,7 @@ path="res://.import/apartment.png-98040ab2931d7a1e3c9d64c672cc5cdf.stex"
 [deps]
 
 source_file="res://adventure/pics/apartment.png"
-source_md5="53cd4d1f8f77d08a66f2668945139bbd"
-
 dest_files=[ "res://.import/apartment.png-98040ab2931d7a1e3c9d64c672cc5cdf.stex" ]
-dest_md5="faf3206dcace9f3faaea4e4783ae18e4"
 
 [params]
 

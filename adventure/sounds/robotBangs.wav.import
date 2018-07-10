@@ -7,10 +7,7 @@ path="res://.import/robotBangs.wav-3b6f9031d69f3ad4e2e8fbc25c532e2f.sample"
 [deps]
 
 source_file="res://adventure/sounds/robotBangs.wav"
-source_md5="174dbf37d7875bd90784ae9d725fd01a"
-
 dest_files=[ "res://.import/robotBangs.wav-3b6f9031d69f3ad4e2e8fbc25c532e2f.sample" ]
-dest_md5="690f061ef570526c1f206a9a1997f487"
 
 [params]
 

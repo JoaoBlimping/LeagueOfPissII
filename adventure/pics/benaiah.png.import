@@ -7,10 +7,7 @@ path="res://.import/benaiah.png-a598acfba677bc761f8c73620f5cd7d6.stex"
 [deps]
 
 source_file="res://adventure/pics/benaiah.png"
-source_md5="513aa72f3b72eec54fa2ee24346b2f7d"
-
 dest_files=[ "res://.import/benaiah.png-a598acfba677bc761f8c73620f5cd7d6.stex" ]
-dest_md5="ba90ece3cab7db259ee53ff18638e4b5"
 
 [params]
 

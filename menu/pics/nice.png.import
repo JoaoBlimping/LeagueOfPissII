@@ -7,10 +7,7 @@ path="res://.import/nice.png-541ab93d161314da1f5ded7463121856.stex"
 [deps]
 
 source_file="res://menu/pics/nice.png"
-source_md5="372aced7472d04471f4d4b680f02094d"
-
 dest_files=[ "res://.import/nice.png-541ab93d161314da1f5ded7463121856.stex" ]
-dest_md5="f27a536699244dbda998fc41f5a16a3a"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/strawberryswirl.wav-19e1f6a364f6b606cd0fbed7e9b2d409.sample"
 [deps]
 
 source_file="res://samples/strawberryswirl.wav"
-source_md5="39a0584eb65557e460adb595c54473c9"
-
 dest_files=[ "res://.import/strawberryswirl.wav-19e1f6a364f6b606cd0fbed7e9b2d409.sample" ]
-dest_md5="f5002fe88949b029dd811b9722db5833"
 
 [params]
 

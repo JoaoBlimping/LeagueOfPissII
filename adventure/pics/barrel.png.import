@@ -7,10 +7,7 @@ path="res://.import/barrel.png-f2c7a84de5ae7834092bd4d7997f6f97.stex"
 [deps]
 
 source_file="res://adventure/pics/barrel.png"
-source_md5="df25a2fada9ed9af9d0bc91248249287"
-
 dest_files=[ "res://.import/barrel.png-f2c7a84de5ae7834092bd4d7997f6f97.stex" ]
-dest_md5="444194a2d572474b1c784249652e8d04"
 
 [params]
 

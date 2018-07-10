@@ -7,10 +7,7 @@ path="res://.import/beanKing.png-55b2c18abbbb2f98bf6dea71d8104b40.stex"
 [deps]
 
 source_file="res://battle/pics/beanKing.png"
-source_md5="87df6b217e0cedead07fb99483007e42"
-
 dest_files=[ "res://.import/beanKing.png-55b2c18abbbb2f98bf6dea71d8104b40.stex" ]
-dest_md5="90f161fd61d7b580ba1ff43c00aae1eb"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/tape.png-1afb6062879b27665817f0b2b89070d9.stex"
 [deps]
 
 source_file="res://adventure/pics/items/tape.png"
-source_md5="34f69b5476453c42d38503e16ad162de"
-
 dest_files=[ "res://.import/tape.png-1afb6062879b27665817f0b2b89070d9.stex" ]
-dest_md5="5361fad531f827155e1a7b1c3f9e06a4"
 
 [params]
 

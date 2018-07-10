@@ -7,10 +7,7 @@ path="res://.import/redBullet.png-d43db1f2059c11a3d597c61d012b8ef2.stex"
 [deps]
 
 source_file="res://battle/pics/redBullet.png"
-source_md5="c6cd9cee2d895ad15dd18c13a38d8f0c"
-
 dest_files=[ "res://.import/redBullet.png-d43db1f2059c11a3d597c61d012b8ef2.stex" ]
-dest_md5="51193c14d5663b12ce28841f232e4eb8"
 
 [params]
 

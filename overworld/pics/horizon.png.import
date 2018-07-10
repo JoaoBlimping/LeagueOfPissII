@@ -7,10 +7,7 @@ path="res://.import/horizon.png-03d674decb2e1a5cbaccfe28d7cef5db.stex"
 [deps]
 
 source_file="res://overworld/pics/horizon.png"
-source_md5="4a431c8e74e1952565d374bfb486e79d"
-
 dest_files=[ "res://.import/horizon.png-03d674decb2e1a5cbaccfe28d7cef5db.stex" ]
-dest_md5="33b0436468ed5c47a820b6e1628df341"
 
 [params]
 
@@ -19,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -7,10 +7,7 @@ path="res://.import/save.png-657eb9727d09b0bf6366d499a05aab25.stex"
 [deps]
 
 source_file="res://adventure/pics/items/save.png"
-source_md5="77510e8800b19a0586504b2148eead5e"
-
 dest_files=[ "res://.import/save.png-657eb9727d09b0bf6366d499a05aab25.stex" ]
-dest_md5="cfddd6f1d19c3940d66837da43bbc7ba"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/distance.png-e8909e5243df4ef06222d1f07d4fc496.stex"
 [deps]
 
 source_file="res://overworld/pics/distance.png"
-source_md5="b461b2b516d1011529a488d08895b5b7"
-
 dest_files=[ "res://.import/distance.png-e8909e5243df4ef06222d1f07d4fc496.stex" ]
-dest_md5="b7ec1b67cdef0a7e6dc54b12d14565a8"
 
 [params]
 
@@ -19,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

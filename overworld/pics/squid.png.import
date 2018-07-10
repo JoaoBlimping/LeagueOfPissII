@@ -7,10 +7,7 @@ path="res://.import/squid.png-279c141448e55e85ef663ee41752ad43.stex"
 [deps]
 
 source_file="res://overworld/pics/squid.png"
-source_md5="f1615cd50a5e5f1aa24a1a812f12fefd"
-
 dest_files=[ "res://.import/squid.png-279c141448e55e85ef663ee41752ad43.stex" ]
-dest_md5="33fd4bfd0a603d02d872baff1305b10b"
 
 [params]
 

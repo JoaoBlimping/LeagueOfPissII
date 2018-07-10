@@ -7,10 +7,7 @@ path="res://.import/ainiSplash.png-291ee6a914c08675e4aaac19095e58b8.stex"
 [deps]
 
 source_file="res://battle/pics/ainiSplash.png"
-source_md5="76a3768c42de4437fe71dd6dd6f6b439"
-
 dest_files=[ "res://.import/ainiSplash.png-291ee6a914c08675e4aaac19095e58b8.stex" ]
-dest_md5="17ea549a868852ef4ae65bf36f2e668a"
 
 [params]
 

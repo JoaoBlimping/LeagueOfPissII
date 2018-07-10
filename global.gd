@@ -7,6 +7,7 @@ var switches = {}
 var boatingAngle = 0
 var boatingPosition = Vector2()
 var area = null
+var fucker = "redJelly"
 var saveFile
 
 func _enter_tree():

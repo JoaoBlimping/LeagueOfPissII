@@ -7,10 +7,7 @@ path="res://.import/mangrove.png-396f90c1261ab40d6fb57ed692ce486a.stex"
 [deps]
 
 source_file="res://overworld/pics/mangrove.png"
-source_md5="696d6119e3576d7762333eeb067585ef"
-
 dest_files=[ "res://.import/mangrove.png-396f90c1261ab40d6fb57ed692ce486a.stex" ]
-dest_md5="23a0e415eb0e11bb79f2d2f40895cb37"
 
 [params]
 

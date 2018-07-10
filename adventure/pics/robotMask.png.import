@@ -7,10 +7,7 @@ path="res://.import/robotMask.png-e480cfaf2681e50c7cbb24d472b24a76.stex"
 [deps]
 
 source_file="res://adventure/pics/robotMask.png"
-source_md5="eca17bbbc392e2197af3c279c0eada35"
-
 dest_files=[ "res://.import/robotMask.png-e480cfaf2681e50c7cbb24d472b24a76.stex" ]
-dest_md5="934cd52f1807282d6490238f291cf9a6"
 
 [params]
 

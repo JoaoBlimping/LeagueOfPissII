@@ -7,10 +7,7 @@ path="res://.import/nice.wav-2ecfa12c7600045f58d50f3696cbbe3c.sample"
 [deps]
 
 source_file="res://adventure/sounds/nice.wav"
-source_md5="72572c02a13e9cbd0cfe661d3205bd39"
-
 dest_files=[ "res://.import/nice.wav-2ecfa12c7600045f58d50f3696cbbe3c.sample" ]
-dest_md5="568fda6832bddb8e7869baef67d4bc9c"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/compass.png-20202ce7f848e1c47e6f0f53f2b2479c.stex"
 [deps]
 
 source_file="res://overworld/pics/compass.png"
-source_md5="40c1ae4909ab3187729fd2529bc9c819"
-
 dest_files=[ "res://.import/compass.png-20202ce7f848e1c47e6f0f53f2b2479c.stex" ]
-dest_md5="87c9bebe290397be2a4f77e187bcfe38"
 
 [params]
 
@@ -19,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

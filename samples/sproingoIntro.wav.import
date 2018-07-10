@@ -7,10 +7,7 @@ path="res://.import/sproingoIntro.wav-f5f6e59b51198a5c1b4b7a8b3431cb70.sample"
 [deps]
 
 source_file="res://samples/sproingoIntro.wav"
-source_md5="d4ef64c211cc8183cb0e9be7c5654913"
-
 dest_files=[ "res://.import/sproingoIntro.wav-f5f6e59b51198a5c1b4b7a8b3431cb70.sample" ]
-dest_md5="2c80f88e4942d8dc7526be750704345d"
 
 [params]
 

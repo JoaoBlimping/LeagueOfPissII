@@ -7,10 +7,7 @@ path="res://.import/grease.png-e0bef56fc3e071e78e71807fe83c2a23.stex"
 [deps]
 
 source_file="res://adventure/pics/items/grease.png"
-source_md5="519d2600650a6526274270db3393d77f"
-
 dest_files=[ "res://.import/grease.png-e0bef56fc3e071e78e71807fe83c2a23.stex" ]
-dest_md5="4e766b2361856881229e95e31e7b3104"
 
 [params]
 

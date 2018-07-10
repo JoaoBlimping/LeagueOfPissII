@@ -7,10 +7,7 @@ path="res://.import/lightBullet.png-ea5d696f160d00ca269816bc6241a13c.stex"
 [deps]
 
 source_file="res://battle/pics/lightBullet.png"
-source_md5="3294e20922522d6f6dbcde54077ca463"
-
 dest_files=[ "res://.import/lightBullet.png-ea5d696f160d00ca269816bc6241a13c.stex" ]
-dest_md5="998e4d34fb312d67e3360c65e819f979"
 
 [params]
 

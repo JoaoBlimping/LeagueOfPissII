@@ -7,10 +7,7 @@ path="res://.import/theSun.png-cc9cfeee2b1a51aa2a3dd26895834a51.stex"
 [deps]
 
 source_file="res://battle/pics/theSun.png"
-source_md5="90f5b731190b2424af81d6f4770a383c"
-
 dest_files=[ "res://.import/theSun.png-cc9cfeee2b1a51aa2a3dd26895834a51.stex" ]
-dest_md5="a8d8e98cafc2763f57b8da9f583e2333"
 
 [params]
 

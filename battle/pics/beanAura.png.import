@@ -7,10 +7,7 @@ path="res://.import/beanAura.png-37d5de76b62ba2025a9fbd86c8b606a6.stex"
 [deps]
 
 source_file="res://battle/pics/beanAura.png"
-source_md5="f181998cec967f1ccfc0a61f389bc164"
-
 dest_files=[ "res://.import/beanAura.png-37d5de76b62ba2025a9fbd86c8b606a6.stex" ]
-dest_md5="30d90d7948e41643e75d03bbfba9b99c"
 
 [params]
 

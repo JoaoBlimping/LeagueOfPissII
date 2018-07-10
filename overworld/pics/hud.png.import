@@ -7,10 +7,7 @@ path="res://.import/hud.png-a224e2b68277adad27499d87c0a2096c.stex"
 [deps]
 
 source_file="res://overworld/pics/hud.png"
-source_md5="8a05bc9e3e2664ea12e0aac072dd0f2a"
-
 dest_files=[ "res://.import/hud.png-a224e2b68277adad27499d87c0a2096c.stex" ]
-dest_md5="7f8484848ccf378b4bcf7a1a26946ed0"
 
 [params]
 
@@ -19,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

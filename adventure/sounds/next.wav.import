@@ -7,10 +7,7 @@ path="res://.import/next.wav-d398e8d14bddfcc93039a1086ff651c6.sample"
 [deps]
 
 source_file="res://adventure/sounds/next.wav"
-source_md5="7161134e978d979beb26eed2d18a2be4"
-
 dest_files=[ "res://.import/next.wav-d398e8d14bddfcc93039a1086ff651c6.sample" ]
-dest_md5="6364f3f222477389052bc42b7efdd3a3"
 
 [params]
 

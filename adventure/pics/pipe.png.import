@@ -7,10 +7,7 @@ path="res://.import/pipe.png-6e1da9db55c3ba40b8e3dc022e78d051.stex"
 [deps]
 
 source_file="res://adventure/pics/pipe.png"
-source_md5="34c79f05d5308f14cc4253dc345cc2b4"
-
 dest_files=[ "res://.import/pipe.png-6e1da9db55c3ba40b8e3dc022e78d051.stex" ]
-dest_md5="b81e7286898a5c6e62566099e0a16593"
 
 [params]
 

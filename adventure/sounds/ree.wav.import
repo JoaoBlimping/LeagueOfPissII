@@ -7,10 +7,7 @@ path="res://.import/ree.wav-c1e387fcaa59b7a84ef6c4ce35ac8c5f.sample"
 [deps]
 
 source_file="res://adventure/sounds/ree.wav"
-source_md5="2d0d327b3547284ea60007fb64e9e7c7"
-
 dest_files=[ "res://.import/ree.wav-c1e387fcaa59b7a84ef6c4ce35ac8c5f.sample" ]
-dest_md5="9bc8de193a544d9ed7bc66a38dbe2961"
 
 [params]
 

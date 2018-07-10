@@ -7,10 +7,7 @@ path="res://.import/clammyDie.wav-974f9a2eb32bebf381789ef1e072ad29.sample"
 [deps]
 
 source_file="res://samples/clammyDie.wav"
-source_md5="035b86ab0b09f56ad3090b89bff7f637"
-
 dest_files=[ "res://.import/clammyDie.wav-974f9a2eb32bebf381789ef1e072ad29.sample" ]
-dest_md5="f4b6c5e0297dc485bd38c23f4d6f4283"
 
 [params]
 

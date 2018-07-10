@@ -7,10 +7,7 @@ path="res://.import/broomKnife.png-a72fc9b7beb463a111e971db4de0821f.stex"
 [deps]
 
 source_file="res://adventure/pics/items/broomKnife.png"
-source_md5="06e60f82f59197d557941bedbc02a06a"
-
 dest_files=[ "res://.import/broomKnife.png-a72fc9b7beb463a111e971db4de0821f.stex" ]
-dest_md5="b46c6d8a72eeece368217a512b472bea"
 
 [params]
 

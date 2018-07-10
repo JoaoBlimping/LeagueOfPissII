@@ -7,10 +7,7 @@ path="res://.import/splash.ogm-ec770dc8e3e4b350ef2f0df0653c96aa.ogvstr"
 [deps]
 
 source_file="res://menu/videos/splash.ogm"
-source_md5="451041f272352b20a48e70c5f34c98b8"
-
 dest_files=[ "res://.import/splash.ogm-ec770dc8e3e4b350ef2f0df0653c96aa.ogvstr" ]
-dest_md5="06ea639f359c4a7245de23f9c2786094"
 
 [params]
 

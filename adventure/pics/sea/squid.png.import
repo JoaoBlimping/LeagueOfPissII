@@ -7,10 +7,7 @@ path="res://.import/squid.png-fee6914acff553e4291c705d83efdea7.stex"
 [deps]
 
 source_file="res://adventure/pics/sea/squid.png"
-source_md5="976bdc1c513849585180744f90b3aa2f"
-
 dest_files=[ "res://.import/squid.png-fee6914acff553e4291c705d83efdea7.stex" ]
-dest_md5="321dd6e6f471d6766976957682535245"
 
 [params]
 

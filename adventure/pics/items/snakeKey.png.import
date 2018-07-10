@@ -7,10 +7,7 @@ path="res://.import/snakeKey.png-5c7745c868f71abedc1a314fbf70b9e3.stex"
 [deps]
 
 source_file="res://adventure/pics/items/snakeKey.png"
-source_md5="8889441a53f7d36b8fab3a0f3ce29e2d"
-
 dest_files=[ "res://.import/snakeKey.png-5c7745c868f71abedc1a314fbf70b9e3.stex" ]
-dest_md5="249c234111995a9322d8f82651071631"
 
 [params]
 

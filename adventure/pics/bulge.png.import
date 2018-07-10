@@ -7,10 +7,7 @@ path="res://.import/bulge.png-12a96fc20694e70e574e6b8eb43e87fe.stex"
 [deps]
 
 source_file="res://adventure/pics/bulge.png"
-source_md5="45b833544d7acc5625c6aadd87d63cfe"
-
 dest_files=[ "res://.import/bulge.png-12a96fc20694e70e574e6b8eb43e87fe.stex" ]
-dest_md5="495b0d5bde4d6f5de76b3b408fba72c1"
 
 [params]
 

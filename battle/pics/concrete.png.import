@@ -7,10 +7,7 @@ path="res://.import/concrete.png-80272e7c66ff68bcc3990da1788c412f.stex"
 [deps]
 
 source_file="res://battle/pics/concrete.png"
-source_md5="337d593c1838372e920eb7e392b24518"
-
 dest_files=[ "res://.import/concrete.png-80272e7c66ff68bcc3990da1788c412f.stex" ]
-dest_md5="ec621088de04a2ea8f417c84c94fdf4d"
 
 [params]
 

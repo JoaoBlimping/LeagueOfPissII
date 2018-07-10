@@ -7,10 +7,7 @@ path="res://.import/filler.png-9058a42754dc89fdd69d6eed875a48b9.stex"
 [deps]
 
 source_file="res://adventure/pics/filler.png"
-source_md5="d0b4811be6a36094b65b75f54c967b85"
-
 dest_files=[ "res://.import/filler.png-9058a42754dc89fdd69d6eed875a48b9.stex" ]
-dest_md5="a0d93fd0bd0fb5fb774f155f8d58d802"
 
 [params]
 

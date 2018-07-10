@@ -7,10 +7,7 @@ path="res://.import/sextant.png-9f7a65a3640885af7b23a635dcf6a0b9.stex"
 [deps]
 
 source_file="res://overworld/pics/sextant.png"
-source_md5="8b7a2930b24f2c1084441a06499ee242"
-
 dest_files=[ "res://.import/sextant.png-9f7a65a3640885af7b23a635dcf6a0b9.stex" ]
-dest_md5="09a9d248c863a6d62b7429afc85aa14b"
 
 [params]
 

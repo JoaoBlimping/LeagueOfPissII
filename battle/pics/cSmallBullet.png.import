@@ -7,10 +7,7 @@ path="res://.import/cSmallBullet.png-594603bc0d724de67192c30d708ca4d0.stex"
 [deps]
 
 source_file="res://battle/pics/cSmallBullet.png"
-source_md5="fb055da6a00b23b84889aac360dcc605"
-
 dest_files=[ "res://.import/cSmallBullet.png-594603bc0d724de67192c30d708ca4d0.stex" ]
-dest_md5="6c9b539bc5c209cb59b72bceff52edf7"
 
 [params]
 

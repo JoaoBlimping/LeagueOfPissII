@@ -7,10 +7,7 @@ path="res://.import/deepOcean.png-527b2fde6f7b162f36e69ca49a6699cf.stex"
 [deps]
 
 source_file="res://battle/pics/deepOcean.png"
-source_md5="438bd13f4caa3bbfa85ab4b966e884fa"
-
 dest_files=[ "res://.import/deepOcean.png-527b2fde6f7b162f36e69ca49a6699cf.stex" ]
-dest_md5="15ebb2551a451ef89c0f0abe1d078c3a"
 
 [params]
 

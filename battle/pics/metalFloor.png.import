@@ -7,10 +7,7 @@ path="res://.import/metalFloor.png-94c99bd8c6a0763b8fcc40db9edabf85.stex"
 [deps]
 
 source_file="res://battle/pics/metalFloor.png"
-source_md5="fc22172a8034de578e415be8d2bb086d"
-
 dest_files=[ "res://.import/metalFloor.png-94c99bd8c6a0763b8fcc40db9edabf85.stex" ]
-dest_md5="68b467432feb34f92bda924ccf1e77b8"
 
 [params]
 

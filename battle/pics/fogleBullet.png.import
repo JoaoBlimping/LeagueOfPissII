@@ -7,10 +7,7 @@ path="res://.import/fogleBullet.png-af105357301032d958d0f35366fbc0c0.stex"
 [deps]
 
 source_file="res://battle/pics/fogleBullet.png"
-source_md5="ff75d1becb9b604e40c94ab7ffe664bc"
-
 dest_files=[ "res://.import/fogleBullet.png-af105357301032d958d0f35366fbc0c0.stex" ]
-dest_md5="da6febfbc6d5ed90e8acb99be4ceea7f"
 
 [params]
 

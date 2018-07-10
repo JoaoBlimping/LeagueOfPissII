@@ -7,10 +7,7 @@ path="res://.import/tunnel2.png-63704bea44f79336936d38129212ac3d.stex"
 [deps]
 
 source_file="res://adventure/pics/tunnel/tunnel2.png"
-source_md5="fe579b3b8ba1727202cb7ff193e98c1c"
-
 dest_files=[ "res://.import/tunnel2.png-63704bea44f79336936d38129212ac3d.stex" ]
-dest_md5="d7d3359f7d3a99bfadb46b25c11b5335"
 
 [params]
 

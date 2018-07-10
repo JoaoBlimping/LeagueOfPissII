@@ -7,10 +7,7 @@ path="res://.import/exit.png-16d86dbb2f84dea31c2c9f6842b0ef89.stex"
 [deps]
 
 source_file="res://adventure/pics/items/exit.png"
-source_md5="525f680a9a907e5874ecfdfa63bb7962"
-
 dest_files=[ "res://.import/exit.png-16d86dbb2f84dea31c2c9f6842b0ef89.stex" ]
-dest_md5="bdd321190741be8239ce65491a061be8"
 
 [params]
 

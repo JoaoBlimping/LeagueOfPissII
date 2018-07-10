@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menu/videos/splash.ogm" type="VideoStream" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends VideoPlayer
+
+onready var eel = get_node(\"eel\")
+onready var global = get_node(\"/root/global\")
+
+
+func _ready():
+	set_process(true)
+
+func _process(delta):
+	if (!is_playing()):
+		get_tree().change_scene(\"res://menu/scenes/menu.tscn\")
+		
+"
+
+[node name="VideoPlayer" type="VideoPlayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 601.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+audio_track = 0
+stream = ExtResource( 1 )
+volume_db = 0.0
+autoplay = true
+paused = false
+expand = true
+buffering_msec = 500
+bus = "Master"
+script = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 235.0
+margin_top = 547.0
+margin_right = 670.0
+margin_bottom = 595.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "The fun never ends!
+Wipe on over to http://www.dany.bangoman.org for more wonderful content.
+100% endorsed and funded by the Australian Government, Canberra"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 101.0
+margin_top = 40.0
+margin_right = 486.0
+margin_bottom = 224.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "TODO LIST:
+( ) Make it that the origins of objects in the overworld are set at their base instead of at a mysterious location in their middle.
+( ) Add a persistent health system.
+( ) consider changing the AI for the birds so they swing about invisible axes that are positioned so they don't swing outside the playable area
+( ) make cool herd ai for jellyfish and stuff that makes them swim around together protecting their queen and going places.
+( ) make sea creatures persistent
+( ) Make Bagoon city and the starting cutscenes."
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+

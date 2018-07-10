@@ -7,10 +7,7 @@ path="res://.import/nightHorizon.png-b2266c16554db5e8f9ef9a04d253c69c.stex"
 [deps]
 
 source_file="res://overworld/pics/nightHorizon.png"
-source_md5="590b0e14e8e1d46f1c568e1753d37ef2"
-
 dest_files=[ "res://.import/nightHorizon.png-b2266c16554db5e8f9ef9a04d253c69c.stex" ]
-dest_md5="868d4c2fce0ceeb8190d5216db1690dd"
 
 [params]
 

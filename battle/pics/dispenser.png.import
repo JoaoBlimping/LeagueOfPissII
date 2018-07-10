@@ -7,10 +7,7 @@ path="res://.import/dispenser.png-1352faf9a222eeb0da62335806960301.stex"
 [deps]
 
 source_file="res://battle/pics/dispenser.png"
-source_md5="ccb95c0b18520d639c4f8da7b2e2e818"
-
 dest_files=[ "res://.import/dispenser.png-1352faf9a222eeb0da62335806960301.stex" ]
-dest_md5="c9aa1fb602f14fd97a5564b67f4009a5"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/snakeBody.png-353f2946d56712824ed542791fd99249.stex"
 [deps]
 
 source_file="res://battle/pics/snakeBody.png"
-source_md5="2c1dc385cff7240b678fa2e882410ec6"
-
 dest_files=[ "res://.import/snakeBody.png-353f2946d56712824ed542791fd99249.stex" ]
-dest_md5="6a09c3b05ae017cfaf8127b54b942df7"
 
 [params]
 

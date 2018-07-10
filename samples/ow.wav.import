@@ -7,10 +7,7 @@ path="res://.import/ow.wav-a75ad799aa80805e9721c6871d260b8d.sample"
 [deps]
 
 source_file="res://samples/ow.wav"
-source_md5="7fb4649cdf783078df7a646f37c8ef15"
-
 dest_files=[ "res://.import/ow.wav-a75ad799aa80805e9721c6871d260b8d.sample" ]
-dest_md5="a451dbfd141a635757f61ec1ba10abec"
 
 [params]
 

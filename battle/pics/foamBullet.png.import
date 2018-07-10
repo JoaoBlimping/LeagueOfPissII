@@ -7,10 +7,7 @@ path="res://.import/foamBullet.png-3549f182d1c4ab2d76b5c8167fbe4a26.stex"
 [deps]
 
 source_file="res://battle/pics/foamBullet.png"
-source_md5="cac06261723845d53d61b93ca0fa81a6"
-
 dest_files=[ "res://.import/foamBullet.png-3549f182d1c4ab2d76b5c8167fbe4a26.stex" ]
-dest_md5="f1ea90e11d786b704a9548093540865a"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/waterBullet.png-2a0d41f9aa3e06b59e99c34066692142.stex"
 [deps]
 
 source_file="res://battle/pics/waterBullet.png"
-source_md5="b9941d16d68d852923476e573c4104bb"
-
 dest_files=[ "res://.import/waterBullet.png-2a0d41f9aa3e06b59e99c34066692142.stex" ]
-dest_md5="5232d8eb9a07d23587a3a17fd7dc818e"
 
 [params]
 

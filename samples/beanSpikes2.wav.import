@@ -7,10 +7,7 @@ path="res://.import/beanSpikes2.wav-d0486f2d4c4f3af9218dfe037cee65ce.sample"
 [deps]
 
 source_file="res://samples/beanSpikes2.wav"
-source_md5="fc1b164f3f68bda382a73b7fd33254fc"
-
 dest_files=[ "res://.import/beanSpikes2.wav-d0486f2d4c4f3af9218dfe037cee65ce.sample" ]
-dest_md5="150960c6b78224b41febb4e9d1ed1715"
 
 [params]
 

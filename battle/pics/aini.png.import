@@ -7,10 +7,7 @@ path="res://.import/aini.png-e1b1b98783895b4ba85aaec6709968a7.stex"
 [deps]
 
 source_file="res://battle/pics/aini.png"
-source_md5="f12e35a5834e42a5e67d12c49739d2cd"
-
 dest_files=[ "res://.import/aini.png-e1b1b98783895b4ba85aaec6709968a7.stex" ]
-dest_md5="a2f55b24386699410107eb5628385949"
 
 [params]
 

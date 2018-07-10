@@ -7,10 +7,7 @@ path="res://.import/cicada.png-45fbc14df3ca61c31a1cc10bd05ce61c.stex"
 [deps]
 
 source_file="res://adventure/pics/cicada.png"
-source_md5="1e20cebe4887bec306450b9edd1f7f7c"
-
 dest_files=[ "res://.import/cicada.png-45fbc14df3ca61c31a1cc10bd05ce61c.stex" ]
-dest_md5="eebf0515500a26dd140096025623c144"
 
 [params]
 

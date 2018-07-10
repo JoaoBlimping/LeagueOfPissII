@@ -7,10 +7,7 @@ path="res://.import/rightPanel.png-fd03ffe7c37e08683b3c70c3506ddcb3.stex"
 [deps]
 
 source_file="res://battle/pics/rightPanel.png"
-source_md5="ab50f06d61f309ec97f36e9afbc70068"
-
 dest_files=[ "res://.import/rightPanel.png-fd03ffe7c37e08683b3c70c3506ddcb3.stex" ]
-dest_md5="68bc3d8bd233de95cc8276b9c134dfef"
 
 [params]
 

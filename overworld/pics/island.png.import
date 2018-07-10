@@ -7,10 +7,7 @@ path="res://.import/island.png-49a47cf2450c29bce39814eacea47237.stex"
 [deps]
 
 source_file="res://overworld/pics/island.png"
-source_md5="3292ac835978f2ac86b6fd859c5fa4f4"
-
 dest_files=[ "res://.import/island.png-49a47cf2450c29bce39814eacea47237.stex" ]
-dest_md5="3166553128aae3e2ce0591e71424cebf"
 
 [params]
 

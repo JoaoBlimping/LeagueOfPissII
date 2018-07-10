@@ -7,10 +7,7 @@ path="res://.import/notVeryGoodPicture.png-574dc4539c30b740cb994c872fb27a32.stex
 [deps]
 
 source_file="res://adventure/pics/notVeryGoodPicture.png"
-source_md5="4c7ca2d27e11f153dec041b1567ca4a1"
-
 dest_files=[ "res://.import/notVeryGoodPicture.png-574dc4539c30b740cb994c872fb27a32.stex" ]
-dest_md5="77c74f959a51bdf49a3e1134b2f18d5e"
 
 [params]
 

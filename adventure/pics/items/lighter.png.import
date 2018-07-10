@@ -7,10 +7,7 @@ path="res://.import/lighter.png-35fd8a9da29eea8dab8e9e843f9509c1.stex"
 [deps]
 
 source_file="res://adventure/pics/items/lighter.png"
-source_md5="9638e785c016bfe8fcb15113e1b2bd37"
-
 dest_files=[ "res://.import/lighter.png-35fd8a9da29eea8dab8e9e843f9509c1.stex" ]
-dest_md5="1f59c99a2e0923aa58a2175a30684486"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/seccoWords.png-759a599da30b2f3fe3836f317ef8af4f.stex"
 [deps]
 
 source_file="res://battle/pics/seccoWords.png"
-source_md5="03e679e4f7cd13107e422897ca7bc841"
-
 dest_files=[ "res://.import/seccoWords.png-759a599da30b2f3fe3836f317ef8af4f.stex" ]
-dest_md5="2ddd1e5adbf5505ed6d81dcc1421a1ae"
 
 [params]
 

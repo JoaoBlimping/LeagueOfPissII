@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tunnel.ogg-6dc37c5469db73be8e43f0591d179107.oggstr"
+
+[deps]
+
+source_file="res://songs/tunnel.ogg"
+dest_files=[ "res://.import/tunnel.ogg-6dc37c5469db73be8e43f0591d179107.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

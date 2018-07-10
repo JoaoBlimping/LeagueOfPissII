@@ -7,10 +7,7 @@ path="res://.import/ticker.png-154c7ac9983007c8057a58e6bc246371.stex"
 [deps]
 
 source_file="res://overworld/pics/ticker.png"
-source_md5="8ec24ed6cde91693f821b76a749ef0aa"
-
 dest_files=[ "res://.import/ticker.png-154c7ac9983007c8057a58e6bc246371.stex" ]
-dest_md5="88177c6ad3197ad66bb8245d9f331b97"
 
 [params]
 
@@ -19,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

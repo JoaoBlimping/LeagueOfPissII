@@ -7,10 +7,7 @@ path="res://.import/aini.png-9d10e6cfc6cb5eacba32301e83017980.stex"
 [deps]
 
 source_file="res://adventure/pics/aini.png"
-source_md5="23a60c68335909db9c89d5345d90d4f7"
-
 dest_files=[ "res://.import/aini.png-9d10e6cfc6cb5eacba32301e83017980.stex" ]
-dest_md5="077d12ba27bd11447b3034645e3e9371"
 
 [params]
 

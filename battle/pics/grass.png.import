@@ -7,10 +7,7 @@ path="res://.import/grass.png-0b40579a505c181c692d1b4da02d19a0.stex"
 [deps]
 
 source_file="res://battle/pics/grass.png"
-source_md5="ced814101d8ea406ff966a090a8d300f"
-
 dest_files=[ "res://.import/grass.png-0b40579a505c181c692d1b4da02d19a0.stex" ]
-dest_md5="789088eb3cccd07198d9f89a65b8ea4b"
 
 [params]
 

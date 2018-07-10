@@ -7,10 +7,7 @@ path="res://.import/credits.png-f58ca3bccc2f7fd28b17003ae0dc08b8.stex"
 [deps]
 
 source_file="res://menu/pics/credits.png"
-source_md5="52fcffcacb407382f41eb71e5714256d"
-
 dest_files=[ "res://.import/credits.png-f58ca3bccc2f7fd28b17003ae0dc08b8.stex" ]
-dest_md5="03e145934bb135e5c70da4d43abde09f"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/eel.png-41d0204c76d9c690842ab176ccf24673.stex"
 [deps]
 
 source_file="res://battle/pics/eel.png"
-source_md5="78f0a146ca598dc5c213d94145fc202c"
-
 dest_files=[ "res://.import/eel.png-41d0204c76d9c690842ab176ccf24673.stex" ]
-dest_md5="76b92c600b0a281d223345eedc3f2ffc"
 
 [params]
 

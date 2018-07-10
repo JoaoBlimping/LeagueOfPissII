@@ -7,10 +7,7 @@ path="res://.import/bag.png-35183414698465d90e685e9c2859209d.stex"
 [deps]
 
 source_file="res://adventure/pics/bag.png"
-source_md5="8f3969045b8cefb18f4ba43c57b1da71"
-
 dest_files=[ "res://.import/bag.png-35183414698465d90e685e9c2859209d.stex" ]
-dest_md5="db616a8f1af4d242b6ee7f1282813b07"
 
 [params]
 

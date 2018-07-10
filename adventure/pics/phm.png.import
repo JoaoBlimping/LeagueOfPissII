@@ -7,10 +7,7 @@ path="res://.import/phm.png-07b677535d13efed1bcebd142c3ec7d3.stex"
 [deps]
 
 source_file="res://adventure/pics/phm.png"
-source_md5="af90ee6bb59be31227a1dcfba508d87f"
-
 dest_files=[ "res://.import/phm.png-07b677535d13efed1bcebd142c3ec7d3.stex" ]
-dest_md5="55859c9ada0dbed586306fd1067f8c35"
 
 [params]
 

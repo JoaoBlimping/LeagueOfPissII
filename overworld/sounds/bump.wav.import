@@ -7,10 +7,7 @@ path="res://.import/bump.wav-fc6d98210d3767cc744791db068817a0.sample"
 [deps]
 
 source_file="res://overworld/sounds/bump.wav"
-source_md5="123e3022ccdb68609fa60cf6e5ffbb7d"
-
 dest_files=[ "res://.import/bump.wav-fc6d98210d3767cc744791db068817a0.sample" ]
-dest_md5="9cceaa72b525d3524c967eda5b3c69c0"
 
 [params]
 

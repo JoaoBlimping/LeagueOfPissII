@@ -7,10 +7,7 @@ path="res://.import/transition.png-924f74ac6f018c9c6580c4d34edb3aad.stex"
 [deps]
 
 source_file="res://adventure/pics/transition.png"
-source_md5="44f77666d3f08aa58d047ae0f8411ec0"
-
 dest_files=[ "res://.import/transition.png-924f74ac6f018c9c6580c4d34edb3aad.stex" ]
-dest_md5="5ad5aa0179a6bc1aa22e4926fd05a62a"
 
 [params]
 

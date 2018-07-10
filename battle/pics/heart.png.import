@@ -7,10 +7,7 @@ path="res://.import/heart.png-1542f11a100ce566155d8725d2d35552.stex"
 [deps]
 
 source_file="res://battle/pics/heart.png"
-source_md5="2905692e57eb9b81d91d75203ff5851d"
-
 dest_files=[ "res://.import/heart.png-1542f11a100ce566155d8725d2d35552.stex" ]
-dest_md5="ea7107dc65d3857602f0a30b425f1a53"
 
 [params]
 

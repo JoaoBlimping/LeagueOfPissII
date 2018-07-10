@@ -7,10 +7,7 @@ path="res://.import/kempseyKey.png-5a76ed5cd6661e0adfe28f0ea7be5150.stex"
 [deps]
 
 source_file="res://adventure/pics/items/kempseyKey.png"
-source_md5="434c0849ae566f6d47209939a36c7e26"
-
 dest_files=[ "res://.import/kempseyKey.png-5a76ed5cd6661e0adfe28f0ea7be5150.stex" ]
-dest_md5="901aa4321b43daadb05ee893a8757894"
 
 [params]
 

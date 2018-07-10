@@ -7,10 +7,7 @@ path="res://.import/minefield.wav-9ca87874c19c753148c69dfe2079db43.sample"
 [deps]
 
 source_file="res://samples/minefield.wav"
-source_md5="83960fa0b923af614b037451ccc7b69f"
-
 dest_files=[ "res://.import/minefield.wav-9ca87874c19c753148c69dfe2079db43.sample" ]
-dest_md5="905d3f13eda05cb4aee8b691fe00035b"
 
 [params]
 

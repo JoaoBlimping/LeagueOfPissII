@@ -7,10 +7,7 @@ path="res://.import/wave.png-a0e7a2f9aea0496c98cf67c70b6099f6.stex"
 [deps]
 
 source_file="res://battle/pics/wave.png"
-source_md5="5c1e03125a267bb25d99e8c5681c5e28"
-
 dest_files=[ "res://.import/wave.png-a0e7a2f9aea0496c98cf67c70b6099f6.stex" ]
-dest_md5="c9eba9fb33aae9148aa77b96eb3ce3a7"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/factory.png-4ddf2294578eb97a7b526187ad8fe4fb.stex"
 [deps]
 
 source_file="res://adventure/pics/factory.png"
-source_md5="c864a55ace2fabb43411d346b74db196"
-
 dest_files=[ "res://.import/factory.png-4ddf2294578eb97a7b526187ad8fe4fb.stex" ]
-dest_md5="2bcc6b56c24dee35af2b5ef0857f01ff"
 
 [params]
 

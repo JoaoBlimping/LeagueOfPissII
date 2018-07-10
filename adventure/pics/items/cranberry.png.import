@@ -7,10 +7,7 @@ path="res://.import/cranberry.png-f362c02655de0b1b4e17215dfc0fd968.stex"
 [deps]
 
 source_file="res://adventure/pics/items/cranberry.png"
-source_md5="603ae13f4bd283fd4da1dfe6ff9f5774"
-
 dest_files=[ "res://.import/cranberry.png-f362c02655de0b1b4e17215dfc0fd968.stex" ]
-dest_md5="391c2e58579d6d8b0416799b87eef378"
 
 [params]
 

@@ -19,6 +19,7 @@ func _ready():
 
 func song(file):
 	song = file
+	stop()
 	set_stream(load("res://songs/%s.ogg" % file))
 	play()
 

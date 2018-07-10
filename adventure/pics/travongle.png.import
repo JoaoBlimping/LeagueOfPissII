@@ -7,10 +7,7 @@ path="res://.import/travongle.png-6ffe9292c4d6682c8094bbde539fa418.stex"
 [deps]
 
 source_file="res://adventure/pics/travongle.png"
-source_md5="061c2177faf56507cf69db3f05480d42"
-
 dest_files=[ "res://.import/travongle.png-6ffe9292c4d6682c8094bbde539fa418.stex" ]
-dest_md5="b11dbc468f3333beef6d5f8d9b53f09b"
 
 [params]
 

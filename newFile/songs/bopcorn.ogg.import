@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bopcorn.ogg-f9546d291074247b95e83a08b9fde2e0.oggstr"
+
+[deps]
+
+source_file="res://songs/bopcorn.ogg"
+dest_files=[ "res://.import/bopcorn.ogg-f9546d291074247b95e83a08b9fde2e0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

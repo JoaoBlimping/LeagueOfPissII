@@ -7,10 +7,7 @@ path="res://.import/overlay.png-e94567032ee3346bf8a78205c08f71b4.stex"
 [deps]
 
 source_file="res://battle/pics/overlay.png"
-source_md5="199f0d39b39a000aab1b7a8747eaa6de"
-
 dest_files=[ "res://.import/overlay.png-e94567032ee3346bf8a78205c08f71b4.stex" ]
-dest_md5="ed69ccb1f3a25ec69e4072e2974d31df"
 
 [params]
 

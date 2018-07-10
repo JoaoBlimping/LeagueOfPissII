@@ -7,10 +7,7 @@ path="res://.import/clouds.png-aa02351f8e5d19f2bfdc872c90a7ab9d.stex"
 [deps]
 
 source_file="res://overworld/pics/clouds.png"
-source_md5="071394aedc6649a0b9f62e6404e1b423"
-
 dest_files=[ "res://.import/clouds.png-aa02351f8e5d19f2bfdc872c90a7ab9d.stex" ]
-dest_md5="30d68964af3ef798e3b94744a901a996"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/enough.wav-bff649cd91a6778077abfe4a42d0b517.sample"
 [deps]
 
 source_file="res://samples/enough.wav"
-source_md5="f1979c3312bd208bb2b4cb158ad7e0b8"
-
 dest_files=[ "res://.import/enough.wav-bff649cd91a6778077abfe4a42d0b517.sample" ]
-dest_md5="66a0ed896c76fdd36b5daf2c59f5298e"
 
 [params]
 

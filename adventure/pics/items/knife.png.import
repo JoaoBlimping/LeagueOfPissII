@@ -7,10 +7,7 @@ path="res://.import/knife.png-cbf6afe4aaf4a8f73f2cbdf7532cec7c.stex"
 [deps]
 
 source_file="res://adventure/pics/items/knife.png"
-source_md5="4a7d75d772a5e2ca8b2f833b9fb7033c"
-
 dest_files=[ "res://.import/knife.png-cbf6afe4aaf4a8f73f2cbdf7532cec7c.stex" ]
-dest_md5="23ccaf9e0731c54187ff50ffe1a1283b"
 
 [params]
 

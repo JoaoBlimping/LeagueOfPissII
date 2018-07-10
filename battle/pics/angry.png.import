@@ -7,10 +7,7 @@ path="res://.import/angry.png-2ff32f33fb2f0ce9175dc8b23cdab4c7.stex"
 [deps]
 
 source_file="res://battle/pics/angry.png"
-source_md5="5a7a6d6a99faf628a69acd7ef3c4a6ae"
-
 dest_files=[ "res://.import/angry.png-2ff32f33fb2f0ce9175dc8b23cdab4c7.stex" ]
-dest_md5="eea9f379dce79a9a53b5b14551e6ed68"
 
 [params]
 

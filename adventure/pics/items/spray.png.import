@@ -7,10 +7,7 @@ path="res://.import/spray.png-d4c352145f8246d8b241706ff83d4df9.stex"
 [deps]
 
 source_file="res://adventure/pics/items/spray.png"
-source_md5="af48038be3549eb41f0cda0e59e5505e"
-
 dest_files=[ "res://.import/spray.png-d4c352145f8246d8b241706ff83d4df9.stex" ]
-dest_md5="d62761146abf1a7e072a3e5f81ff947f"
 
 [params]
 
