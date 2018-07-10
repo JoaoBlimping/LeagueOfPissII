@@ -1,0 +1,133 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://overworlds/level.gd" type="Script" id=1]
+[ext_resource path="res://overworlds/shaders/ocean.shader" type="Shader" id=2]
+[ext_resource path="res://pics/backgrounds/horizon.png" type="Texture" id=3]
+[ext_resource path="res://pics/backgrounds/clouds.png" type="Texture" id=4]
+[ext_resource path="res://overworlds/moverManager.gd" type="Script" id=5]
+[ext_resource path="res://overworlds/mobs/squid.tscn" type="PackedScene" id=6]
+[ext_resource path="res://overworlds/mobs/bird.tscn" type="PackedScene" id=7]
+[ext_resource path="res://pics/sextant.png" type="Texture" id=8]
+[ext_resource path="res://pics/hud.png" type="Texture" id=9]
+[ext_resource path="res://pics/compass.png" type="Texture" id=10]
+[ext_resource path="res://overworlds/compass.gd" type="Script" id=11]
+[ext_resource path="res://pics/ticker.png" type="Texture" id=12]
+[ext_resource path="res://overworlds/ticker.gd" type="Script" id=13]
+[ext_resource path="res://pics/distance.png" type="Texture" id=14]
+[ext_resource path="res://overworlds/distance.gd" type="Script" id=15]
+[ext_resource path="res://sounds/bump.wav" type="AudioStream" id=16]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 2 )
+
+[node name="level" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ground" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+material = SubResource( 1 )
+texture = ExtResource( 3 )
+centered = false
+region_rect = Rect2( 548, 148, 384, 404 )
+_sections_unfolded = [ "Material", "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="clouds" type="Sprite" parent="ground" index="0"]
+
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 600 )
+_sections_unfolded = [ "Offset", "Region" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="things" type="Node2D" parent="." index="1"]
+
+z_as_relative = false
+script = ExtResource( 5 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="squid" parent="things" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( -286.145, 418.63 )
+
+[node name="bird" parent="things" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -497.022, 409.563 )
+
+[node name="bird2" parent="things" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -499.477, 273.284 )
+
+[node name="sextant" type="Sprite" parent="." index="2"]
+
+visible = false
+position = Vector2( 512, 163.69 )
+z_index = 1000
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+
+[node name="hud" type="Sprite" parent="." index="3"]
+
+position = Vector2( 212, 418 )
+z_index = 1000
+texture = ExtResource( 9 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="compass" type="Sprite" parent="hud" index="0"]
+
+position = Vector2( 282.881, 108.231 )
+texture = ExtResource( 10 )
+offset = Vector2( 0.146576, -9.88095 )
+script = ExtResource( 11 )
+_sections_unfolded = [ "Offset", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ticker" type="Sprite" parent="hud" index="1"]
+
+position = Vector2( 380.393, 104.526 )
+rotation = 0.00239379
+texture = ExtResource( 12 )
+offset = Vector2( 0.28833, -12.0534 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="distance" type="Sprite" parent="hud" index="2"]
+
+position = Vector2( 195.557, 101.286 )
+texture = ExtResource( 14 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sound" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 16 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pics/mobs/squid.png" type="Texture" id=1]
+[ext_resource path="res://overworlds/mover.gd" type="Script" id=2]
+
+
+
+[node name="squid" type="Sprite" index="0"]
+
+position = Vector2( -2.53198, 300 )
+texture = ExtResource( 1 )
+offset = Vector2( 27.3243, -80.1666 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+realPosition = Vector2( 2, 2 )
+width = 0.5
+portal = "sea/squid"
+
+

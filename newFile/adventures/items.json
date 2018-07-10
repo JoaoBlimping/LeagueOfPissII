@@ -1,4 +1,0 @@
-{
-	"save":{"description":"save the game","use":true},
-	"exit":{"description":"exit to the menu","use":true}
-}

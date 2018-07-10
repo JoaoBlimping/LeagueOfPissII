@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://pics/backgrounds/sea/boat.png" type="Texture" id=1]
+[ext_resource path="res://adventures/characters/aini.tscn" type="PackedScene" id=2]
+[ext_resource path="res://adventures/characters/clammy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://adventures/characters/phm.tscn" type="PackedScene" id=4]
+[ext_resource path="res://adventures/thing.gd" type="Script" id=5]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"res://adventures/room.gd\"
+
+
+func start():
+	yield(battle(global.fucker),S)
+	yield(say(\"you defeated the %s hell yeah\" % global.fucker,\"phm\"),S)
+
+func cabin():
+	global.enterBoat()"
+
+[node name="room" type="Node2D" index="0"]
+
+script = SubResource( 1 )
+music = "bopcorn"
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="actives" type="Node2D" parent="." index="1"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="aini" parent="actives" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 479.288, 226.885 )
+audio_bus_override = false
+audio_bus_name = "Master"
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="clammy" parent="actives" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 633.84, 281.29 )
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="phm" parent="actives" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 798.347, 205.875 )
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="cabin" type="Area2D" parent="actives" index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Collision" ]
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/cabin" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 256.807, 234.52, 305.305, 232.125, 313.088, 341.095, 265.189, 337.503 )
+
+[node name="gui" type="Node2D" parent="." index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+

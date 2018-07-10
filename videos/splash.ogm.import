@@ -1,0 +1,14 @@
+[remap]
+
+importer="Theora"
+type="VideoStreamTheora"
+path="res://.import/splash.ogm-a29b0218127b6dcae1379c372798bdfd.ogvstr"
+
+[deps]
+
+source_file="res://videos/splash.ogm"
+dest_files=[ "res://.import/splash.ogm-a29b0218127b6dcae1379c372798bdfd.ogvstr" ]
+
+[params]
+
+loop=true

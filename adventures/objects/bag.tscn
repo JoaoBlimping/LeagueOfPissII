@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://adventures/objects/bag.gd" type="Script" id=1]
+[ext_resource path="res://pics/bag.png" type="Texture" id=2]
+
+[node name="bag" type="Area2D" index="0"]
+
+position = Vector2( 31.6222, 32.1493 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -25.9983, -12.4668, -16.3599, -29.4303, -7.23562, -12.4668, 4.45892, -14.0089, 15.1254, -33.6712, 20.9084, -12.7238, 25.7918, 19.5325, -2.73772, 29.6849, -25.3557, 22.1028 )
+
+
