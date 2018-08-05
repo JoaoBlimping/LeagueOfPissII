@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://pics/fighters/testPlayer.png" type="Texture" id=1]
+[ext_resource path="res://pics/fighters/player.png" type="Texture" id=1]
 [ext_resource path="res://battles/fighters/player.gd" type="Script" id=2]
 [ext_resource path="res://pics/fighters/heart.png" type="Texture" id=3]
 

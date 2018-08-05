@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://battle/scripts/bullet.gd" type="Script" id=1]
-[ext_resource path="res://battle/pics/yellowBullet.png" type="Texture" id=2]
+[ext_resource path="res://battles/bullet.gd" type="Script" id=1]
+[ext_resource path="res://pics/fighters/yellowBullet.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.8746
 
-[node name="redBullet" type="Area2D" index="0"]
+[node name="yellow" type="Area2D" index="0"]
 
 input_pickable = false
 gravity_vec = Vector2( 0, 1 )

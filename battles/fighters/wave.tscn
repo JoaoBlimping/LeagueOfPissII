@@ -9,19 +9,28 @@ script/source = "extends \"../actor.gd\"
 onready var water = preload(\"../bullets/water.tscn\")
 onready var foam = preload(\"../bullets/foam.tscn\")
 onready var player = get_node(\"../player\")
+onready var anim = get_node(\"../../background/anim\")
 
+var extra
 
 func _ready():
 	addRoutine(\"flirt1\")
+	extra = (get_node(\"../..\").tier == \"adult\")
 
 
 func flirt1():
-	health = 120
+	health = 120 if extra else 100
 	var height = 13
 	var tick = createTimer(0.14)
 	shootFrom(water,DOWN,Vector2(player.position.x,0),100)
 	while (true):
 		yield(tick.r(),T)
+		if (extra):
+			var offset = randf()
+			for i in range(13):
+				 shoot(foam,(PI * 2) / 13 * i + offset).gravify(DOWN,100)
+		
+		
 		for i in range(2,height):
 			for b in range(i):
 				if (not (b == 0 or b == i - 1)): continue

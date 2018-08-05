@@ -13,13 +13,14 @@ var hurting = -1
 
 
 func _ready():
-	health = 3
+	health = global.health if global.health < 3 else 3
 
 
 func hit(body):
 	if (body.is_in_group("power")): body.position = dispenser.global_position
 	elif (hurting < 0):
 		if (.hit(body)):
+			global.health -= 1
 			sound.sample("ow")
 			hurting = 1
 			#set_blend_mode(BLEND_MODE_ADD)
@@ -28,7 +29,7 @@ func hit(body):
 	
 	
 func die():
-	get_tree().change_scene("res://menu/scenes/gameover.tscn")
+	get_tree().change_scene("res://menus/gameover.tscn")
 	
 
 func _process(delta):

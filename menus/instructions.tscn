@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://menu/pics/nice.png" type="Texture" id=1]
-[ext_resource path="res://menu/pics/instructions.png" type="Texture" id=2]
+[ext_resource path="res://pics/nice.png" type="Texture" id=1]
+[ext_resource path="res://pics/instructions.png" type="Texture" id=2]
 [ext_resource path="res://things/theme.tres" type="Theme" id=3]
 
 [sub_resource type="GDScript" id=1]
@@ -15,7 +15,7 @@ var pitch = 1
 
 
 func back():
-	get_tree().change_scene(\"res://menu/scenes/menu.tscn\")
+	get_tree().change_scene(\"res://menus/menu.tscn\")
 
 func next():
 	var pos = over.get_frame()

@@ -8,7 +8,7 @@ onready var cameraPosition = global.boatingPosition
 
 onready var width = get_viewport_rect().size.x
 onready var sound = get_node("../sound")
-
+onready var ground = get_node("../ground")
 
 
 func _process(delta):
@@ -24,6 +24,10 @@ func _process(delta):
 	if (Input.is_action_pressed("ui_down")):
 		velocity.x = cos(cameraAngle) * -SPEED
 		velocity.y = sin(cameraAngle) * -SPEED
+	
+	ground.material.set_shader_param("pos",cameraPosition)
+	ground.material.set_shader_param("angle",cameraAngle)
+	
 	
 	while (cameraAngle > PI): cameraAngle -= PI * 2
 	while (cameraAngle < -PI): cameraAngle += PI * 2
@@ -47,6 +51,6 @@ func _process(delta):
 			if (child.portal != null):
 				var bits = child.getPortal()
 				var size = bits.size()
-				if (size == 2): global.fucker = bits[1]
+				if (size == 2): global.creature = bits[1]
 				if (size > 0): global.exitBoat(bits[0],cameraPosition,cameraAngle)
 	cameraPosition += velocity * delta

@@ -12,8 +12,10 @@ script/source = "extends \"res://adventures/room.gd\"
 
 
 func start():
-	yield(battle(global.fucker),S)
-	yield(say(\"you defeated the %s hell yeah\" % global.fucker,\"phm\"),S)
+	var creature = global.creatures[global.creature]
+	var tier = creature.tiers[randi() % creature.tiers.size()]
+	yield(battle(global.creature,tier),S)
+	yield(say(\"you defeated the %s %s hell yeah\" % [tier,creature[\"name\"]],\"phm\"),S)
 
 func cabin():
 	global.enterBoat()"
@@ -21,7 +23,7 @@ func cabin():
 [node name="room" type="Node2D" index="0"]
 
 script = SubResource( 1 )
-music = "bopcorn"
+music = ""
 
 [node name="background" type="Sprite" parent="." index="0"]
 

@@ -8,7 +8,7 @@ signal cleared
 
 func _ready():
 	set_process(true)
-	lifeRect = Rect2(256,0,512,600)
+	lifeRect = Rect2(250,-4,524,608)
 	
 func _process(delta):
 	var bullets = get_children()

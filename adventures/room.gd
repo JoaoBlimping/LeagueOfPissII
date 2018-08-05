@@ -133,10 +133,11 @@ func puzzle(filename):
 	gui = true
 	return puzzle
 
-func battle(map):
+func battle(map, tier=""):
 	gui = true
 	var ib = transition.instance()
 	var scene = load("res://battles/battles/%s.tscn" % map).instance()
+	scene.tier = tier
 	get_node("/root/room/gui").add_child(ib)
 	sound.song("%s" % scene.song)
 	ib.get_node("anim").connect("animation_finished",self,"beginBattle",[scene])
@@ -145,6 +146,7 @@ func battle(map):
 func beginBattle(a, scene):
 	get_node("/root/room/gui/transition").queue_free()
 	add_child(scene)
+	
 
 func fade(map):
 	gui = true
@@ -169,12 +171,6 @@ func save():
 	global.saveGame()
 	say("game saved!")
 
-func exit():
+func quit():
 	yield(ask("Are you sure you want to quit?","yeah","nah"),S)
-	if (value == "a"): get_tree().change_scene("res://menu/scenes/menu.tscn")
-	
-
-func tunneler():
-	yield(ask("""If you dig a hole with the tunneler, you might not be able to
-	get back up, will you continue?""","yeah","nah"),S)
-	if (value == "a"): fade("tunnel/1")
+	if (value == "a"): get_tree().change_scene("res://menus/menu.tscn")

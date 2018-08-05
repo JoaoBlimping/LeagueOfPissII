@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pics/fighters/squid.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"../actor.gd\"
+
+onready var foam = preload(\"../bullets/roe.tscn\")
+onready var player = get_node(\"../player\")
+onready var anim = get_node(\"../../background/anim\")
+
+func _ready():
+	addRoutine(\"flirt1\")
+
+
+func flirt1():
+	anim.play(\"wilin\")
+	health = 120
+	var height = 13
+	var tick = createTimer(0.14)
+	var angle = 0
+	var offset = 0
+	while (true):
+		yield(tick.r(),T)
+		offset += 0.5
+		for i in range(13):
+			angle = (PI * 2) / 13 * i + offset
+			shoot(foam,angle).gravify(angle + 2,sin(offset) * 200)"
+
+[node name="squid" type="Sprite" index="0"]
+
+position = Vector2( -5.9596, -10.7181 )
+texture = ExtResource( 1 )
+offset = Vector2( 5.9596, 10.7181 )
+script = SubResource( 1 )
+flippy = false
+walky = false
+target = true
+speed = 100
+
+[node name="hitbox" type="Area2D" parent="." index="0"]
+
+use_parent_material = true
+position = Vector2( 5.9596, 10.7181 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox" index="0"]
+
+show_behind_parent = true
+build_mode = 0
+polygon = PoolVector2Array( -71.9401, 79.0867, -85.711, 55.736, -14.4614, -98.7378, 68.1641, -75.3871, 19.6665, -47.2465, 77.1452, 58.7297, 31.0425, 98.2463 )
+
+

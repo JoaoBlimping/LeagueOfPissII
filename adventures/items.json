@@ -1,4 +1,5 @@
 {
 	"save":{"description":"save the game","use":true},
-	"exit":{"description":"exit to the menu","use":true}
+	"quit":{"description":"exit to the menu","use":true},
+	"grease":{"description":"Hell yeah it's the grease","dispose":true}
 }

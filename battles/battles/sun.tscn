@@ -1,31 +1,51 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://battle/scripts/level.gd" type="Script" id=1]
-[ext_resource path="res://battle/pics/sky.png" type="Texture" id=2]
-[ext_resource path="res://battle/objects/theSun.tscn" type="PackedScene" id=3]
-[ext_resource path="res://battle/objects/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://battles/level.gd" type="Script" id=1]
+[ext_resource path="res://shaders/sky.shader" type="Shader" id=2]
+[ext_resource path="res://pics/backgrounds/trees.png" type="Texture" id=3]
+[ext_resource path="res://pics/backgrounds/sky.png" type="Texture" id=4]
+[ext_resource path="res://battles/fighters/theSun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://battles/fighters/player.tscn" type="PackedScene" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 2 )
+shader_param/power = null
+shader_param/ground = ExtResource( 3 )
+_sections_unfolded = [ "shader_param" ]
 
 [node name="level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
-song = "clammel"
+song = "corrupted"
 
 [node name="background" type="Sprite" parent="." index="0"]
 
-texture = ExtResource( 2 )
+material = SubResource( 1 )
+position = Vector2( 256, 0 )
+texture = ExtResource( 4 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 600 )
-_sections_unfolded = [ "Region", "Transform" ]
+region_rect = Rect2( 256, 0, 512, 600 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="actors" type="Node2D" parent="." index="1"]
 
-[node name="theSun" parent="actors" index="0" instance=ExtResource( 3 )]
+[node name="theSun" parent="actors" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( 474.386, 70.6156 )
+position = Vector2( 513.648, -166.118 )
 
-[node name="player" parent="actors" index="1" instance=ExtResource( 4 )]
+[node name="player" parent="actors" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 493.027, 497.217 )
+
+[node name="moveTo" type="Position2D" parent="." index="2"]
+
+position = Vector2( 505.301, 98.7151 )
+
+[node name="exit" type="Position2D" parent="." index="3"]
+
+position = Vector2( 508.474, -105.966 )
 
 

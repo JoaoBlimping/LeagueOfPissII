@@ -128,3 +128,6 @@ func createMover():
 func addRoutine(name):
 	if (routines.size() == 0): call(name)
 	routines.push_back(name)
+
+func naming(title):
+	get_node("../../hud/leftPanel/name").text = title

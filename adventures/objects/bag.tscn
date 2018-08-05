@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://adventures/objects/bag.gd" type="Script" id=1]
 [ext_resource path="res://pics/bag.png" type="Texture" id=2]
+[ext_resource path="res://pics/lifeHolder.png" type="Texture" id=3]
+[ext_resource path="res://pics/tile.png" type="Texture" id=4]
+[ext_resource path="res://pics/life.png" type="Texture" id=5]
 
 [node name="bag" type="Area2D" index="0"]
 
-position = Vector2( 31.6222, 32.1493 )
+position = Vector2( 33.7304, 74.0489 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -29,5 +32,31 @@ texture = ExtResource( 2 )
 
 build_mode = 0
 polygon = PoolVector2Array( -25.9983, -12.4668, -16.3599, -29.4303, -7.23562, -12.4668, 4.45892, -14.0089, 15.1254, -33.6712, 20.9084, -12.7238, 25.7918, 19.5325, -2.73772, 29.6849, -25.3557, 22.1028 )
+
+[node name="healthBox" type="Sprite" parent="." index="2"]
+
+position = Vector2( -34.5211, -74.3125 )
+texture = ExtResource( 3 )
+centered = false
+region_rect = Rect2( 0, 0, 100, 40 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="empty" type="Sprite" parent="healthBox" index="0"]
+
+show_behind_parent = true
+position = Vector2( 120, 0 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 100, 32 )
+_sections_unfolded = [ "Region", "Transform", "Visibility" ]
+
+[node name="health" type="Sprite" parent="healthBox" index="1"]
+
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
 
 

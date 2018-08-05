@@ -1,18 +1,22 @@
 extends Node
 
+var health = 4
+var reserve = 1
 var mice = {}
+var creatures = {}
 var items = {}
 var inventory = []
 var switches = {}
 var boatingAngle = 0
 var boatingPosition = Vector2()
 var area = null
-var fucker = "redJelly"
+var creature = "redJelly"
 var saveFile
 
 func _enter_tree():
 	preloadMice()
 	preloadItems()
+	preloadCreatures()
 
 func restart():
 	for i in range(inventory.size()): inventory.remove(0)
@@ -25,7 +29,12 @@ func preloadItems():
 	items = JSON.parse(file.get_as_text()).result
 	for k in items.keys(): items[k].texture = load("res://pics/icons/%s.png" % k)
 
-	
+
+func preloadCreatures():
+	var file = File.new()
+	file.open("res://creatures.json",File.READ)
+	creatures = JSON.parse(file.get_as_text()).result
+
 func setSwitch(name,value):
 	switches[name] = value
 
@@ -70,7 +79,7 @@ func preloadMice():
 	var dir = Directory.new()
 	dir.open("res://mice")
 	dir.list_dir_begin()
-	while true:
+	while (true):
 		var file = dir.get_next()
 		if (file == ""): break
 		elif (!file.begins_with(".") and file.ends_with("png")): mice[file] = {"pic":load("res://mice/%s" % file),"priority":0}
@@ -109,12 +118,15 @@ func splitArray(string):
 func saveGame():
 	var file = File.new()
 	file.open("user://losSave%d.pig" % saveFile,File.WRITE)
+	
 	file.store_line(area)
 	file.store_line(JSON.print(switches))
 	file.store_line(joinArray(inventory))
 	file.store_line(String(boatingPosition.x))
 	file.store_line(String(boatingPosition.y))
 	file.store_line(String(boatingAngle))
+	file.store_line(String(health))
+	file.store_line(String(reserve))
 	file.close()
 
 func loadGame():
@@ -127,6 +139,8 @@ func loadGame():
 	inventory = splitArray(file.get_line())
 	boatingPosition = Vector2(float(file.get_line()),float(file.get_line()))
 	boatingAngle = float(file.get_line())
+	health = float(file.get_line())
+	reserve = float(file.get_line())
 	file.close()
 
 func end():

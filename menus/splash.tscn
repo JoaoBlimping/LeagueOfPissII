@@ -15,8 +15,10 @@ func _ready():
 func _process(delta):
 	if (!is_playing()):
 		get_tree().change_scene(\"res://menus/menu.tscn\")
-		
-"
+
+func _input(event):
+	if (event.is_action_pressed(\"ui_accept\")):
+		get_tree().change_scene(\"res://menus/menu.tscn\")"
 
 [node name="VideoPlayer" type="VideoPlayer" index="0"]
 
@@ -74,10 +76,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 101.0
-margin_top = 40.0
-margin_right = 486.0
-margin_bottom = 224.0
+margin_left = 22.0
+margin_top = 20.0
+margin_right = 512.0
+margin_bottom = 279.0
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -87,7 +89,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 text = "TODO LIST:
 ( ) Make it that the origins of objects in the overworld are set at their base instead of at a mysterious location in their middle.
-( ) Add a persistent health system.
+( ) add enemy sea creature system with different tiers and loot drops.
 ( ) consider changing the AI for the birds so they swing about invisible axes that are positioned so they don't swing outside the playable area
 ( ) make cool herd ai for jellyfish and stuff that makes them swim around together protecting their queen and going places.
 ( ) make sea creatures persistent
