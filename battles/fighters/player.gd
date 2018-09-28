@@ -8,7 +8,7 @@ onready var bullet = preload("../bullets/fogle.tscn")
 onready var dispenser = get_node("../../hud/friends/dispenser")
 
 
-var timer = 0
+var ticker = 0
 var hurting = -1
 
 
@@ -51,9 +51,9 @@ func _process(delta):
 	
 	#shooting
 	if (Input.is_action_pressed("ui_accept")):
-		timer -= delta
-		if (timer < 0):
-			timer += 0.12
+		ticker -= delta
+		if (ticker < 0):
+			ticker += 0.12
 			shoot(bullet,UP + randf() * spread - spread / 2)
 	
 	

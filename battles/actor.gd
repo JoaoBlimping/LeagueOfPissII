@@ -1,12 +1,8 @@
 extends Sprite
 
-onready var GoodTimer = preload("GoodTimer.gd")
-onready var Mover = preload("Mover.gd")
 onready var bullets = get_node("../../hud/bulletStuff/bullets")
 
-const T = "timeout"
-const M = "moved"
-const S = "finished"
+const C = "completed"
 const UP = PI / 2
 const LEFT = 0
 const RIGHT = PI
@@ -19,28 +15,20 @@ export var speed = 100
 
 var velocity = Vector2(0,0)
 var health = 1
-var routines = []
-var finished = false
 var bounds = Rect2(256,0,512,600)
+var timer
 
 
 # built in function which is used to set up some event thingies
 func _ready():
 	set_process(true)
 	$hitbox.connect("area_entered",self,"hit")
+	timer = Timer.new()
+	add_child(timer)
 
 
 # built in function which controls routines and animation
 func _process(delta):
-	if (finished):
-		if (routines.size() > 1):
-			routines.pop_front()
-			call(routines.front())
-			finished = false
-		else:
-			die()
-			queue_free()
-
 	#move
 	position += velocity * delta
 	if (flippy):
@@ -90,44 +78,12 @@ func hit(body):
 	return false
 
 
-# This function checks if the actor is out of health and tells you if they are, and at the same time
-# if they are out of health it sets them to go to their next routine and blanks all bullets if they
-# are a target
-func isDone():
-	if (health < 1):
-		done()
-		return true
-	else: return false
-
-
-# Ends the given routine and does all the stuff
-func done():
-	if (target): yield(bullets.clear(),"cleared")
-	finished = true
-
-
-# Creates a timer which lets you yield for a given amount of time.
-func createTimer(time):
-	var timer = GoodTimer.new()
+# runs for a specified amount of time
+func tick(time):
 	timer.set_wait_time(time)
 	timer.start()
-	add_child(timer)
-	return timer
-
-
-# Creates a mover which lets you yield until the actor has moved somewhere.
-func createMover():
-	var mover = Mover.new()
-	mover.dude = self
-	add_child(mover)
-	return mover
-
-
-# adds a routine for the actor to perform. the name is the string name of the method to call.
-# they are performed in the order that they are added.
-func addRoutine(name):
-	if (routines.size() == 0): call(name)
-	routines.push_back(name)
+	yield(timer, "timeout")
+	return
 
 func naming(title):
 	get_node("../../hud/leftPanel/name").text = title

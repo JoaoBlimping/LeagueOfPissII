@@ -58,8 +58,8 @@ _sections_unfolded = [ "Size Flags" ]
 
 show_behind_parent = true
 position = Vector2( 123.333, 109.681 )
-scale = Vector2( 20.4765, 12.0998 )
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Button" type="Button" parent="." index="2"]
 

@@ -8,7 +8,7 @@
 
 [node name="bag" type="Area2D" index="0"]
 
-position = Vector2( 33.7304, 74.0489 )
+position = Vector2( 33.2427, 59.4186 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -31,11 +31,11 @@ texture = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
 build_mode = 0
-polygon = PoolVector2Array( -25.9983, -12.4668, -16.3599, -29.4303, -7.23562, -12.4668, 4.45892, -14.0089, 15.1254, -33.6712, 20.9084, -12.7238, 25.7918, 19.5325, -2.73772, 29.6849, -25.3557, 22.1028 )
+polygon = PoolVector2Array( -28.8511, -10.0171, 18.3129, -23.8964, 25.3811, -16.0572, 28.2084, -0.892731, 24.8671, 12.9866, -24.3531, 27.7655, -31.1643, 21.5969 )
 
 [node name="healthBox" type="Sprite" parent="." index="2"]
 
-position = Vector2( -34.5211, -74.3125 )
+position = Vector2( -33.1938, -59.3397 )
 texture = ExtResource( 3 )
 centered = false
 region_rect = Rect2( 0, 0, 100, 40 )

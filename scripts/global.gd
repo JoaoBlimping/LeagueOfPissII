@@ -8,7 +8,7 @@ var items = {}
 var inventory = []
 var switches = {}
 var boatingAngle = 0
-var boatingPosition = Vector2()
+var boatingPosition = Vector2(0,0)
 var area = null
 var creature = "redJelly"
 var saveFile
@@ -17,6 +17,7 @@ func _enter_tree():
 	preloadMice()
 	preloadItems()
 	preloadCreatures()
+	resetMouse()
 
 func restart():
 	for i in range(inventory.size()): inventory.remove(0)

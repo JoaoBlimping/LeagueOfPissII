@@ -17,8 +17,7 @@ export var music = "ambience"
 signal animated
 signal said
 
-const S = "said"
-const A = "animated"
+const C = "completed"
 
 var guiNode
 var item = null
@@ -102,7 +101,7 @@ func say(text,name = null,face = null):
 	ib.get_node("text").set_text(text)
 	guiNode.add_child(ib)
 	gui = true
-	return ib
+	yield(ib, "said")
 
 
 func ask(text,a1,a2,name = null,a3 = null,a4 = null):
@@ -118,20 +117,21 @@ func ask(text,a1,a2,name = null,a3 = null,a4 = null):
 	else: ib.get_node("d").set_text(a4)
 	guiNode.add_child(ib)
 	gui = true
-	return ib
+	yield(ib, "asked")
 
 func animate(anim):
 	return animator.r(anim)
 
 func puzzle(filename):
-	var puzzle = load("res://adventure/scenes/%s.tscn" % filename).instance()
+	var puzzle = load("res://adventures/puzzles/%s.tscn" % filename).instance()
 	var holder = get_node("puzzle")
 	if (holder == null):
 		print("you're meant to add a puzzle node to set where it'll appear idiota")
 		return
 	get_node("puzzle").add_child(puzzle)
 	gui = true
-	return puzzle
+	return yield(puzzle, "said")
+	
 
 func battle(map, tier=""):
 	gui = true
@@ -172,5 +172,5 @@ func save():
 	say("game saved!")
 
 func quit():
-	yield(ask("Are you sure you want to quit?","yeah","nah"),S)
+	yield(ask("Are you sure you want to quit?","yeah","nah"),C)
 	if (value == "a"): get_tree().change_scene("res://menus/menu.tscn")

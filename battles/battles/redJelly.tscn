@@ -74,7 +74,6 @@ song = "battle"
 
 [node name="background" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 material = SubResource( 2 )
 position = Vector2( 256, 0 )
 texture = ExtResource( 2 )

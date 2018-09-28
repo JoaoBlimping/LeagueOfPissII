@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://pics/puzzles/pumpUi.png" type="Texture" id=1]
+[ext_resource path="res://things/theme.tres" type="Theme" id=2]
+[ext_resource path="res://pics/puzzles/pumpNeedle.png" type="Texture" id=3]
+[ext_resource path="res://pics/puzzles/pumpSmallNeedle.png" type="Texture" id=4]
+[ext_resource path="res://sounds/glomp.wav" type="AudioStream" id=5]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"../puzzle.gd\"
+
+export var speed = 1
+export var glompInc = 1.2
+export var timer = 5
+
+const G_MIN = -150
+const G_MAX = 140
+const GLOMP_MAX = 4
+const BOTTOM = -140
+const TOP = 160
+var pole = true
+var glomp = 0
+
+
+func _ready():
+	pole = (randi() % 2 == 0)
+	$button.connect(\"button_down\",self,\"glomp\")
+
+
+func _process(delta):
+	timer -= delta
+	if (timer < 0): finish(true)
+	
+	glomp -= delta
+	if (glomp < 0): glomp = 0
+	
+	$needle.rotate((speed if pole else -speed) * delta)
+	$smallNeedle.rotation_degrees = G_MIN + glomp / GLOMP_MAX * (G_MAX - G_MIN)
+	
+	
+	if ($needle.rotation_degrees > TOP or $needle.rotation_degrees < BOTTOM):
+		finish(false)
+
+func glomp():
+	sound.sample(\"glomp\")
+	glomp += glompInc
+	pole = !pole;
+"
+
+[node name="pump" type="Sprite" index="0"]
+
+texture = ExtResource( 1 )
+script = SubResource( 1 )
+speed = 5
+glompInc = 1.2
+timer = 10
+
+[node name="button" type="Button" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 176.0
+margin_top = 171.0
+margin_right = 231.0
+margin_bottom = 233.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Glomp"
+flat = false
+align = 1
+_sections_unfolded = [ "Theme" ]
+
+[node name="needle" type="Sprite" parent="." index="1"]
+
+position = Vector2( -6.22455, -6.00989 )
+texture = ExtResource( 3 )
+offset = Vector2( -1.17705, -170.493 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="smallNeedle" type="Sprite" parent="." index="2"]
+
+position = Vector2( -204.231, 198.033 )
+rotation = -2.61799
+texture = ExtResource( 4 )
+offset = Vector2( -1.46972, -15.0622 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="noise" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+

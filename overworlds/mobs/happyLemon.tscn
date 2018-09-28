@@ -12,6 +12,6 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 realPosition = Vector2( 2, 2 )
 width = 0.5
-portal = "lemon/dock"
+portal = "lemon/map"
 
 

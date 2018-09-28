@@ -14,22 +14,19 @@ onready var anim = get_node(\"../../background/anim\")
 var extra
 
 func _ready():
-	addRoutine(\"flirt1\")
 	extra = (get_node(\"../..\").tier == \"adult\")
-
+	yield(flirt1(), C)
 
 func flirt1():
 	health = 120 if extra else 100
 	var height = 13
-	var tick = createTimer(0.14)
 	shootFrom(water,DOWN,Vector2(player.position.x,0),100)
-	while (true):
-		yield(tick.r(),T)
+	while (health > 0):
+		yield(tick(0.14), C)
 		if (extra):
 			var offset = randf()
 			for i in range(13):
 				 shoot(foam,(PI * 2) / 13 * i + offset).gravify(DOWN,100)
-		
 		
 		for i in range(2,height):
 			for b in range(i):
@@ -37,9 +34,8 @@ func flirt1():
 				var offset = ((b + 2) - float(i + 2) / 2)
 				var pos = Vector2(player.position.x + offset * 20,0)
 				shootFrom(foam,pos.angle_to_point(player.position),pos,100)
-			yield(tick.r(),T)
-		shootFrom(water,DOWN,Vector2(player.position.x,0),100)
-		if (isDone()): return"
+			yield(tick(0.14), C)
+		shootFrom(water,DOWN,Vector2(player.position.x,0),100)"
 
 [node name="wave" type="Sprite" index="0"]
 

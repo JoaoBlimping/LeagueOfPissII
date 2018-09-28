@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-const POLY = 2
+const POLY = 5
 
 var song = null
 var samplers = []
@@ -33,7 +33,7 @@ func getSong():
 func sample(file,priority=1):
 	for i in range(samplers.size()):
 		if (priorities[i] < priority):
-			samplers[i].set_stream(load("res://samples/%s.wav" % file))
+			samplers[i].stream = load("res://sounds/%s.wav" % file)
 			samplers[i].play()
 			priorities[i] = priority
 			return samplers[i]

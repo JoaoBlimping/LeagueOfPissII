@@ -1,0 +1,126 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://pics/backgrounds/pipe/firstFloor.png" type="Texture" id=1]
+[ext_resource path="res://adventures/thing.gd" type="Script" id=2]
+[ext_resource path="res://pics/characters/tileAbove.png" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"res://adventures/room.gd\"
+
+func pumpDoor():
+	move(\"pipe/pump1\")
+
+func tileDoor():
+	move(\"pipe/tileWorkshop\")
+
+func sippel():
+	yield(say(\"\"\"Can you get to the second pump and pump this down please? I am
+	stuck here.\"\"\"), C)
+	yield(say(\"\"\"The first pump whose room you just walked through to get here lowers
+	the water level in the pipe system so you can get down to the lower areas,
+	then inside the lower pipe system you can access the second pump which can
+	lower the water level in this chamber. Thankyou!\"\"\"), C)
+	"
+
+[node name="room" type="Node2D" index="0"]
+
+script = SubResource( 1 )
+music = "pipes"
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="actives" type="Node2D" parent="." index="1"]
+
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="pumpDoor" type="Area2D" parent="actives" index="0"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/pumpDoor" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 824.768, 112.047, 858.777, 155.579, 826.128, 231.76, 792.119, 190.949 )
+
+[node name="tileDoor" type="Area2D" parent="actives" index="1"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/tileDoor" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 874.579, 310.91, 915.305, 242.491, 966.619, 309.281, 917.748, 376.071 )
+
+[node name="sippel" type="Area2D" parent="actives" index="2"]
+
+position = Vector2( 147.278, 499.595 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "Sippel"
+pointer = "talk"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/sippel" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -55.8642, -22.0442, 18.379, 44.4154, 39.3348, 38.4281, 56.6981, 11.485, 17.1815, 7.2938, 52.5069, -18.4518, 35.1436, -20.248, 9.39796, -9.4708, -21.7363, -53.1785 )
+
+[node name="Sprite" type="Sprite" parent="actives/sippel" index="1"]
+
+texture = ExtResource( 3 )
+
+[node name="gui" type="Node2D" parent="." index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+

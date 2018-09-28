@@ -22,8 +22,11 @@ expand_margin_left = 0.0
 expand_margin_right = 0.0
 expand_margin_top = 0.0
 expand_margin_bottom = 0.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
+_sections_unfolded = [ "Axis Stretch" ]
 
 [sub_resource type="StyleBoxTexture" id=2]
 
@@ -41,8 +44,11 @@ expand_margin_left = 0.0
 expand_margin_right = 0.0
 expand_margin_top = 0.0
 expand_margin_bottom = 0.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
+_sections_unfolded = [ "Axis Stretch" ]
 
 [sub_resource type="StyleBoxTexture" id=3]
 
@@ -60,8 +66,11 @@ expand_margin_left = 0.0
 expand_margin_right = 0.0
 expand_margin_top = 0.0
 expand_margin_bottom = 0.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
+_sections_unfolded = [ "Axis Stretch", "Margin" ]
 
 [sub_resource type="StyleBoxTexture" id=4]
 
@@ -79,8 +88,11 @@ expand_margin_left = 0.0
 expand_margin_right = 0.0
 expand_margin_top = 0.0
 expand_margin_bottom = 0.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
+_sections_unfolded = [ "Axis Stretch" ]
 
 [sub_resource type="StyleBoxTexture" id=5]
 
@@ -98,15 +110,18 @@ expand_margin_left = 0.0
 expand_margin_right = 0.0
 expand_margin_top = 0.0
 expand_margin_bottom = 0.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
+_sections_unfolded = [ "Axis Stretch", "Modulate" ]
 
 [resource]
 
-Button/colors/font_color = Color( 0, 0, 1, 1 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 0, 0, 1, 0.2 )
-Button/colors/font_color_hover = Color( 0, 0, 1, 1 )
-Button/colors/font_color_pressed = Color( 0, 0, 1, 1 )
+Button/colors/font_color_hover = Color( 1, 0.820312, 0, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = 2
 Button/fonts/font = null
 Button/styles/disabled = SubResource( 1 )
@@ -117,4 +132,5 @@ Button/styles/pressed = SubResource( 4 )
 Panel/styles/panel = SubResource( 5 )
 Panel/styles/panelf = null
 Panel/styles/panelnc = null
+_sections_unfolded = [ "Axis Stretch", "Button", "Button/colors", "Button/fonts", "Button/styles", "Modulate", "Panel", "Panel/styles", "Resource" ]
 
