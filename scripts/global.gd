@@ -146,3 +146,10 @@ func loadGame():
 
 func end():
 	get_tree().change_scene("res://menus/credits.tscn")
+
+func vMod(a, b):
+	while (a.x < b.position.x): a.x += b.size.x
+	while (a.y < b.position.y): a.y += b.size.y
+	while (a.x > b.position.x + b.size.x): a.x -= b.size.x
+	while (a.y > b.position.y + b.size.y): a.y -= b.size.y
+	return a

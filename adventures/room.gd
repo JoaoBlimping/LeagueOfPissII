@@ -46,8 +46,9 @@ func run(code,owner):
 		var itemCode = "%s_%s" % [code,item]
 		var allCode = "%s_" % code
 		if (has_method(itemCode)):
-			call(itemCode)
-			if (global.itemProperty(item,"dispose")): global.removeFromInventory(item)
+			var saveItem = call(itemCode)
+			if (global.itemProperty(item,"dispose") and not saveItem):
+				global.removeFromInventory(item)
 		elif (has_method(allCode)):
 			call(allCode,item)
 		else: say("%s does nothing here" % item)
@@ -74,6 +75,7 @@ func s(name,change=null):
 	global.setSwitch(name,change)
 
 func ss(name,change=null):
+	if (!global.area): return false
 	return s(global.area + ":" + name,change)
 
 func move(map):
@@ -108,7 +110,6 @@ func ask(text,a1,a2,name = null,a3 = null,a4 = null):
 	var ib = question.instance()
 	ib.get_node("name").set_text(getActive(name).realName)
 	ib.get_node("text").set_text(text)
-	
 	ib.get_node("a").set_text(a1)
 	ib.get_node("b").set_text(a2)
 	if (a3 == null): ib.get_node("c").free()
@@ -117,7 +118,7 @@ func ask(text,a1,a2,name = null,a3 = null,a4 = null):
 	else: ib.get_node("d").set_text(a4)
 	guiNode.add_child(ib)
 	gui = true
-	yield(ib, "asked")
+	yield(ib, "said")
 
 func animate(anim):
 	return animator.r(anim)
@@ -126,8 +127,8 @@ func puzzle(filename):
 	var puzzle = load("res://adventures/puzzles/%s.tscn" % filename).instance()
 	var holder = get_node("puzzle")
 	if (holder == null):
-		print("you're meant to add a puzzle node to set where it'll appear idiota")
-		return
+		printerr("you're meant to add a puzzle node to set where it'll appear idiota")
+		return yield()
 	get_node("puzzle").add_child(puzzle)
 	gui = true
 	return yield(puzzle, "said")
@@ -141,7 +142,7 @@ func battle(map, tier=""):
 	get_node("/root/room/gui").add_child(ib)
 	sound.song("%s" % scene.song)
 	ib.get_node("anim").connect("animation_finished",self,"beginBattle",[scene])
-	return scene
+	return yield(scene, "said")
 
 func beginBattle(a, scene):
 	get_node("/root/room/gui/transition").queue_free()

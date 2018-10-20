@@ -1,0 +1,120 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://pics/backgrounds/pipe/pump2.png" type="Texture" id=1]
+[ext_resource path="res://adventures/thing.gd" type="Script" id=2]
+[ext_resource path="res://adventures/characters/phm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://adventures/characters/aini.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"res://adventures/room.gd\"
+
+func back():
+	move(\"pipe/pipeLowLeft\")
+
+func phm():
+	yield(say(\"\"\"Man, a lotta the pumps that they make overseas these days are
+	shit, but this brand of pumps is THE BEST. IF I was going to buy a pump
+	RIGHT NOW, this is the brand of pump I would buy I swear it\"\"\"), C)
+	yield(say(\"wow I didn't realise you were so passionate about pumps\",\"aini\"), C)
+	yield(say(\"\"\"I bloody well am that passionate about pumps. In fact,
+	I would say that I am a PUMP ADDICT A PUMP MANIAC YEEEEEEAAAAAAAIIIII\"\"\"), C)
+	
+
+func pump():
+	yield(say(\"you must press the glomp button to keep the pump under CONTROL\"), C)
+	var success = yield(puzzle(\"pump\"), C)
+	if (success): sound.sample(\"slurp\")
+	else:
+		yield(say(\"NO AAAAAHHHAH the pump is fucking up dammn it\"), C)
+		yield(battle(\"nature/splash\"), C)
+	s(\"pumpA\",true)
+	say(\"Hell yeah! THe pumping is complete\", \"phm\")
+	
+	"
+
+[node name="room" type="Node2D" index="0"]
+
+script = SubResource( 1 )
+music = "pipes"
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="actives" type="Node2D" parent="." index="1"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="back" type="Area2D" parent="actives" index="0"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/back" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8.67804, 548.638, 1056.9, 546.968, 1028.51, 627.137, -43.7519, 627.137 )
+
+[node name="pump" type="Area2D" parent="actives" index="1"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "Mr Pump"
+pointer = "use"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/pump" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 176.515, 64.4234, 230.177, 66.6287, 230.177, 268.78, 371.315, 301.859, 402.189, 171.012, 423.507, 169.542, 422.772, 84.2709, 574.937, 100.443, 562.44, 163.661, 627.128, 304.799, 671.969, 73.9796, 716.81, 66.6287, 705.048, 288.627, 603.605, 340.084, 205.919, 313.62, 178.721, 266.574 )
+
+[node name="phm" parent="actives" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 129.184, 244.579 )
+
+[node name="aini" parent="actives" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 781.231, 178.333 )
+
+[node name="gui" type="Node2D" parent="." index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="puzzle" type="Node2D" parent="." index="3"]
+
+position = Vector2( 479.343, 250.528 )
+
+

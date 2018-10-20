@@ -12,6 +12,7 @@ func _ready():
 func _process(delta):
 	if (player == null): player = get_node("../actors/player")
 	
+	$health.position.x = 128 - (player.health * healthDimensions.x) / 2
 	$health.set_region_rect(Rect2(0,0,healthDimensions.x * player.health,healthDimensions.y))
 	
 	if (abs(player.velocity.x) > 200): dispenser.position.x += player.velocity.x * delta

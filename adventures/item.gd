@@ -1,5 +1,6 @@
 extends "thing.gd"
 
+signal grabbed
 
 func _ready():
 	pointer = "use"
@@ -14,3 +15,4 @@ func _input(event):
 		room.ss("_"+get_name(),true)
 		room.say("Got %s!" % realName,get_name())
 		queue_free()
+		emit_signal("grabbed")

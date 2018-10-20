@@ -5,7 +5,7 @@ uniform sampler2D ground;
 uniform float speed = 3.0;
 uniform float fov = 1.0;
 uniform float swing = 2.0;
-uniform vec3 modulator = vec3(1.0, 1.0, 1.0);
+uniform vec4 modulator: hint_color = vec4(1.0, 1.0, 1.0, 1.0);
 
 
 void fragment()
@@ -19,5 +19,5 @@ void fragment()
 	vec4 low = texture(TEXTURE,s - vec2(sin(UV.y * 5.0 + TIME * 1.0) * swing * 0.5,TIME * 2.0));
 	
 	if (UV.y > horizon) COLOR = min(high,low);
-	COLOR.rgb = mix(vec3(0.0,0.0,0.0), COLOR.rgb, abs(p.z)) * modulator;
+	COLOR = mix(vec4(0.0, 0.0, 0.0, 1.0), COLOR, abs(p.z)) * modulator;
 }

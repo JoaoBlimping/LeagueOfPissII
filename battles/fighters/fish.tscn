@@ -6,32 +6,70 @@
 
 script/source = "extends \"../actor.gd\"
 
-onready var foam = preload(\"../bullets/roe.tscn\")
+onready var roe = preload(\"../bullets/roe.tscn\")
+onready var bubble = preload(\"../bullets/bubble.tscn\")
+onready var foam = preload(\"../bullets/foam.tscn\")
 onready var player = get_node(\"../player\")
-onready var levelAnimator = get_node(\"../../background/anim\")
 
-func _ready():
+func itinerary():
+	naming(\"Mother Fish\")
 	$animation.play(\"swim\")
-	yield(bingo(), C)
 	yield(flirt1(), C)
+	yield(swirl(), C)
+	yield(flirt2(), C)
+	yield(final(), C)
 
-func bingo():
-	health = 60
+
+func flirt1():
+	attack()
+	setHealth(60)
 	while (health > 0):
 		yield(tick(0.3), C)
 		var angle = position.angle_to_point(player.position)
-		shoot(foam, angle - 0.1)
-		shoot(foam, angle + 0.1)
+		shoot(roe, angle - 0.1)
+		shoot(roe, angle + 0.1)
 		yield(tick(0.2), C)
 		angle = position.angle_to_point(player.position)
 		for i in range(10):
-			shoot(foam,angle + (0.15 * i) - 0.6)
+			shoot(roe,angle + (0.15 * i) - 0.6)
 
-func flirt1():
-	levelAnimator.play(\"wilin\")
-	yield(levelAnimator, \"animation_finished\")
-	
-	health = 120
+
+func flirt2():
+	attack()
+	setHealth(60)
+	var width = 12
+	while (health > 0):
+		yield(tick(0.2), C)
+		var angle = position.angle_to_point(player.position)
+		for i in range(width):
+			shoot(roe,angle + (PI * 2 / width * i))
+		yield(tick(0.2), C)
+		angle = position.angle_to_point(player.position)
+		for i in range(width):
+			shoot(roe,angle + (PI * 2 / width * i) - 0.1)
+			shoot(roe,angle + (PI * 2 / width * i) + 0.1)
+
+
+func swirl():
+	yield(move(get_node(\"../../points/middle\").position), C)
+	animateLevel(\"wilin\")
+	attack(\"Deep Sea Currents\")
+	setHealth(100)
+	var angle = 0
+	while (health > 0):
+		yield(tick(0.1), C)
+		shoot(bubble, angle)
+		shoot(foam, -angle * 2.5)
+		angle += 0.12
+	animateLevel(\"notWilin\")
+	attack()
+	yield(move(get_node(\"../../points/origin\").position), C)
+
+
+func final():
+	attack(\"Mass Exacuation\")
+	yield(animateLevel(\"wilin\"), C)
+	setHealth(120)
 	var height = 13
 	var angle = 0
 	var offset = 0
@@ -40,7 +78,7 @@ func flirt1():
 		offset += 0.5
 		for i in range(13):
 			angle = (PI * 2) / 13 * i + offset
-			shoot(foam, angle).gravify(angle + 2, sin(offset) * 200)"
+			shoot(roe, angle).gravify(angle + 2, sin(offset) * 200)"
 
 [sub_resource type="Animation" id=2]
 
@@ -66,16 +104,17 @@ tracks/0/keys = {
 texture = ExtResource( 1 )
 offset = Vector2( -4.52389, -24.5963 )
 hframes = 4
-frame = 2
+frame = 1
 script = SubResource( 1 )
 _sections_unfolded = [ "Animation", "Transform" ]
 flippy = false
 walky = false
 target = true
-speed = 100
+speed = 60
 
 [node name="hitbox" type="Area2D" parent="." index="0"]
 
+editor/display_folded = true
 visible = false
 use_parent_material = true
 input_pickable = true

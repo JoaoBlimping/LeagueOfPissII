@@ -1,0 +1,384 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://adventures/puzzles/crain.gd" type="Script" id=1]
+[ext_resource path="res://pics/backgrounds/birds.png" type="Texture" id=2]
+[ext_resource path="res://pics/puzzles/magnet.png" type="Texture" id=3]
+[ext_resource path="res://pics/puzzles/hook2.png" type="Texture" id=4]
+[ext_resource path="res://adventures/puzzles/objects/box.tscn" type="PackedScene" id=5]
+[ext_resource path="res://adventures/puzzles/objects/greyBox.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 14.8349
+
+[node name="puzzle" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 600 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="magnet" type="RigidBody2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 512, 256 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = 0.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Angular", "Linear" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="magnet" type="Sprite" parent="magnet" index="0"]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magnet" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="hook" type="StaticBody2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 523.282, 584.044 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 1.0
+_sections_unfolded = [ "Collision", "Pickable", "collision" ]
+
+[node name="hook" type="Sprite" parent="hook" index="0"]
+
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hook" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -63.642, 15.225, -63.9576, 0.236023, -41.3951, -16.6464, 50.2746, -15.8575, 63.6858, -2.91956, 64.6325, 16.1717 )
+
+[node name="bounds" type="StaticBody2D" parent="." index="3"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bounds" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 0.238632, 597.979, 0.238632, -0.592972, 1024.85, -0.152843, 1024.41, 601.5, 1299.9, -38.3337, 473.928, -595.864, -305.581, 2.96484 )
+
+[node name="boxes" type="Node2D" parent="." index="4"]
+
+[node name="box" parent="boxes" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 736, 384 )
+
+[node name="box62" parent="boxes" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 96, 416 )
+
+[node name="box63" parent="boxes" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 928, 416 )
+
+[node name="box3" parent="boxes" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 672, 384 )
+
+[node name="box4" parent="boxes" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 800, 384 )
+
+[node name="box5" parent="boxes" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 608, 384 )
+
+[node name="box6" parent="boxes" index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 544, 384 )
+
+[node name="box7" parent="boxes" index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 416, 384 )
+
+[node name="box8" parent="boxes" index="8" instance=ExtResource( 5 )]
+
+position = Vector2( 288, 384 )
+
+[node name="box9" parent="boxes" index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 224, 384 )
+
+[node name="box10" parent="boxes" index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 96, 384 )
+
+[node name="box11" parent="boxes" index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 32, 384 )
+
+[node name="box17" parent="boxes" index="12" instance=ExtResource( 5 )]
+
+position = Vector2( 32, 320 )
+
+[node name="box18" parent="boxes" index="13" instance=ExtResource( 5 )]
+
+position = Vector2( 96, 320 )
+
+[node name="box19" parent="boxes" index="14" instance=ExtResource( 5 )]
+
+position = Vector2( 160, 320 )
+
+[node name="box20" parent="boxes" index="15" instance=ExtResource( 5 )]
+
+position = Vector2( 224, 320 )
+
+[node name="box21" parent="boxes" index="16" instance=ExtResource( 5 )]
+
+position = Vector2( 288, 320 )
+
+[node name="box22" parent="boxes" index="17" instance=ExtResource( 5 )]
+
+position = Vector2( 352, 320 )
+
+[node name="box23" parent="boxes" index="18" instance=ExtResource( 5 )]
+
+position = Vector2( 416, 320 )
+
+[node name="box24" parent="boxes" index="19" instance=ExtResource( 5 )]
+
+position = Vector2( 480, 320 )
+
+[node name="box25" parent="boxes" index="20" instance=ExtResource( 5 )]
+
+position = Vector2( 544, 320 )
+
+[node name="box26" parent="boxes" index="21" instance=ExtResource( 5 )]
+
+position = Vector2( 608, 320 )
+
+[node name="box27" parent="boxes" index="22" instance=ExtResource( 5 )]
+
+position = Vector2( 672, 320 )
+
+[node name="box28" parent="boxes" index="23" instance=ExtResource( 5 )]
+
+position = Vector2( 736, 320 )
+
+[node name="box29" parent="boxes" index="24" instance=ExtResource( 5 )]
+
+position = Vector2( 800, 320 )
+
+[node name="box30" parent="boxes" index="25" instance=ExtResource( 5 )]
+
+position = Vector2( 864, 320 )
+
+[node name="box31" parent="boxes" index="26" instance=ExtResource( 5 )]
+
+position = Vector2( 928, 320 )
+
+[node name="box32" parent="boxes" index="27" instance=ExtResource( 5 )]
+
+position = Vector2( 992, 320 )
+
+[node name="box12" parent="boxes" index="28" instance=ExtResource( 5 )]
+
+position = Vector2( 160, 384 )
+
+[node name="box13" parent="boxes" index="29" instance=ExtResource( 5 )]
+
+position = Vector2( 352, 384 )
+
+[node name="box33" parent="boxes" index="30" instance=ExtResource( 5 )]
+
+position = Vector2( 448, 288 )
+
+[node name="box34" parent="boxes" index="31" instance=ExtResource( 5 )]
+
+position = Vector2( 576, 288 )
+
+[node name="box35" parent="boxes" index="32" instance=ExtResource( 5 )]
+
+position = Vector2( 448, 256 )
+
+[node name="box36" parent="boxes" index="33" instance=ExtResource( 5 )]
+
+position = Vector2( 576, 256 )
+
+[node name="box37" parent="boxes" index="34" instance=ExtResource( 5 )]
+
+position = Vector2( 448, 224 )
+
+[node name="box38" parent="boxes" index="35" instance=ExtResource( 5 )]
+
+position = Vector2( 576, 224 )
+
+[node name="box39" parent="boxes" index="36" instance=ExtResource( 5 )]
+
+position = Vector2( 448, 192 )
+
+[node name="box40" parent="boxes" index="37" instance=ExtResource( 5 )]
+
+position = Vector2( 576, 192 )
+
+[node name="box41" parent="boxes" index="38" instance=ExtResource( 5 )]
+
+position = Vector2( 480, 160 )
+
+[node name="box42" parent="boxes" index="39" instance=ExtResource( 5 )]
+
+position = Vector2( 544, 160 )
+
+[node name="box43" parent="boxes" index="40" instance=ExtResource( 5 )]
+
+position = Vector2( 512, 128 )
+
+[node name="box44" parent="boxes" index="41" instance=ExtResource( 5 )]
+
+position = Vector2( 384, 256 )
+
+[node name="box45" parent="boxes" index="42" instance=ExtResource( 5 )]
+
+position = Vector2( 640, 256 )
+
+[node name="box46" parent="boxes" index="43" instance=ExtResource( 5 )]
+
+position = Vector2( 640, 192 )
+
+[node name="box47" parent="boxes" index="44" instance=ExtResource( 5 )]
+
+position = Vector2( 384, 192 )
+
+[node name="box48" parent="boxes" index="45" instance=ExtResource( 5 )]
+
+position = Vector2( 416, 128 )
+
+[node name="box49" parent="boxes" index="46" instance=ExtResource( 5 )]
+
+position = Vector2( 608, 128 )
+
+[node name="box50" parent="boxes" index="47" instance=ExtResource( 5 )]
+
+position = Vector2( 352, 224 )
+
+[node name="box51" parent="boxes" index="48" instance=ExtResource( 5 )]
+
+position = Vector2( 672, 224 )
+
+[node name="box52" parent="boxes" index="49" instance=ExtResource( 5 )]
+
+position = Vector2( 256, 224 )
+
+[node name="box53" parent="boxes" index="50" instance=ExtResource( 5 )]
+
+position = Vector2( 800, 224 )
+
+[node name="box54" parent="boxes" index="51" instance=ExtResource( 5 )]
+
+position = Vector2( 192, 192 )
+
+[node name="box55" parent="boxes" index="52" instance=ExtResource( 5 )]
+
+position = Vector2( 864, 192 )
+
+[node name="box56" parent="boxes" index="53" instance=ExtResource( 5 )]
+
+position = Vector2( 832, 160 )
+
+[node name="box57" parent="boxes" index="54" instance=ExtResource( 5 )]
+
+position = Vector2( 224, 160 )
+
+[node name="box58" parent="boxes" index="55" instance=ExtResource( 5 )]
+
+position = Vector2( 224, 256 )
+
+[node name="box59" parent="boxes" index="56" instance=ExtResource( 5 )]
+
+position = Vector2( 832, 256 )
+
+[node name="box14" parent="boxes" index="57" instance=ExtResource( 5 )]
+
+position = Vector2( 480, 384 )
+
+[node name="box15" parent="boxes" index="58" instance=ExtResource( 5 )]
+
+position = Vector2( 928, 384 )
+
+[node name="box16" parent="boxes" index="59" instance=ExtResource( 5 )]
+
+position = Vector2( 864, 384 )
+
+[node name="box2" parent="boxes" index="60" instance=ExtResource( 5 )]
+
+position = Vector2( 992, 384 )
+
+[node name="greyBox" parent="boxes" index="61" instance=ExtResource( 6 )]
+
+position = Vector2( 320, 192 )
+
+[node name="greyBox2" parent="boxes" index="62" instance=ExtResource( 6 )]
+
+position = Vector2( 704, 192 )
+
+[node name="greyBox3" parent="boxes" index="63" instance=ExtResource( 6 )]
+
+position = Vector2( 480, 96 )
+
+[node name="greyBox4" parent="boxes" index="64" instance=ExtResource( 6 )]
+
+position = Vector2( 544, 96 )
+
+[node name="greyBox5" parent="boxes" index="65" instance=ExtResource( 6 )]
+
+position = Vector2( 256, 288 )
+
+[node name="greyBox6" parent="boxes" index="66" instance=ExtResource( 6 )]
+
+position = Vector2( 800, 288 )
+
+[node name="greyBox7" parent="boxes" index="67" instance=ExtResource( 6 )]
+
+position = Vector2( 160, 416 )
+
+[node name="greyBox8" parent="boxes" index="68" instance=ExtResource( 6 )]
+
+position = Vector2( 864, 416 )
+
+

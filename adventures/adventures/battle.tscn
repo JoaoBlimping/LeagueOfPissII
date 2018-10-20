@@ -14,8 +14,8 @@ script/source = "extends \"res://adventures/room.gd\"
 func start():
 	var creature = global.creatures[global.creature]
 	var tier = creature.tiers[randi() % creature.tiers.size()]
-	yield(battle(global.creature,tier),S)
-	yield(say(\"you defeated the %s %s hell yeah\" % [tier,creature[\"name\"]],\"phm\"),S)
+	yield(battle(global.creature,tier), C)
+	yield(say(\"you defeated the %s %s hell yeah\" % [tier,creature[\"name\"]],\"phm\"), C)
 
 func cabin():
 	global.enterBoat()"
@@ -41,11 +41,7 @@ __meta__ = {
 
 [node name="aini" parent="actives" index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 479.288, 226.885 )
-audio_bus_override = false
-audio_bus_name = "Master"
-birthSelfSwitch = null
-deathSelfSwitch = null
+position = Vector2( 481.093, 250.35 )
 
 [node name="clammy" parent="actives" index="1" instance=ExtResource( 3 )]
 
@@ -55,12 +51,8 @@ audio_bus_name = "Master"
 
 [node name="phm" parent="actives" index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 798.347, 205.875 )
-audio_bus_override = false
-audio_bus_name = "Master"
+position = Vector2( 802.859, 226.633 )
 _sections_unfolded = [ "Collision" ]
-birthSelfSwitch = null
-deathSelfSwitch = null
 
 [node name="cabin" type="Area2D" parent="actives" index="3"]
 

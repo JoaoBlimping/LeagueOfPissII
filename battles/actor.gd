@@ -1,5 +1,6 @@
 extends Sprite
 
+onready var levelAnimator = get_node("../../anim")
 onready var bullets = get_node("../../hud/bulletStuff/bullets")
 
 const C = "completed"
@@ -14,21 +15,32 @@ export var target = true
 export var speed = 100
 
 var velocity = Vector2(0,0)
+var strafing = false
 var health = 1
 var bounds = Rect2(256,0,512,600)
 var timer
+var healthBox
 
 
 # built in function which is used to set up some event thingies
 func _ready():
 	set_process(true)
-	$hitbox.connect("area_entered",self,"hit")
+	if ($hitbox): $hitbox.connect("area_entered",self,"hit")
 	timer = Timer.new()
 	add_child(timer)
+	yield(get_tree(), "idle_frame")
+	yield(itinerary(), C)
+	queue_free()
+	if (target): get_node("../..").finish(true)
 
 
 # built in function which controls routines and animation
 func _process(delta):
+	#health display
+	if (healthBox != null):
+		healthBox.value = health
+		print("fef")
+	
 	#move
 	position += velocity * delta
 	if (flippy):
@@ -41,6 +53,10 @@ func _process(delta):
 		elif (!$animation.is_playing()):
 			$animation.play("walk")
 
+
+func itinerary():
+	yield()
+	
 
 # Fires a copy of a given bullet at a given angle, and also optionally from an origin object.
 func shoot(bullet,angle,origin=self):
@@ -55,17 +71,13 @@ func shootFrom(bullet,angle,location,speed=null):
 		sound.sample(ib.sound)
 		pass
 
-	ib.mother = self
+	ib.mother = getMother()
 	bullets.add_child(ib)
 	ib.position = location
 	if (speed != null): ib.speed = speed
 	ib.velocity.x = -cos(angle) * ib.speed
 	ib.velocity.y = -sin(angle) * ib.speed
 	return ib
-
-
-func die():
-	if (target): get_node("../..").finish(true)
 
 
 # This gets called when an actor is hit by a bullet or powerup which is a kind of bullet anyway
@@ -83,7 +95,34 @@ func tick(time):
 	timer.set_wait_time(time)
 	timer.start()
 	yield(timer, "timeout")
-	return
+
+func move(target):
+	while (true):
+		yield(tick(0.1), C)
+		var angle = target.angle_to_point(global_position)
+		velocity.x = cos(angle) * speed
+		velocity.y = sin(angle) * speed
+		if ((position - target).length() <= velocity.length() * 0.1):
+			velocity.x = 0
+			velocity.y = 0
+			break
+
+func animateLevel(animation):
+	levelAnimator.play(animation)
+	yield(levelAnimator, "animation_finished")
+
+func setHealth(amount):
+	health = amount
+	healthBox = get_node("../../hud/leftPanel/health")
+	healthBox.max_value = amount
+	healthBox.value = amount
+	
+
+func attack(title="..."):
+	get_node("../../hud/leftPanel/attack").text = title
 
 func naming(title):
 	get_node("../../hud/leftPanel/name").text = title
+
+func getMother():
+	return self

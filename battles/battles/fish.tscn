@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://battles/level.gd" type="Script" id=1]
 [ext_resource path="res://shaders/pipe.shader" type="Shader" id=2]
 [ext_resource path="res://pics/backgrounds/wet.png" type="Texture" id=3]
-[ext_resource path="res://battles/fighters/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://battles/fighters/fish.tscn" type="PackedScene" id=5]
+[ext_resource path="res://battles/fighters/fish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://battles/fighters/hat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://battles/fighters/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://battles/fighters/eel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://battles/fighters/capsule.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -13,17 +16,17 @@ shader = ExtResource( 2 )
 shader_param/speed = 3.0
 shader_param/fov = 0.9
 shader_param/swing = 0.5
-shader_param/modulator = Vector3( 1, 1, 1 )
+shader_param/modulator = Color( 1, 1, 1, 1 )
 _sections_unfolded = [ "Resource", "shader_param" ]
 
 [sub_resource type="Animation" id=2]
 
-resource_name = "wilin"
+resource_name = "notWilin"
 length = 1.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:material:shader_param/modulator")
+tracks/0/path = NodePath("background:material:shader_param/modulator")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -32,10 +35,40 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 6, 0.7, 0.5 ) ]
+"values": [ Color( 1, 0.0124512, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:material:shader_param/swing")
+tracks/1/path = NodePath("background:material:shader_param/swing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.5, 0.5 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:material:shader_param/modulator")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.0124512, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("background:material:shader_param/swing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -50,7 +83,7 @@ tracks/1/keys = {
 [node name="level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
-song = "battle"
+song = "pipesFish"
 
 [node name="background" type="Sprite" parent="." index="0"]
 
@@ -65,24 +98,52 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="anim" type="AnimationPlayer" parent="background" index="0"]
+[node name="actors" type="Node2D" parent="." index="1"]
+
+[node name="fish" parent="actors" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 518.455, 117.368 )
+
+[node name="hat" parent="actors" index="1" instance=ExtResource( 5 )]
+
+creatorName = NodePath("../eel")
+
+[node name="player" parent="actors" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 490.006, 365.065 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility" ]
+
+[node name="eel" parent="actors" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 376.034, 287.085 )
+creatorName = NodePath("../player")
+
+[node name="capsule" parent="actors" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 416.5, 317.183 )
+creatorName = NodePath("../hat")
+
+[node name="points" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="origin" type="Position2D" parent="points" index="0"]
+
+position = Vector2( 518.916, 116.78 )
+
+[node name="middle" type="Position2D" parent="points" index="1"]
+
+position = Vector2( 514.156, 305.594 )
+
+[node name="anim" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/wilin = SubResource( 2 )
+anims/notWilin = SubResource( 2 )
+anims/wilin = SubResource( 3 )
 blend_times = [  ]
-
-[node name="actors" type="Node2D" parent="." index="1"]
-
-[node name="player" parent="actors" index="0" instance=ExtResource( 4 )]
-
-position = Vector2( 490.006, 365.065 )
-
-[node name="fish" parent="actors" index="1" instance=ExtResource( 5 )]
-
-position = Vector2( 518.455, 117.368 )
 
 

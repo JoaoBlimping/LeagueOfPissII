@@ -5,6 +5,7 @@ const POLY = 5
 var song = null
 var samplers = []
 var priorities = []
+var stamp = {"time":0, "sounds":[]}
 
 
 func _ready():
@@ -31,8 +32,16 @@ func getSong():
 	return song
 
 func sample(file,priority=1):
+	var currentTime = floor(OS.get_ticks_msec() / 100)
+	if (stamp.time == currentTime and file in stamp.sounds): return
+	
 	for i in range(samplers.size()):
 		if (priorities[i] < priority):
+			if (currentTime != stamp.time):
+				stamp.time = currentTime
+				stamp.sounds.clear()
+			
+			stamp.sounds.append(file)
 			samplers[i].stream = load("res://sounds/%s.wav" % file)
 			samplers[i].play()
 			priorities[i] = priority

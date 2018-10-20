@@ -1,0 +1,127 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://pics/backgrounds/pipe/cleanEntrance.png" type="Texture" id=1]
+[ext_resource path="res://adventures/thing.gd" type="Script" id=2]
+[ext_resource path="res://adventures/characters/aini.tscn" type="PackedScene" id=3]
+[ext_resource path="res://adventures/characters/phm.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"res://adventures/room.gd\"
+
+func back():
+	move(\"pipe/pipeA\")
+
+func left():
+	move(\"pipe/pipeG\")
+
+func right():
+	move(\"pipe/pipeF\")
+	"
+
+[node name="room" type="Node2D" index="0"]
+
+script = SubResource( 1 )
+music = "pipes"
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+centered = false
+
+[node name="actives" type="Node2D" parent="." index="1"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="back" type="Area2D" parent="actives" index="0"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/back" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -0.438202, 602.541, 1030.73, 597.099, 1037.53, 545.405, -22.2042, 548.126 )
+
+[node name="door" type="Area2D" parent="actives" index="1"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/door" index="0"]
+
+position = Vector2( -51.6943, 2.72073 )
+build_mode = 0
+polygon = PoolVector2Array( 559.839, 169.976, 558.863, 110.48, 578.37, 96.3373, 593.488, 109.505, 593, 171.927 )
+
+[node name="panel" type="Area2D" parent="actives" index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/panel" index="0"]
+
+position = Vector2( 80.2622, -16.3245 )
+build_mode = 0
+polygon = PoolVector2Array( 517.127, 99.7769, 580.037, 89.0481, 582.475, 152.446, 524.442, 161.712 )
+
+[node name="aini" parent="actives" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 415.876, 312.325 )
+scale = Vector2( 0.4, 0.4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="phm" parent="actives" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 810.04, 372.451 )
+scale = Vector2( 0.4, 0.4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="gui" type="Node2D" parent="." index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+

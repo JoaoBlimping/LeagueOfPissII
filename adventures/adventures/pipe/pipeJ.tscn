@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://pics/backgrounds/pipe/pipeJ.png" type="Texture" id=1]
 [ext_resource path="res://adventures/thing.gd" type="Script" id=2]
+[ext_resource path="res://pics/backgrounds/pipe/pipeJWater.png" type="Texture" id=3]
+[ext_resource path="res://adventures/characters/aini.tscn" type="PackedScene" id=4]
 
 [sub_resource type="GDScript" id=1]
 
@@ -9,7 +11,12 @@ script/source = "extends \"res://adventures/room.gd\"
 
 func back():
 	move(\"pipe/pipeG\")
-	"
+
+func water():
+	say(\"I wonder what is down this pond..\", \"aini\")
+
+func hole():
+	move(\"pipe/pipeLowStart\")"
 
 [node name="room" type="Node2D" index="0"]
 
@@ -48,6 +55,66 @@ deathSelfSwitch = null
 
 build_mode = 0
 polygon = PoolVector2Array( -0.438202, 602.541, 1030.73, 597.099, 1037.53, 545.405, -22.2042, 548.126 )
+
+[node name="hole" type="Area2D" parent="actives" index="1"]
+
+editor/display_folded = true
+position = Vector2( 503.031, 406.945 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/hole" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -197.372, -4.77814, -160.618, -34.1818, -48.8837, -48.8837, 65.0557, -42.2678, 132.684, -15.8045, 129.744, -6.24829, 78.2874, 26.0958, -35.652, 34.1818, -171.644, 21.6852 )
+
+[node name="water" type="Area2D" parent="actives" index="2"]
+
+position = Vector2( 503.031, 406.945 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = "pumpA"
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="Sprite" type="Sprite" parent="actives/water" index="0"]
+
+position = Vector2( -35.1126, 3.90137 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/water" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -217.304, 3.25806, -181.284, 34.132, -54.8481, 48.0987, 74.5283, 37.8074, 144.362, 0.317688, 136.276, -25.4106, 62.7667, -47.4633, -53.3779, -53.3441, -168.052, -36.437 )
+
+[node name="aini" parent="actives" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( -146.017, 229.096 )
+audio_bus_override = false
+audio_bus_name = "Master"
+birthSelfSwitch = null
+deathSelfSwitch = null
 
 [node name="gui" type="Node2D" parent="." index="2"]
 

@@ -9,16 +9,16 @@ script/source = "extends \"../actor.gd\"
 onready var water = preload(\"../bullets/water.tscn\")
 onready var foam = preload(\"../bullets/foam.tscn\")
 onready var player = get_node(\"../player\")
-onready var anim = get_node(\"../../background/anim\")
 
 var extra
 
-func _ready():
+func itinerary():
 	extra = (get_node(\"../..\").tier == \"adult\")
+	naming(\"Adult Red Jellyfish\" if extra else \"Red Jellyfish\")
 	yield(flirt1(), C)
 
 func flirt1():
-	health = 120 if extra else 100
+	setHealth(120 if extra else 100)
 	var height = 13
 	shootFrom(water,DOWN,Vector2(player.position.x,0),100)
 	while (health > 0):

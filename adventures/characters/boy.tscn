@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://adventures/thing.gd" type="Script" id=1]
+[ext_resource path="res://pics/characters/boy.png" type="Texture" id=2]
+
+[node name="boy" type="Area2D" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+realName = "Boy San Quan"
+pointer = "talk"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -14.6565, 172.432, -29.2518, 196.979, -57.1155, 202.95, -70.3839, 192.335, -41.8568, 159.827, -42.5202, 94.1487, -40.53, 74.2461, -31.9055, 27.8066, -41.8568, -29.2476, -70.3839, -10.6718, -73.701, -107.531, -12.0029, -122.79, -27.2616, -144.019, -25.2713, -195.103, 10.5535, -213.679, 38.4171, -197.757, 49.0319, -151.981, 19.8414, -122.79, 74.2419, -102.224, 74.2419, -41.1892, 46.3782, -19.9597, 60.31, 110.071, 56.9929, 161.818, 90.8274, 195.652, 68.2711, 208.257, 34.4366, 173.096, 25.1487, 90.8316, 14.534, 88.8414, 11.2169, 63.6314, 4.58267, 88.1779, -10.676, 90.1682, -17.3102, 120.022 )
+
+

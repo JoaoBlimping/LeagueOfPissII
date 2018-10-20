@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/crain.ogg-604446bb8f2494576c1f1ef00bbd8ba3.oggstr"
+
+[deps]
+
+source_file="res://songs/crain.ogg"
+dest_files=[ "res://.import/crain.ogg-604446bb8f2494576c1f1ef00bbd8ba3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pics/fighters/capsule.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"../helper.gd\"
+
+onready var foam = preload(\"../bullets/fogle.tscn\")
+
+func itinerary():
+	health = 1
+	while (health > 0):
+		shoot(foam,UP)
+		yield(tick(0.3), C)"
+
+[node name="capsule" type="Sprite" index="0"]
+
+position = Vector2( 406.211, 381.486 )
+texture = ExtResource( 1 )
+offset = Vector2( -0.354681, -3.27138 )
+region_rect = Rect2( 66, 7, 52, 88 )
+script = SubResource( 1 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility" ]
+flippy = false
+walky = false
+target = false
+speed = 0
+creatorName = null
+distance = 50
+
+[node name="hitbox" type="Area2D" parent="." index="0"]
+
+position = Vector2( -1.40219, -15.7228 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+

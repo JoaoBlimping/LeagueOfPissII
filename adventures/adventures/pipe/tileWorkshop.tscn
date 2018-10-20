@@ -1,8 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://pics/backgrounds/pipe/tileWorkshop.png" type="Texture" id=1]
 [ext_resource path="res://adventures/thing.gd" type="Script" id=2]
 [ext_resource path="res://pics/characters/tile.png" type="Texture" id=3]
+[ext_resource path="res://adventures/characters/aini.tscn" type="PackedScene" id=4]
+[ext_resource path="res://adventures/characters/phm.tscn" type="PackedScene" id=5]
+[ext_resource path="res://pics/characters/flowerGirl.png" type="Texture" id=6]
+[ext_resource path="res://pics/characters/singletFriend.png" type="Texture" id=7]
+[ext_resource path="res://pics/characters/boy.png" type="Texture" id=8]
+[ext_resource path="res://pics/characters/goodPoloShirtDude.png" type="Texture" id=9]
 
 [sub_resource type="GDScript" id=1]
 
@@ -35,6 +41,7 @@ __meta__ = {
 
 [node name="back" type="Area2D" parent="actives" index="0"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -57,6 +64,7 @@ polygon = PoolVector2Array( -8.67804, 548.638, 1056.9, 546.968, 1028.51, 627.137
 
 [node name="girl" type="Area2D" parent="actives" index="1"]
 
+editor/display_folded = true
 position = Vector2( 241.785, 307.663 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -81,6 +89,34 @@ polygon = PoolVector2Array( -93.0226, -36.9473, -40.3336, -109.395, -23.5689, -1
 [node name="Sprite" type="Sprite" parent="actives/girl" index="1"]
 
 texture = ExtResource( 3 )
+
+[node name="aini" parent="actives" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 469.682, 271.724 )
+
+[node name="phm" parent="actives" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 680.189, 318.329 )
+
+[node name="Sprite" type="Sprite" parent="actives" index="4"]
+
+position = Vector2( 127.876, 406.753 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="actives" index="5"]
+
+position = Vector2( 365.942, 414.915 )
+texture = ExtResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="actives" index="6"]
+
+position = Vector2( 233.985, 465.249 )
+texture = ExtResource( 8 )
+
+[node name="Sprite4" type="Sprite" parent="actives" index="7"]
+
+position = Vector2( 832.781, 399.735 )
+texture = ExtResource( 9 )
 
 [node name="gui" type="Node2D" parent="." index="2"]
 

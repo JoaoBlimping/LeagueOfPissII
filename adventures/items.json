@@ -1,5 +1,6 @@
 {
-	"save":{"description":"save the game","use":true},
-	"quit":{"description":"exit to the menu","use":true},
-	"grease":{"description":"Hell yeah it's the grease","dispose":true}
+	"save": {"description": "save the game", "use": true},
+	"quit": {"description": "exit to the menu", "use": true},
+	"grease": {"description": "Hell yeah it's the grease", "dispose": true},
+	"craneHook": {"description": "Still attached to the crane by a wire, can be hooked on stuff", "dispose": true}
 }

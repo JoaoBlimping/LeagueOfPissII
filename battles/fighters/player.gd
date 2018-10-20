@@ -23,19 +23,21 @@ func hit(body):
 			global.health -= 1
 			sound.sample("ow")
 			hurting = 1
-			#set_blend_mode(BLEND_MODE_ADD)
+			modulate.a = 0.2
+			modulate.r = 2
 			if (health < 1): die()
 			
 	
 	
 func die():
 	get_tree().change_scene("res://menus/gameover.tscn")
-	
+
 
 func _process(delta):
 	hurting -= delta
 	if (hurting < 0):
-		#set_blend_mode(BLEND_MODE_MIX)
+		modulate.r = 1
+		modulate.a = 1
 		pass
 	
 	
@@ -43,10 +45,12 @@ func _process(delta):
 	var speed = NORMAL_SPEED
 	var spread = 0.4
 	if (Input.is_action_pressed("ui_select")):
+		strafing = true
 		spread = 0.7
 		speed = STRAFE_SPEED
 		heart.show()
 	else:
+		strafing = false
 		heart.hide()
 	
 	#shooting
