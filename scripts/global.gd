@@ -1,5 +1,9 @@
 extends Node
 
+signal switch_set
+
+onready var switchParser = preload("res://scripts/switchParser.gd")
+
 var health = 4
 var reserve = 1
 var mice = {}
@@ -36,11 +40,32 @@ func preloadCreatures():
 	file.open("res://creatures.json",File.READ)
 	creatures = JSON.parse(file.get_as_text()).result
 
-func setSwitch(name,value):
+func setSwitch(name, value):
 	switches[name] = value
+	emit_signal("switch_set", name, value)
 
 func getSwitch(name):
-	if (switches.has(name)): return switches[name]
+	return evaluateSwitches(switchParser.parseSwitches(name))
+
+func evaluateSwitches(tree):
+	var type = tree["type"]
+	if (type in switchParser.OPERATORS):
+		var left = null
+		var right = null
+		if (tree.has("left")): left = evaluateSwitches(tree["left"])
+		if (tree.has("right")): right = evaluateSwitches(tree["right"])
+		if (right == null and left == null):
+			right = false
+			left = false
+		if (left == null): left = right
+		if (right == null): right = left
+
+		match(type):
+			'&': return left and right
+			'|': return left or right
+			'^': return (left or right) and not (left and right)
+			'!': return not(left and right)
+	elif (switches.has(type)): return switches[type]
 	else: return false
 
 func hasSwitch(name):
@@ -118,7 +143,7 @@ func splitArray(string):
 
 func saveGame():
 	var file = File.new()
-	file.open("user://losSave%d.pig" % saveFile,File.WRITE)
+	file.open("user://los2Save%d.pig" % saveFile,File.WRITE)
 	
 	file.store_line(area)
 	file.store_line(JSON.print(switches))
@@ -132,10 +157,10 @@ func saveGame():
 
 func loadGame():
 	var file = File.new()
-	file.open("user://losSave%d.pig" % saveFile,File.READ)
+	file.open("user://los2Save%d.pig" % saveFile,File.READ)
 	area = file.get_line()
 	switches.clear()
-	
+	# TODO: make it not fuckup when you do the thingy
 	switches = JSON.parse(file.get_line()).result
 	inventory = splitArray(file.get_line())
 	boatingPosition = Vector2(float(file.get_line()),float(file.get_line()))

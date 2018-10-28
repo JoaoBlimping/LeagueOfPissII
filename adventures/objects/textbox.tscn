@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://things/theme.tres" type="Theme" id=1]
 [ext_resource path="res://adventures/guiElement.gd" type="Script" id=2]
-[ext_resource path="res://sounds/next.wav" type="AudioStream" id=3]
+[ext_resource path="res://fonts/boecklins.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://sounds/next.wav" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="textbox" type="Panel" index="0"]
 
@@ -58,7 +67,7 @@ anchor_bottom = 0.0
 margin_left = 393.0
 margin_top = -1.0
 margin_right = 452.0
-margin_bottom = 21.0
+margin_bottom = 23.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -88,19 +97,18 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 19.0
-margin_top = 3.0
-margin_right = 121.0
-margin_bottom = 17.0
-rect_scale = Vector2( 1.2, 1.2 )
+margin_left = 10.0
+margin_top = 1.0
+margin_right = 167.0
+margin_bottom = 21.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 0
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Purple Hat Man:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -109,7 +117,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="sample" type="AudioStreamPlayer" parent="." index="3"]
 
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true

@@ -4,6 +4,7 @@ onready var itemSprite = preload("res://adventures/objects/itemSprite.tscn")
 onready var animator = preload("animator.gd").new(self)
 onready var textbox = preload("res://adventures/objects/textbox.tscn")
 onready var question = preload("res://adventures/objects/question.tscn")
+onready var cheatbox = preload("res://adventures/objects/cheat.tscn")
 onready var bag = preload("res://adventures/objects/bag.tscn")
 onready var transition = preload("res://adventures/objects/transition.tscn")
 onready var fader = preload("res://adventures/objects/fade.tscn")
@@ -85,6 +86,12 @@ func pose(n,name = null):
 	var owner = getActive(name)
 	if (owner != null): owner.get_node("sprite").set_frame(n)
 
+func cheat():
+	var ib = cheatbox.instance()
+	guiNode.add_child(ib)
+	gui = true
+	yield(ib, "said")
+
 func say(text,name = null,face = null):
 	var ib = textbox.instance()
 	var active = getActive(name)
@@ -162,6 +169,9 @@ func fadeIn():
 	get_node("/root/room/gui").add_child(ib)
 	ib.get_node("anim").play("enter")
 	return ib
+
+func refresh():
+	global.enterAdventure(global.area)
 
 
 

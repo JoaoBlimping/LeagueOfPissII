@@ -1,13 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://battles/level.gd" type="Script" id=1]
 [ext_resource path="res://shaders/pipe.shader" type="Shader" id=2]
 [ext_resource path="res://pics/backgrounds/wet.png" type="Texture" id=3]
 [ext_resource path="res://battles/fighters/fish.tscn" type="PackedScene" id=4]
-[ext_resource path="res://battles/fighters/hat.tscn" type="PackedScene" id=5]
-[ext_resource path="res://battles/fighters/player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://battles/fighters/eel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://battles/fighters/capsule.tscn" type="PackedScene" id=8]
+[ext_resource path="res://battles/fighters/player.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -21,7 +18,37 @@ _sections_unfolded = [ "Resource", "shader_param" ]
 
 [sub_resource type="Animation" id=2]
 
-resource_name = "notWilin"
+resource_name = "entrance"
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("actors/fish:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 516.122, -72.748 ), Vector2( 518.455, 115.035 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("actors/fish:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.6, 4.3, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.112534, 0.0566406, 0.25, 1 ), Color( 0.765625, 0.520386, 0.635342, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
 length = 1.0
 loop = false
 step = 0.1
@@ -50,7 +77,7 @@ tracks/1/keys = {
 "values": [ 1.5, 0.5 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
 length = 1.0
 loop = false
@@ -102,26 +129,14 @@ __meta__ = {
 
 [node name="fish" parent="actors" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 518.455, 117.368 )
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 516.122, -72.748 )
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
 
-[node name="hat" parent="actors" index="1" instance=ExtResource( 5 )]
-
-creatorName = NodePath("../eel")
-
-[node name="player" parent="actors" index="2" instance=ExtResource( 6 )]
+[node name="player" parent="actors" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 490.006, 365.065 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility" ]
-
-[node name="eel" parent="actors" index="3" instance=ExtResource( 7 )]
-
-position = Vector2( 376.034, 287.085 )
-creatorName = NodePath("../player")
-
-[node name="capsule" parent="actors" index="4" instance=ExtResource( 8 )]
-
-position = Vector2( 416.5, 317.183 )
-creatorName = NodePath("../hat")
 
 [node name="points" type="Node2D" parent="." index="2"]
 
@@ -142,8 +157,9 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/notWilin = SubResource( 2 )
-anims/wilin = SubResource( 3 )
+anims/entrance = SubResource( 2 )
+anims/notWilin = SubResource( 3 )
+anims/wilin = SubResource( 4 )
 blend_times = [  ]
 
 

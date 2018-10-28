@@ -74,9 +74,7 @@ func shootFrom(bullet,angle,location,speed=null):
 	ib.mother = getMother()
 	bullets.add_child(ib)
 	ib.position = location
-	if (speed != null): ib.speed = speed
-	ib.velocity.x = -cos(angle) * ib.speed
-	ib.velocity.y = -sin(angle) * ib.speed
+	ib.retarget(angle, speed)
 	return ib
 
 

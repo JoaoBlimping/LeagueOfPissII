@@ -28,8 +28,9 @@ func pump():
 	else:
 		yield(say(\"NO AAAAAHHHAH the pump is fucking up dammn it\"), C)
 		yield(battle(\"nature/splash\"), C)
-	s(\"pumpA\",true)
-	say(\"Hell yeah! THe pumping is complete\", \"phm\")
+	var state = s(\"pumpB\")
+	s(\"pumpB\", not state)
+	say(\"Hell yeah! the pump has sent the water %s.\" % \"up\" if state else \"down\", \"phm\")
 	
 	"
 

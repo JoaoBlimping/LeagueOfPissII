@@ -8,7 +8,10 @@
 script/source = "extends \"res://adventures/room.gd\"
 
 func back():
-	move(\"pipe/pipeLowStart\")"
+	move(\"pipe/pipeLowStart\")
+
+func door():
+	move(\"pipe/cleanEntrance\")"
 
 [node name="room" type="Node2D" index="0"]
 
@@ -47,6 +50,28 @@ deathSelfSwitch = null
 
 build_mode = 0
 polygon = PoolVector2Array( -0.438202, 602.541, 1030.73, 597.099, 1037.53, 545.405, -22.2042, 548.126 )
+
+[node name="door" type="Area2D" parent="actives" index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/door" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 209.011, 359.666, 275.334, 234.556, 415.517, 162.204, 557.207, 168.233, 688.346, 275.254, 716.985, 358.158, 460.737, 370.217 )
 
 [node name="gui" type="Node2D" parent="." index="2"]
 

@@ -14,6 +14,7 @@ onready var player = get_node(\"../player\")
 func itinerary():
 	naming(\"Mother Fish\")
 	$animation.play(\"swim\")
+	yield(animateLevel(\"entrance\"), C)
 	yield(flirt1(), C)
 	yield(swirl(), C)
 	yield(flirt2(), C)

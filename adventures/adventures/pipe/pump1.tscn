@@ -15,17 +15,21 @@ func door():
 	move(\"pipe/firstFloor\")
 
 func pump():
-	yield(say(\"you must press the glomp button to keep the pump under CONTROL\"), C)
-	var success = yield(puzzle(\"pump\"), C)
-	if (success):
-		sound.sample(\"slurp\")
-		s(\"pumpA\",true)
-		say(\"good\")
+	if (s(\"pumpB\")):
+		say(\"THe pipe does not reach the water level at the moment\")
 	else:
-		yield(say(\"NO AAAAAHHHAH the pump is fucking up dammn it\"), C)
-		yield(battle(\"nature/splash\"), C)
-		s(\"pumpA\",true)
-		say(\"Despite the spray it seemed to work. Good Shit!\", \"phm\")
+		yield(say(\"you must press the glomp button to keep the pump under CONTROL\"), C)
+		var success = yield(puzzle(\"pump\"), C)
+		var state = s(\"pumpA\")
+		if (success):
+			sound.sample(\"slurp\")
+			s(\"pumpA\", not state)
+			say(\"good the pump has sent the water %s.\" % \"up\" if state else \"down\")
+		else:
+			yield(say(\"NO AAAAAHHHAH the pump is fucking up dammn it\"), C)
+			yield(battle(\"nature/splash\"), C)
+			s(\"pumpA\", not state)
+			say(\"Despite the spray it seemed to work. Good Shit!\", \"phm\")
 	
 	"
 
@@ -120,10 +124,6 @@ polygon = PoolVector2Array( 832.503, 234.391, 927.794, 203.366, 939.982, 500.32,
 [node name="phm" parent="actives" index="3" instance=ExtResource( 3 )]
 
 position = Vector2( -111.332, 368.077 )
-audio_bus_override = false
-audio_bus_name = "Master"
-birthSelfSwitch = null
-deathSelfSwitch = null
 
 [node name="gui" type="Node2D" parent="." index="2"]
 

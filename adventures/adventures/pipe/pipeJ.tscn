@@ -94,7 +94,7 @@ script = ExtResource( 2 )
 realName = "AIIIIIIEEEEEEEEE"
 pointer = "move"
 birthSwitch = null
-deathSwitch = "pumpA"
+deathSwitch = "pumpA | pumpB"
 birthSelfSwitch = null
 deathSelfSwitch = null
 
@@ -111,10 +111,6 @@ polygon = PoolVector2Array( -217.304, 3.25806, -181.284, 34.132, -54.8481, 48.09
 [node name="aini" parent="actives" index="3" instance=ExtResource( 4 )]
 
 position = Vector2( -146.017, 229.096 )
-audio_bus_override = false
-audio_bus_name = "Master"
-birthSelfSwitch = null
-deathSelfSwitch = null
 
 [node name="gui" type="Node2D" parent="." index="2"]
 

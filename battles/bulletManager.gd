@@ -16,7 +16,6 @@ func _process(delta):
 	for bullet in bullets:
 		var pos = bullet.position
 		bullet.position += bullet.velocity * delta
-		bullet.rotation += bullet.rotation * delta
 		bullet.velocity += bullet.acceleration * delta
 		if (!lifeRect.has_point(pos)):
 			if (!bullet.is_in_group("power") || !(pos < screen)):

@@ -1,16 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://pics/backgrounds/pipe/platform.png" type="Texture" id=1]
 [ext_resource path="res://adventures/characters/aini.tscn" type="PackedScene" id=2]
 [ext_resource path="res://adventures/characters/phm.tscn" type="PackedScene" id=3]
 [ext_resource path="res://adventures/thing.gd" type="Script" id=4]
-[ext_resource path="res://pics/backgrounds/pipe/containers.png" type="Texture" id=5]
-[ext_resource path="res://adventures/multiItem.gd" type="Script" id=6]
-[ext_resource path="res://adventures/item.gd" type="Script" id=7]
-[ext_resource path="res://pics/items/hook.png" type="Texture" id=8]
-[ext_resource path="res://pics/items/hookDownHole.png" type="Texture" id=9]
-[ext_resource path="res://pics/items/hookOnMagnet.png" type="Texture" id=10]
-[ext_resource path="res://pics/items/hookOnBoat.png" type="Texture" id=11]
+[ext_resource path="res://pics/items/topBoat.png" type="Texture" id=5]
+[ext_resource path="res://pics/backgrounds/pipe/containers.png" type="Texture" id=6]
+[ext_resource path="res://adventures/multiItem.gd" type="Script" id=7]
+[ext_resource path="res://adventures/item.gd" type="Script" id=8]
+[ext_resource path="res://pics/items/hook.png" type="Texture" id=9]
+[ext_resource path="res://pics/items/hookDownHole.png" type="Texture" id=10]
+[ext_resource path="res://pics/items/hookOnMagnet.png" type="Texture" id=11]
+[ext_resource path="res://pics/items/hookOnBoat.png" type="Texture" id=12]
+[ext_resource path="res://pics/items/hookDownChimney.png" type="Texture" id=13]
 
 [sub_resource type="GDScript" id=1]
 
@@ -30,15 +32,38 @@ func magnet():
 	\"phm\")
 
 func pit():
-	say(\"\"\"I don't think we're going to be going down there until the containers
-	are cleared away haha\"\"\", \"phm\")
+	if (ss(\"containersClear\")):
+		if (ss(\"beatFish\")):
+			move(\"pipe/firstFloor\")
+		else:
+			say(\"\"\"There is still something stuck down in the pipe, mate\"\"\", \"phm\")
+	else:
+		say(\"\"\"I don't think we're going to be going down there until the containers
+		are cleared away haha\"\"\", \"phm\")
 
 func containers():
 	yield(say(\"What the hell is this mess? People can't even get in or out.\", \"phm\"), C)
-	say(\"I hope everybody is ok down there..\", \"aini\")
+	yield(say(\"I hope everybody is ok down there..\", \"aini\"), C)
+
+func door():
+	if (ss(\"gotKey\")):
+		yield(say(\"There isn't anything else about this kiosk\", \"aini\"), C)
+	else:
+		yield(say(\"hmmm the joint seems deserted\", \"phm\"), C)
+		yield(say(\"Hey they left out the keys to the crane, they could be handy\", \"aini\"), C)
+		yield(say(\"bloody hell nice\", \"phm\"), C)
+		global.addToInventory(\"craneKey\")
+		ss(\"gotKey\", true)
 
 func pipe():
 	move(\"pipe/pipeA\")
+
+func crane():
+	say(\"We need THE key to make the crain activate\", \"phm\")
+	
+func smallPipe():
+	yield(say(\"Hey you can see somebody down in the kitchen through here.\", \"aini\"), C)
+	yield(say(\"This guy has the kind of stench you can see.\", \"aini\"), C)
 
 
 func aini_craneHook():
@@ -51,18 +76,57 @@ func phm_craneHook():
 
 func magnet_craneHook():
 	s(\"hookOnMagnet\", true)
-	#var success = yield(puzzle(\"crain\"), C)
-	#if (success):
-	#	ss(\"containersClear\", true)
-	#	get_node(\"actives/containers\").queue_free()
-	#else: say(\"no\")
 
 func containers_craneHook():
 	say(\"There's nothing to hook it onto\", \"phm\")
 	return true
 
 func boat_craneHook():
-	s(\"hookOnBoat\", true)"
+	s(\"hookOnBoat\", true)
+
+func chimney_craneHook():
+	s(\"hookDownChimney\", true)
+
+func pit_craneHook():
+	if (ss(\"containersClear\")):
+		s(\"hookDownHole\", true)
+	else:
+		say(\"no\")
+		return true
+
+func crane_craneKey():
+	sound.sample(\"crane\")
+	if (s(\"hookOnMagnet\")):
+		if (ss(\"containersClear\")):
+			say(\"John, we've already cleared the containers haha\", \"aini\")
+		else:
+			var success = yield(puzzle(\"crain\"), C)
+			if (success):
+				ss(\"containersClear\", true)
+				refresh()
+			else: say(\"no\")
+	elif (s(\"hookOnBoat\")):
+		s(\"boatDownHole\", true)
+		s(\"hookOnBoat\", false)
+		refresh()
+	elif (s(\"hookDownHole\")):
+		if (ss(\"beatFish\")):
+			get_node(\"actives/craneHook\").revert()
+			say(\"Guess it didn't catch on anything\", \"phm\")
+		else:
+			yield(say(\"WoooooooooaAAAAAAAAAA there's something coming out OF the pipe!\", \"aini\"), C)
+			yield(battle(\"fish\"), C)
+			ss(\"beatFish\", true)
+			get_node(\"actives/craneHook\").revert()
+			yield(say(\"Hell yeah, now that's a nice catch\", \"phm\"), C)
+	elif (s(\"hookDownChimney\")):
+		if (s(\"hookOnPlug\")):
+			say(\"pulling plug now\")
+		else:
+			get_node(\"actives/craneHook\").revert()
+			say(\"Guess it didn't catch on anything\", \"phm\")
+	else:
+		say(\"It's not attached to anything haha, it better not flick back it me\", \"aini\")"
 
 [node name="room" type="Node2D" index="0"]
 
@@ -97,7 +161,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="boat" type="Area2D" parent="actives" index="2"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -109,7 +172,7 @@ script = ExtResource( 4 )
 realName = "BOAT"
 pointer = "move"
 birthSwitch = null
-deathSwitch = null
+deathSwitch = "boatDownHole"
 birthSelfSwitch = null
 deathSelfSwitch = null
 
@@ -117,6 +180,12 @@ deathSelfSwitch = null
 
 build_mode = 0
 polygon = PoolVector2Array( 588.81, 408.904, 592.753, 389.904, 577.338, 331.112, 619.998, 354.414, 630.035, 332.905, 652.262, 368.754, 654.771, 406.753, 700.657, 410.696, 570.885, 411.772 )
+
+[node name="Sprite" type="Sprite" parent="actives/boat" index="1"]
+
+texture = ExtResource( 5 )
+centered = false
+_sections_unfolded = [ "Offset" ]
 
 [node name="door" type="Area2D" parent="actives" index="3"]
 
@@ -162,7 +231,7 @@ deathSelfSwitch = null
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/pit" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 193, 600, 194, 469, 363, 448, 564, 447, 773.001, 452, 986.001, 483, 1041, 504, 1028, 579, 949.001, 604 )
+polygon = PoolVector2Array( 193, 600, 194, 469, 363, 448, 564, 447, 773.001, 452, 986.001, 483, 1041, 504, 1028, 579, 949.001, 604, 892.822, 603.703, 890.677, 553.056, 879.564, 549.112, 865.941, 548.037, 850.168, 550.188, 840.489, 553.773, 840.484, 603.426 )
 
 [node name="containers" type="Area2D" parent="actives" index="5"]
 
@@ -175,6 +244,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 realName = "AIIIIIIEEEEEEEEE"
 pointer = "move"
 birthSwitch = null
@@ -185,13 +255,13 @@ deathSelfSwitch = "containersClear"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/containers" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 193, 593, 195, 466, 263, 455, 263, 392, 388, 391, 541.001, 409, 542.001, 446, 544.001, 482, 667.001, 481, 889.001, 492, 924.001, 509, 927.001, 380, 1029, 382, 1029, 575, 940.001, 606, 192, 604 )
+polygon = PoolVector2Array( 774.075, 602.032, 771.373, 538.81, 797.31, 533.406, 827.03, 539.35, 829.732, 547.996, 828.111, 599.871, 962.121, 600.411, 1025.34, 582.579, 1024.26, 382.105, 926.997, 381.565, 929.158, 510.711, 875.663, 493.96, 772.454, 500.444, 771.373, 484.234, 667.084, 480.451, 637.904, 500.985, 636.823, 494.5, 603.321, 477.749, 539.558, 482.613, 541.72, 406.422, 392.04, 390.751, 260.732, 397.236, 261.273, 499.364, 193.187, 516.115, 192.647, 603.653 )
 
 [node name="Sprite" type="Sprite" parent="actives/containers" index="1"]
 
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 centered = false
-_sections_unfolded = [ "Offset" ]
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="pipe" type="Area2D" parent="actives" index="6"]
 
@@ -216,7 +286,30 @@ deathSelfSwitch = null
 build_mode = 0
 polygon = PoolVector2Array( 93, 465, 138, 470, 175, 469, 196, 459, 147, 453, 101, 458 )
 
-[node name="crain" type="Area2D" parent="actives" index="7"]
+[node name="chimney" type="Area2D" parent="actives" index="7"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "talk"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/chimney" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 773.149, 542.09, 799.355, 548.56, 823.943, 544.678, 822.973, 540.795, 804.531, 536.913, 783.178, 536.913 )
+
+[node name="crane" type="Area2D" parent="actives" index="8"]
 
 editor/display_folded = true
 input_pickable = true
@@ -234,12 +327,12 @@ deathSwitch = null
 birthSelfSwitch = null
 deathSelfSwitch = null
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/crain" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/crane" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( 759.001, 405, 758.001, 340, 886.001, 330, 887.001, 293, 921.001, 235, 959.001, 95.9999, 855.001, 160, 883.001, 238, 737.001, 332, 737.001, 406 )
 
-[node name="magnet" type="Area2D" parent="actives" index="8"]
+[node name="magnet" type="Area2D" parent="actives" index="9"]
 
 editor/display_folded = true
 input_pickable = true
@@ -262,11 +355,11 @@ deathSelfSwitch = null
 build_mode = 0
 polygon = PoolVector2Array( 801.103, 432.933, 816.557, 421.128, 819.562, 401.595, 833.299, 400.737, 842.099, 423.918, 857.338, 436.152, 829.221, 436.796 )
 
-[node name="hooker" type="Node2D" parent="actives" index="9"]
+[node name="craneHook" type="Node2D" parent="actives" index="10"]
 
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="default" type="Area2D" parent="actives/hooker" index="0"]
+[node name="default" type="Area2D" parent="actives/craneHook" index="0"]
 
 editor/display_folded = true
 input_pickable = true
@@ -276,7 +369,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 realName = "craneHook"
 pointer = "move"
 birthSwitch = null
@@ -284,24 +377,24 @@ deathSwitch = null
 birthSelfSwitch = null
 deathSelfSwitch = null
 
-[node name="shape" type="CollisionPolygon2D" parent="actives/hooker/default" index="0"]
+[node name="shape" type="CollisionPolygon2D" parent="actives/craneHook/default" index="0"]
 
 position = Vector2( 901.124, 280.75 )
 build_mode = 0
 polygon = PoolVector2Array( -10.6281, 150.469, 10.2928, 179.332, 22.1093, 171.003, -5.97894, 148.532 )
 
-[node name="sprite" type="Sprite" parent="actives/hooker/default" index="1"]
+[node name="sprite" type="Sprite" parent="actives/craneHook/default" index="1"]
 
 position = Vector2( 901.124, 280.75 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Offset" ]
 
-[node name="hookDownHole" type="Sprite" parent="actives/hooker" index="1"]
+[node name="hookDownHole" type="Sprite" parent="actives/craneHook" index="1"]
 
 position = Vector2( 781.296, 332.821 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
-[node name="hookOnMagnet" type="Area2D" parent="actives/hooker" index="2"]
+[node name="hookOnMagnet" type="Area2D" parent="actives/craneHook" index="2"]
 
 editor/display_folded = true
 input_pickable = true
@@ -311,7 +404,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 realName = "craneHook"
 pointer = "move"
 birthSwitch = null
@@ -319,18 +412,18 @@ deathSwitch = null
 birthSelfSwitch = null
 deathSelfSwitch = null
 
-[node name="sprite" type="Sprite" parent="actives/hooker/hookOnMagnet" index="0"]
+[node name="sprite" type="Sprite" parent="actives/craneHook/hookOnMagnet" index="0"]
 
 position = Vector2( 897.549, 247.115 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
-[node name="shape" type="CollisionPolygon2D" parent="actives/hooker/hookOnMagnet" index="1"]
+[node name="shape" type="CollisionPolygon2D" parent="actives/craneHook/hookOnMagnet" index="1"]
 
 position = Vector2( 897.549, 247.115 )
 build_mode = 0
 polygon = PoolVector2Array( -71.0365, 150.649, -73.5997, 153.497, -72.0333, 158.48, -62.3503, 158.338, -46.8292, 143.386, -54.0914, 139.542, -65.1983, 155.775, -69.6125, 155.775 )
 
-[node name="hookOnBoat" type="Area2D" parent="actives/hooker" index="3"]
+[node name="hookOnBoat" type="Area2D" parent="actives/craneHook" index="3"]
 
 editor/display_folded = true
 input_pickable = true
@@ -340,7 +433,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 realName = "craneHook"
 pointer = "move"
 birthSwitch = null
@@ -348,16 +441,21 @@ deathSwitch = null
 birthSelfSwitch = null
 deathSelfSwitch = null
 
-[node name="sprite" type="Sprite" parent="actives/hooker/hookOnBoat" index="0"]
+[node name="sprite" type="Sprite" parent="actives/craneHook/hookOnBoat" index="0"]
 
 position = Vector2( 797.469, 223.196 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/hooker/hookOnBoat" index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/craneHook/hookOnBoat" index="1"]
 
 position = Vector2( 797.469, 223.196 )
 build_mode = 0
 polygon = PoolVector2Array( -149.276, 155.648, -147.523, 170.863, -154.141, 171.994, -153.914, 165.885 )
+
+[node name="hookDownChimney" type="Sprite" parent="actives/craneHook" index="4"]
+
+position = Vector2( 841.865, 294.829 )
+texture = ExtResource( 13 )
 
 [node name="gui" type="Node2D" parent="." index="2"]
 
