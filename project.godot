@@ -15,7 +15,7 @@ run/main_scene="res://menus/splash.tscn"
 boot_splash/image="res://splash.png"
 boot_splash/bg_color=Color( 1, 0, 0, 1 )
 config/icon="res://icon.png"
-boot_bg_color=Color( 0.376471, 0.764706, 0.611765, 1 )
+boot_bg_color=Color( 1, 0, 0, 1 )
 boot_splash="res://banner.png"
 config/main_scene="Null"
 
@@ -59,4 +59,7 @@ ui_down=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"
 
 [rendering]
 
+quality/intended_usage/framebuffer_mode=1
+quality/intended_usage/framebuffer_allocation=1
+quality/filters/anisotropic_filter_level=1
 viewport/default_clear_color=Color( 0.32549, 0.352941, 0.360784, 1 )

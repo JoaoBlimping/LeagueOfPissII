@@ -14,7 +14,7 @@
     {
       "type": "distribution",
       "n": 11,
-      "radius": 70,
+      "radius": 35,
       "actions": [{"type": "distribution", "n": 12, "radius": 4, "actions": [{"mob": "bomb"}]}]
      },
 

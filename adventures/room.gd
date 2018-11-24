@@ -26,6 +26,9 @@ var gui = false
 var caller = null
 var value = null
 
+"""
+" @override Node.
+"""
 func _ready():
 	set_process_input(true)
 	global.resetMouse()
@@ -36,17 +39,22 @@ func _ready():
 	add_child(guiNode)
 	if (has_method("start")): start()
 
-func run(code,owner):
+"""
+" Runs a function belonging to the room.
+" @param code is the name of the function to run.
+" @param owner is the thing you clicked on I thnk.
+"""
+func run(code, owner):
 	caller = owner
 	if (item == null):
 		if (has_method(code)): call(code)
-		else: print("uhoh missing function %s" % code)
+		else: printerr("uhoh missing function %s" % code)
 	else:
-		var itemCode = "%s_%s" % [code,item]
+		var itemCode = "%s_%s" % [code, item]
 		var allCode = "%s_" % code
 		if (has_method(itemCode)):
 			var saveItem = call(itemCode)
-			if (global.itemProperty(item,"dispose") and not saveItem):
+			if (global.itemProperty(item, "dispose") and not saveItem):
 				global.removeFromInventory(item)
 		elif (has_method(allCode)):
 			call(allCode,item)
@@ -54,31 +62,58 @@ func run(code,owner):
 		item = null
 		get_node("itemSprite").queue_free()
 
-func getActive(name):
-	if (name != null):
-		return get_node("actives/%s" % name)
+"""
+" gives you the character with the given code name.
+" @param name is the name of the character within the scene tree.
+" @return named character or the active character if no name given.
+"""
+func getActive(name=null):
+	if (name): return get_node("actives/%s" % name)
 	return caller
 
+"""
+" Attaches an item to the mouse cursor so that it can be used.
+" @param name is the name of the item we will be using hell yeah.
+"""
 func useItem(name):
 	item = name
 	var ib = itemSprite.instance()
 	ib.set_texture(repository.items[name].texture)
 	add_child(ib)
 	
-################################################################################
-######################## Functions for using in script #########################
-################################################################################
+"""
+" Sets or gets a switch.
+" @param name is the name of the switch (or switch expression if no change).
+" @param change is the value to set the given switch to or null for no change.
+" @return the current value of the switch.
+"""
 func s(name,change=null):
 	if (change == null): return global.getSwitch(name)
 	global.setSwitch(name,change)
+	return change
 
+"""
+" Sets or gets a self switch.
+" TODO: this does not currently work with switch expressions.
+" @param name is the name of the switch (or switch expression if no change).
+" @param change is the value to set the given switch to or null for no change.
+" @return the current value of the self switch.
+"""
 func ss(name,change=null):
 	if (!global.state["area"]): return false
 	return s(global.state["area"] + ":" + name,change)
 
+"""
+" Goes into a given room. It's shorthand for global.enterAdventure(map)
+"""
 func move(map):
 	global.enterAdventure(map)
 
+"""
+" Put a given character in a given pose.
+" @param n is the code number of the pose for them to do.
+" @param name is the name of the character and it defaults the active character.
+"""
 func pose(n,name = null):
 	var owner = getActive(name)
 	if (owner != null): owner.get_node("sprite").set_frame(n)
