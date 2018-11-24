@@ -13,14 +13,14 @@ var hurting = -1
 
 
 func _ready():
-	health = global.health if global.health < 3 else 3
+	health = global.state["health"] if global.state["health"] < 3 else 3
 
 
 func hit(body):
 	if (body.is_in_group("power")): body.position = dispenser.global_position
 	elif (hurting < 0):
 		if (.hit(body)):
-			global.health -= 1
+			global.state["health"] -= 1
 			sound.sample("ow")
 			hurting = 1
 			modulate.a = 0.2

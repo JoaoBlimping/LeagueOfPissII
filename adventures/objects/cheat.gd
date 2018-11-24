@@ -6,11 +6,11 @@ var TRUE = preload("res://pics/true.png")
 var FALSE = preload("res://pics/false.png")
 
 func _ready():
-	for s in global.switches:
+	for s in global.state["switches"]:
 		$switches.add_item(s, TRUE if global.getSwitch(s) else FALSE)
 
 func close():
-	global.enterAdventure(global.area)
+	global.enterAdventure(global.state["area"])
 
 func add():
 	if ($text.text != "" and not global.hasSwitch($text.text)):
@@ -27,6 +27,6 @@ func flip(index):
 	
 
 func room():
-	$text.text = "%s:" % global.area
+	$text.text = "%s:" % global.state["area"]
 	$text.grab_focus()
 	$text.caret_position = $text.text.length()

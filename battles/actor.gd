@@ -18,7 +18,7 @@ var velocity = Vector2(0,0)
 var strafing = false
 var health = 1
 var bounds = Rect2(256,0,512,600)
-var timer
+var timer = Timer.new()
 var healthBox
 
 
@@ -26,7 +26,6 @@ var healthBox
 func _ready():
 	set_process(true)
 	if ($hitbox): $hitbox.connect("area_entered",self,"hit")
-	timer = Timer.new()
 	add_child(timer)
 	yield(get_tree(), "idle_frame")
 	yield(itinerary(), C)

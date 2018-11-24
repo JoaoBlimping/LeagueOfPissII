@@ -1,6 +1,6 @@
 extends Sprite
 
-onready var things = get_node("../../things")
+onready var things = get_node("../../../things")
 onready var start = things.cameraPosition
 
 

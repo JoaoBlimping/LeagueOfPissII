@@ -1,0 +1,9 @@
+{
+  "redJellyfish": {"script": "jellyfish", "voice": "mlep", "battle": true, "params": {"speed": 1}},
+  "purpleJellyfish": {"script": "jellyfish", "voice": "miip", "battle": true, "params": {"speed": 4}},
+  "albatross": {"script": "bird", "passable": true},
+  "pipeWall": {},
+  "pipeWall": {},
+  "mangrove": {},
+  "island": {}
+}

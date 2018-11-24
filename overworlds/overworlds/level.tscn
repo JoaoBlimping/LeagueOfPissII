@@ -1,33 +1,43 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://overworlds/level.gd" type="Script" id=1]
 [ext_resource path="res://shaders/ocean.shader" type="Shader" id=2]
 [ext_resource path="res://pics/backgrounds/sky.png" type="Texture" id=3]
 [ext_resource path="res://pics/backgrounds/horizon.png" type="Texture" id=4]
-[ext_resource path="res://pics/backgrounds/clouds.png" type="Texture" id=5]
+[ext_resource path="res://pics/backgrounds/nightHorizon.png" type="Texture" id=5]
 [ext_resource path="res://overworlds/moverManager.gd" type="Script" id=6]
-[ext_resource path="res://overworlds/mobs/squid.tscn" type="PackedScene" id=7]
-[ext_resource path="res://overworlds/mobs/bird.tscn" type="PackedScene" id=8]
-[ext_resource path="res://pics/sextant.png" type="Texture" id=9]
-[ext_resource path="res://pics/hud.png" type="Texture" id=10]
-[ext_resource path="res://pics/compass.png" type="Texture" id=11]
-[ext_resource path="res://overworlds/compass.gd" type="Script" id=12]
-[ext_resource path="res://pics/ticker.png" type="Texture" id=13]
-[ext_resource path="res://overworlds/ticker.gd" type="Script" id=14]
-[ext_resource path="res://pics/distance.png" type="Texture" id=15]
-[ext_resource path="res://overworlds/distance.gd" type="Script" id=16]
-[ext_resource path="res://sounds/bump.wav" type="AudioStream" id=17]
+[ext_resource path="res://pics/sextant.png" type="Texture" id=7]
+[ext_resource path="res://pics/hud.png" type="Texture" id=8]
+[ext_resource path="res://pics/compass.png" type="Texture" id=9]
+[ext_resource path="res://overworlds/compass.gd" type="Script" id=10]
+[ext_resource path="res://pics/ticker.png" type="Texture" id=11]
+[ext_resource path="res://overworlds/ticker.gd" type="Script" id=12]
+[ext_resource path="res://pics/distance.png" type="Texture" id=13]
+[ext_resource path="res://overworlds/distance.gd" type="Script" id=14]
+[ext_resource path="res://fonts/boecklins.ttf" type="DynamicFontData" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
 
 render_priority = 0
 shader = ExtResource( 2 )
+shader_param/skyHeight = null
+shader_param/waterDrift = null
+shader_param/skyDrift = null
 shader_param/angle = null
 shader_param/pos = Vector2( 0, 0 )
 shader_param/sky = ExtResource( 3 )
+shader_param/water = ExtResource( 4 )
 _sections_unfolded = [ "shader_param" ]
 
-[node name="level" type="Node2D"]
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 15 )
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
+
+[node name="level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material" ]
@@ -38,7 +48,7 @@ __meta__ = {
 [node name="ground" type="Sprite" parent="." index="0"]
 
 material = SubResource( 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 600 )
@@ -47,95 +57,91 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="clouds" type="Sprite" parent="ground" index="0"]
-
-visible = false
-texture = ExtResource( 5 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 600 )
-_sections_unfolded = [ "Offset", "Region" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="things" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
 z_as_relative = false
 script = ExtResource( 6 )
 _sections_unfolded = [ "Z Index" ]
-
-[node name="squid" parent="things" index="0" instance=ExtResource( 7 )]
-
-position = Vector2( -286.145, 418.63 )
-
-[node name="bird" parent="things" index="1" instance=ExtResource( 8 )]
-
-position = Vector2( -497.022, 409.563 )
-
-[node name="bird2" parent="things" index="2" instance=ExtResource( 8 )]
-
-position = Vector2( -499.477, 273.284 )
 
 [node name="sextant" type="Sprite" parent="." index="2"]
 
 visible = false
 position = Vector2( 512, 163.69 )
 z_index = 1000
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
-[node name="hud" type="Sprite" parent="." index="3"]
+[node name="hud" type="CanvasLayer" parent="." index="3"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="hud" type="Sprite" parent="hud" index="0"]
 
 position = Vector2( 212, 418 )
-z_index = 1000
-texture = ExtResource( 10 )
+texture = ExtResource( 8 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="compass" type="Sprite" parent="hud" index="0"]
+[node name="compass" type="Sprite" parent="hud/hud" index="0"]
 
 position = Vector2( 282.881, 108.231 )
-texture = ExtResource( 11 )
+texture = ExtResource( 9 )
 offset = Vector2( 0.146576, -9.88095 )
-script = ExtResource( 12 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Offset", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ticker" type="Sprite" parent="hud" index="1"]
+[node name="ticker" type="Sprite" parent="hud/hud" index="1"]
 
 position = Vector2( 380.393, 104.526 )
 rotation = 0.00239379
-texture = ExtResource( 13 )
+texture = ExtResource( 11 )
 offset = Vector2( 0.28833, -12.0534 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="distance" type="Sprite" parent="hud/hud" index="2"]
+
+position = Vector2( 195.557, 101.286 )
+texture = ExtResource( 13 )
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="distance" type="Sprite" parent="hud" index="2"]
+[node name="song" type="Label" parent="hud" index="1"]
 
-position = Vector2( 195.557, 101.286 )
-texture = ExtResource( 15 )
-script = ExtResource( 16 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="sound" type="AudioStreamPlayer" parent="." index="4"]
-
-stream = ExtResource( 17 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-_sections_unfolded = [ "Pause" ]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 570.0
+margin_right = 422.0
+margin_bottom = 599.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Bongo Mix - by Dany Burton"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme", "custom_colors", "custom_fonts" ]
 
 

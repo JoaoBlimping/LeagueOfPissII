@@ -1,10 +1,7 @@
 extends "../mover.gd"
 
-
-var timer = 0
-
-
-func _process(delta):
-	timer += delta * (randf() - 0.5)
-	realVelocity.x = 2
-	realVelocity.y = 2
+func control():
+	while (true):
+		realVelocity.x = randf() * 3 - 1.5
+		realVelocity.y = randf() * 3 - 1.5
+		yield(tick(0.5), "completed")
