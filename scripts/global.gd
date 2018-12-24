@@ -4,7 +4,7 @@ signal switch_set
 
 onready var switchParser = preload("res://scripts/switchParser.gd")
 
-var state = {}
+var state = {"health": 3, "reserve": 1, "switches":{}}
 var saveFile
 var ocean = null
 var point = null

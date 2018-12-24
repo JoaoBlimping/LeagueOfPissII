@@ -27,16 +27,43 @@ func close(ended=false):
 	if (ended): room.gui = false
 	queue_free()
 
-func press(item):
+"""
+" Called when an item is selected in the inventory.
+" Has to handle three circumstances: normal items, items that are used within
+" the inventory, and the merging of two items within the inventory.
+"""
+func press(held):
 	room.gui = false
-	if (global.itemProperty(item,"use")):
-		if (!room.has_node(item)):
-			var node = thing.new()
-			node.realName = item
-			room.add_child(node)
-			room.run(item,node)
-		else:
-			room.run(item,get_node(item))
-	else:
-		room.useItem(item)
+	# add speaker to the room for the item.
+	var actives = room.get_node("actives")
+	if (!actives.has_node(held+"_item")):
+		var node = thing.new()
+		node.realName = held
+		node.name = held+"_item"
+		actives.add_child(node)
+	# if user is trying to merge two items.
+	if (room.item):
+		var new = null;
+		if (repository.items[room.item].has("merge")):
+			if (repository.items[room.item]["merge"].has(held)):
+				new = repository.items[room.item]["merge"][held]
+		elif (repository.items[held].has("merge")):
+			if (repository.items[held]["merge"].has(room.item)):
+				new = repository.items[held]["merge"][room.item]
+		if (new):
+			global.addToInventory(new)
+			global.removeFromInventory(held)
+			global.removeFromInventory(room.item)
+			room.say(
+				"%s and %s merged into... %s!!!" % [held, room.item, new],
+				"_god_"
+			)
+		else: room.say(
+			"%s and %s cannot be merged sorry." % [held, room.item],
+			"_god_"
+		)
+		room.removeItem()
+	# user is just getting an item like normal
+	elif (global.itemProperty(held, "use")): room.run(held, held+"_item")
+	else: room.useItem(held)
 	close()

@@ -3,9 +3,8 @@
 	"quit": {"description": "exit to the menu", "use": true},
 	"cheat": {"description": "Lets you set switches and shit hell yeah", "use": true},
 	"tapeCollection": {"description": "Bag of tapes for the Boat's tape player.", "use": true},
-	"grease": {"description": "Hell yeah it's the grease", "dispose": true},
 	"craneHook": {"description": "Still attached to the crane by a wire, can be hooked on stuff", "dispose": true},
 	"craneKey": {"description": "The key to the Pipe City Crane"},
 	"cleanerKey": {"description": "Pipe City Cleaner's Key."},
-	"fish": {"description": "A nice damp FIshe.", "stack": true, "dispose": true}
+	"fish": {"description": "A nice damp FIshe.", "stack": true, "dispose": true, "merge": {"craneKey": "cleanerKey"}}
 }

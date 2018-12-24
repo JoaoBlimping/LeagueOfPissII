@@ -148,6 +148,7 @@ __meta__ = {
 
 [node name="actives" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -486,12 +487,6 @@ deathSelfSwitch = null
 build_mode = 0
 polygon = PoolVector2Array( 397.679, 246.619, 394.443, 294.825, 410.943, 302.267, 421.944, 230.118, 403.179, 232.383 )
 
-[node name="gui" type="Node2D" parent="." index="2"]
-
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="puzzle" type="Node2D" parent="." index="3"]
+[node name="puzzle" type="Node2D" parent="." index="2"]
 
 

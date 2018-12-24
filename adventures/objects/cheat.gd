@@ -8,6 +8,8 @@ var FALSE = preload("res://pics/false.png")
 func _ready():
 	for s in global.state["switches"]:
 		$switches.add_item(s, TRUE if global.getSwitch(s) else FALSE)
+	for i in range(global.state["switches"].size()):
+		$switches.set_item_tooltip_enabled(i, false)
 
 func close():
 	global.enterAdventure(global.state["area"])
@@ -30,3 +32,9 @@ func room():
 	$text.text = "%s:" % global.state["area"]
 	$text.grab_focus()
 	$text.caret_position = $text.text.length()
+
+
+func addItem():
+	if ($inventory/text.text != ""):
+		global.addToInventory($inventory/text.text)
+		$inventory/text.text = ""

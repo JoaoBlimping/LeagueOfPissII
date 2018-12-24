@@ -1,13 +1,13 @@
 extends Node
 
 onready var itemSprite = preload("res://adventures/objects/itemSprite.tscn")
-onready var animator = preload("animator.gd").new(self)
 onready var textbox = preload("res://adventures/objects/textbox.tscn")
 onready var question = preload("res://adventures/objects/question.tscn")
 onready var cheatbox = preload("res://adventures/objects/cheat.tscn")
 onready var bag = preload("res://adventures/objects/bag.tscn")
 onready var transition = preload("res://adventures/objects/transition.tscn")
 onready var fader = preload("res://adventures/objects/fade.tscn")
+onready var thing = preload("res://adventures/thing.gd")
 
 const NORMAL = 0
 const ANGRY = 1
@@ -37,6 +37,10 @@ func _ready():
 	guiNode = Node2D.new()
 	guiNode.set_name("gui")
 	add_child(guiNode)
+	var node = thing.new()
+	node.realName = "SYSTEME"
+	node.name = "_god_"
+	$actives.add_child(node)
 	if (has_method("start")): start()
 
 """
@@ -59,8 +63,25 @@ func run(code, owner):
 		elif (has_method(allCode)):
 			call(allCode,item)
 		else: say("%s does nothing here" % item)
-		item = null
-		get_node("itemSprite").queue_free()
+		removeItem()
+
+"""
+" Runs an animation on an animator, and then returns the animator so you can
+" yield on it.
+" @param AnimationPlayer animator is the animator object to play the animation.
+" @param String animation is the name of the animation.
+" @return AnimationPlayer the same animator you passed in.
+"""
+func anim(animator, animation):
+	animator.play(animation)
+	return animator
+
+"""
+" Takes the item off the mouse and out of current usage.
+"""
+func removeItem():
+	item = null
+	get_node("itemSprite").queue_free()
 
 """
 " gives you the character with the given code name.
@@ -80,7 +101,7 @@ func useItem(name):
 	var ib = itemSprite.instance()
 	ib.set_texture(repository.items[name].texture)
 	add_child(ib)
-	
+
 """
 " Sets or gets a switch.
 " @param name is the name of the switch (or switch expression if no change).
@@ -95,9 +116,9 @@ func s(name,change=null):
 """
 " Sets or gets a self switch.
 " TODO: this does not currently work with switch expressions.
-" @param name is the name of the switch (or switch expression if no change).
-" @param change is the value to set the given switch to or null for no change.
-" @return the current value of the self switch.
+" @param String name is name of the switch or switch expression if no change.
+" @param boolean change is value to set the given switch to or null for same.
+" @return boolean the current value of the self switch.
 """
 func ss(name,change=null):
 	if (!global.state["area"]): return false
@@ -105,6 +126,7 @@ func ss(name,change=null):
 
 """
 " Goes into a given room. It's shorthand for global.enterAdventure(map)
+" @param String map is the map to go to.
 """
 func move(map):
 	global.enterAdventure(map)
@@ -121,9 +143,9 @@ func pose(n,name = null):
 """
 " display a text box and optionally set a name on the top of the box and make
 " a character pull a pose. It yields until the user closes the box.
-" @param text is the text to put in the box.
-" @param name is the optional name of a character to ascribe the box to
-" @param face is the optional pose to make named character pull.
+" @param String text is the text to put in the box.
+" @param String name is the optional name of a character to ascribe the box to.
+" @param int face is the optional pose to make named character pull.
 """
 func say(text,name = null,face = null):
 	var ib = textbox.instance()
@@ -169,16 +191,6 @@ func ask(text,a1,a2,name = null,a3 = null,a4 = null):
 	guiNode.add_child(ib)
 	gui = true
 	yield(ib, "said")
-
-"""
-" This animates the level a bit. TODO: This should be pretty much removed or
-" refactored because it does not use the function yielding system and is an ugly
-" mess.
-" @param anim is the name of the animation to play.
-" @return the animator node so you can yield on it.
-"""
-func animate(anim):
-	return animator.r(anim)
 
 """
 " Runs a puzzle until it is done.
@@ -252,14 +264,14 @@ func refresh():
 """
 func save():
 	global.saveGame()
-	say("game saved!")
+	say("game saved!", "_god_")
 
 """
 " Asks player if they want to quit the game and quits it if they do.
 " Intended to be called as a result of using the "quit" item.
 """
 func quit():
-	yield(ask("Are you sure you want to quit?","yeah","nah"),C)
+	yield(ask("Are you sure you want to quit?","yeah","nah", "_god_"), C)
 	if (value == "a"): get_tree().change_scene("res://menus/menu.tscn")
 
 """

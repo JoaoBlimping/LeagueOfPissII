@@ -6,7 +6,7 @@ var items = {}
 var creatures = {}
 var fish = {}
 
-func _ready():
+func _enter_tree():
 	preloadItems()
 	preloadTapes()
 	preloadCreatures()
@@ -35,6 +35,7 @@ func preloadMice():
 
 func preloadFish():
 	fish = loadJson("res://repository/fish.json")
+	
 
 func loadJson(filename):
 	var file = File.new()

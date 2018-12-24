@@ -15,5 +15,5 @@ func _process(delta):
 
 func _input(event):
 	if (event.is_action_pressed("ui_accept") && !room.gui && poised):
-		room.add_child(inventory.instance())
+		room.guiNode.add_child(inventory.instance())
 		room.gui = true
