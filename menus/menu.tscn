@@ -36,17 +36,14 @@ func quit():
 	get_tree().quit()
 "
 
-[node name="back" type="Sprite" index="0"]
-
+[node name="back" type="Sprite"]
 editor/display_folded = true
 texture = ExtResource( 1 )
 centered = false
 region_rect = Rect2( 0, 0, 1024, 600 )
 script = SubResource( 1 )
-_sections_unfolded = [ "Material", "Region" ]
 
-[node name="Panel" type="Panel" parent="." index="0"]
-
+[node name="Panel" type="Panel" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -63,8 +60,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 theme = ExtResource( 2 )
 
-[node name="newA" type="Button" parent="Panel" index="0"]
-
+[node name="newA" type="Button" parent="Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -88,8 +84,7 @@ text = "New Game A"
 flat = false
 align = 1
 
-[node name="newB" type="Button" parent="Panel" index="1"]
-
+[node name="newB" type="Button" parent="Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -113,8 +108,7 @@ text = "New Game B"
 flat = false
 align = 1
 
-[node name="newC" type="Button" parent="Panel" index="2"]
-
+[node name="newC" type="Button" parent="Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -138,8 +132,7 @@ text = "New Game C"
 flat = false
 align = 1
 
-[node name="oldA" type="Button" parent="Panel" index="3"]
-
+[node name="oldA" type="Button" parent="Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -163,8 +156,7 @@ text = "Old Game A"
 flat = false
 align = 1
 
-[node name="oldB" type="Button" parent="Panel" index="4"]
-
+[node name="oldB" type="Button" parent="Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -188,8 +180,7 @@ text = "Old Game B"
 flat = false
 align = 1
 
-[node name="oldC" type="Button" parent="Panel" index="5"]
-
+[node name="oldC" type="Button" parent="Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -213,8 +204,7 @@ text = "Old Game C"
 flat = false
 align = 1
 
-[node name="instructions" type="Button" parent="Panel" index="6"]
-
+[node name="instructions" type="Button" parent="Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -238,8 +228,7 @@ text = "Instructions"
 flat = false
 align = 1
 
-[node name="quit" type="Button" parent="Panel" index="7"]
-
+[node name="quit" type="Button" parent="Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -264,19 +253,10 @@ flat = false
 align = 1
 
 [connection signal="button_down" from="Panel/newA" to="." method="newGame" binds= [ 0 ]]
-
 [connection signal="button_down" from="Panel/newB" to="." method="newGame" binds= [ 1 ]]
-
 [connection signal="button_down" from="Panel/newC" to="." method="newGame" binds= [ 2 ]]
-
 [connection signal="button_down" from="Panel/oldA" to="." method="oldGame" binds= [ 0 ]]
-
 [connection signal="button_down" from="Panel/oldB" to="." method="oldGame" binds= [ 1 ]]
-
 [connection signal="button_down" from="Panel/oldC" to="." method="oldGame" binds= [ 2 ]]
-
 [connection signal="button_down" from="Panel/instructions" to="." method="instructions"]
-
 [connection signal="button_down" from="Panel/quit" to="." method="quit"]
-
-
