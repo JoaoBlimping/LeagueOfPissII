@@ -22,10 +22,6 @@
             box {<-rad, -rad, -rad> <rad, rad, dim.y + rad>}
             box {<-rad, -rad, dim.y - rad> <dim.x + rad, rad, dim.y + rad>}
             box {<dim.x - rad, -rad, -rad> <dim.x + rad, rad, dim.y + rad>}
-
-
-
-
             texture {rusty}
         }
         box {
@@ -38,17 +34,24 @@
 
 object {ocean}
 
-box {
-    <0, 0, 0> <5, 1, 5>
+object {walkway(<31, 5>) translate <0, 18, 1>}
+union {
+    box {<0, 0, 0> <31, 18, 1>}
+    box {<0, 0, 5> <31, 18, 6>}
+    #for (i, 0, 18, 0.25)
+        box {<14, 0, 6 + i> <17, 18 - i, 6 + i + 0.25>}
+    #end
     texture {concrete}
 }
 
-#for(i, 1, 5)
-    box {
-        <0 + i / 2, i - 1, 15 + i / 2> <5 - i /2, i, 20 - i / 2>
-        texture {concrete}
-    }
-#end
+object {
+    regularPrism(5, 2)
+    texture {rusty}
+    translate <20, 0, 20>
+}
+
+
+
 
 union {
     box {<2, 1, 2> <3, 2, 3>}
@@ -56,21 +59,6 @@ union {
     texture {rusty}
 }
 
+sun(0.5)
 
-object {holder translate <4, 1, 0>}
-object {holder translate <4, 2, 0>}
-object {holder translate <4, 3, 0>}
-object {holder translate <4, 4, 0>}
-object {holder translate <4, 5, 0>}
-
-object {walkway(<3, 10>) translate <1, 0.6, 5>}
-
-light_source {
-    <100, 100, 100>
-    rgb 1
-    area_light <5, 0, 0>, <0, 0, 5>, 5, 5
-    adaptive 1
-    jitter
-}
-
-niceCamera(<2, 2.6, 8>)
+niceCamera(<15, 3, 28>)

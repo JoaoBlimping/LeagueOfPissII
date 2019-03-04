@@ -8,6 +8,17 @@
 
 sky_sphere {S_Cloud2}
 
+#macro sun(time)
+    #local rad = 200;
+    light_source {
+        <cos(time), sin(time), cos(time)> * rad
+        rgb 1
+        area_light <5, 0, 0>, <0, 0, 5>, 5, 5
+        adaptive 1
+        jitter
+    }
+#end
+
 #macro room(dimension)
     box {
         <0, -999, 0>
@@ -78,11 +89,25 @@ sky_sphere {S_Cloud2}
     }
 }
 
-#declare bolt = prism {
-    linear_spline
-    0, 0.1, 6,
-    <0, -0.01>, <-0.008, 0.01>, <0.006, 0.004>, <-0.004, 0.01>, <-0.01, 0>, <0, -0.01>
-}
+/**
+ * Builds a prism with a regular shape.
+ * n is the number of points on the shape.
+ * length is the length that the prism is extruded.
+ */
+#macro regularPrism(n, length)
+    #local increment = (pi * 2) / n;
+    prism {
+        linear_spline
+        0, length, n + 1,
+        #for (i, increment, pi * 2, increment)
+            <cos(i), sin(i)>,
+        #end
+        <cos(0), sin(0)>
+    }
+#end
+
+// a little metal bolt to attach to stuff.
+#declare bolt = regularPrism(5, 0.01)
 
 // A metal bracket like used in bagoon.
 #declare bracket = union {
