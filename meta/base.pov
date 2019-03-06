@@ -3,7 +3,7 @@
 #include "textures.inc"
 #include "skies.inc"
 
-#declare thin = 0.01;
+#declare thin = 0.001;
 
 
 sky_sphere {S_Cloud2}
