@@ -1,9 +1,16 @@
+#include "rad_def.inc"
 #include "danyMaterial.pov"
 #include "colors.inc"
 #include "textures.inc"
 #include "skies.inc"
 
-#declare thin = 0.001;
+global_settings {
+    radiosity {
+        Rad_Settings(Radiosity_Normal, off, off)
+    }
+}
+
+#declare thin = 0.01;
 
 
 sky_sphere {S_Cloud2}
