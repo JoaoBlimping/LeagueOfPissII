@@ -12,10 +12,10 @@ script/source = "extends \"res://adventures/room.gd\"
 
 
 func start():
-	var creature = global.creatures[global.creature]
+	var creature = global.creatures[global.state[\"creature\"]]
 	var tier = creature.tiers[randi() % creature.tiers.size()]
-	yield(battle(global.creature,tier), C)
-	yield(say(\"you defeated the %s %s hell yeah\" % [tier,creature[\"name\"]],\"phm\"), C)
+	yield(battle(global.state[\"creature\"], tier), C)
+	yield(say(\"you defeated the %s %s hell yeah\" % [tier, creature[\"name\"]], \"phm\"), C)
 
 func cabin():
 	global.enterBoat()"

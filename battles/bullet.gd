@@ -16,7 +16,7 @@ func retarget(angle,newSpeed = null):
 	velocity.y = -sin(angle) * newSpeed
 	rotation = (angle + PI / 2)
 
-func gravify(angle,power):
+func gravify(angle, power):
 	acceleration.x = -cos(angle) * power
 	acceleration.y = -sin(angle) * power
 

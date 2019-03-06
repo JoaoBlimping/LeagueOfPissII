@@ -1,0 +1,25 @@
+{
+	"health": 4,
+	"reserve": 1,
+	"inventory":
+	[
+	  "quit",
+	  "save",
+	  "cheat",
+	  "tapeCollection"
+	],
+	"switches": {},
+	"boatingAngle": 0,
+	"boatingPosition": {"x": 0, "y": 0},
+	"area": "pipe/platform",
+	"creature": "redJelly",
+	"ocean": null,
+	"tapePosition": 0,
+	"tapeQueue":
+	[
+	  "sea",
+	  "pipesFish",
+	  "ocean",
+	  "weddingcakeIsland"
+	]
+}

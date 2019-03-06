@@ -5,6 +5,7 @@ onready var power = preload("bullets/power.tscn")
 var lifeRect
 
 signal cleared
+signal bulletGone
 
 func _ready():
 	set_process(true)
@@ -20,6 +21,7 @@ func _process(delta):
 		if (!lifeRect.has_point(pos)):
 			if (!bullet.is_in_group("power") || !(pos < screen)):
 				bullet.queue_free()
+				emit_signal("bulletGone", [bullet])
 
 func addPowerup(pos):
 	var ib = power.instance()

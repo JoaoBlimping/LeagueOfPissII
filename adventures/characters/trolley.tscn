@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://adventures/thing.gd" type="Script" id=1]
+[ext_resource path="res://pics/characters/trolley.png" type="Texture" id=2]
+
+[node name="trolley" type="Area2D" index="0"]
+
+position = Vector2( 720.999, 390.428 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+realName = "Kitchen Trolley"
+pointer = "use"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -246.266, 64.3596, -241.379, 116.488, -178.661, 81.4642, -153.412, 135.222, -166.444, 175.133, -197.395, 157.213, -203.097, 193.052, -173.774, 203.64, -139.565, 171.06, -136.307, 143.367, -11.6874, 113.23, 33.925, 168.617, 62.4327, 166.987, 122.706, 91.2383, 256.286, -179.993, 237.552, -206.057, 199.27, -192.21, 139.811, -105.872, 108.045, -34.1958, 55.9167, 15.4891, -25.534, 57.8435, -185.992, 58.658, -215.314, 79.8352, -227.532, 64.3596, -238.935, 67.6176 )
+
+[node name="sprite" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 2 )
+hframes = 2
+_sections_unfolded = [ "Animation" ]
+
+

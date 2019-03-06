@@ -12,14 +12,11 @@ script/source = "extends \"res://adventures/room.gd\"
 func back():
 	move(\"pipe/pipeA\")
 
-func left():
-	move(\"pipe/pipeG\")
-
-func right():
-	move(\"pipe/pipeF\")
+func door():
+	move(\"pipe/cleanA\")
 	"
 
-[node name="room" type="Node2D" index="0"]
+[node name="room" type="Node2D"]
 
 script = SubResource( 1 )
 music = "pipes"

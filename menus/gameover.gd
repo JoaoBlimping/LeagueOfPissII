@@ -23,4 +23,4 @@ func _on_CheckBox_toggled(pressed):
 
 func _on_Button_button_down():
 	global.loadGame()
-	global.enterAdventure(global.area)
+	global.enterAdventure()

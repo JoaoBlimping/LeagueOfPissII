@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pics/mobs/clammyHouseTop.png" type="Texture" id=1]
+[ext_resource path="res://overworlds/mover.gd" type="Script" id=2]
+
+[node name="sippelHouseTop" type="Sprite" index="0"]
+
+position = Vector2( -4.75797, -199.9 )
+texture = ExtResource( 1 )
+offset = Vector2( 2.15415, 68.0393 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+realPosition = Vector2( 0, 0 )
+width = 0.6
+portal = null
+
+

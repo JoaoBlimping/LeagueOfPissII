@@ -6,21 +6,19 @@
 
 script/source = "extends \"../mover.gd\"
 
-var timer = 0
 var flipX = false
 var flipY = false
 
-
-func _process(delta):
-	timer += delta
-	
-	realVelocity.x = cos(timer) * -1 if flipX else 1
-	realVelocity.y = sin(timer) * -1 if flipY else 1
-	
-	if (timer > PI):
+func control():
+	var t = 0
+	while (true):
+		t += 0.3
+		realVelocity.x = cos(t) * -1 if flipX else 1
+		realVelocity.y = sin(t) * -1 if flipY else 1
 		if (randi() % 2 == 0): flipX = !flipX
 		if (randi() % 2 == 0): flipY = !flipY
-		timer -= PI
+		yield(tick(0.3), \"completed\")
+
 "
 
 [sub_resource type="Animation" id=2]
@@ -52,7 +50,9 @@ script = SubResource( 1 )
 _sections_unfolded = [ "Animation", "Transform", "Z Index" ]
 realPosition = Vector2( 0, 0 )
 width = 0.5
+noClip = false
 portal = null
+voice = "iea"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
