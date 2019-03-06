@@ -28,13 +28,8 @@ func quit():
   get_tree().quit()
 "
 
-<<<<<<< HEAD
-[node name="back" type="Sprite"]
-editor/display_folded = true
-=======
 [node name="back" type="Sprite" index="0"]
 
->>>>>>> origin
 texture = ExtResource( 1 )
 centered = false
 region_rect = Rect2( 0, 0, 1024, 600 )
