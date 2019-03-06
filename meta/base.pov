@@ -1,7 +1,14 @@
+#include "rad_def.inc"
 #include "danyMaterial.pov"
 #include "colors.inc"
 #include "textures.inc"
 #include "skies.inc"
+
+global_settings {
+    radiosity {
+        Rad_Settings(Radiosity_Normal, off, off)
+    }
+}
 
 #declare thin = 0.01;
 

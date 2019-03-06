@@ -23,6 +23,17 @@
     normal {bumps 0.2 scale 0.005}
 }
 
+#declare greenPaint = texture {
+    pigment {rgb <0.002, 0.05, 0.004>}
+    normal {granite}
+    finish {Shiny}
+}
+
+#declare whitePaint = texture {
+    pigment {rgb <0.6, 0.6, 0.6>}
+    finish {Shiny}
+}
+
 #declare rust = texture {
     pigment {rgb <0.3, 0.1, 0>}
     normal {bumps 0.5 scale 0.01}
@@ -61,4 +72,10 @@
     Cork
     normal {bumps 0.3 scale 0.1}
     finish {Shiny}
+}
+
+
+#declare coconut = texture {
+    pigment {rgb <0.3, 0.1, 0>}
+    normal {bumps 0.5 scale 0.01}
 }

@@ -59,6 +59,6 @@ union {
     texture {rusty}
 }
 
-sun(0.5)
+sun(1.7)
 
 niceCamera(<15, 3, 28>)
