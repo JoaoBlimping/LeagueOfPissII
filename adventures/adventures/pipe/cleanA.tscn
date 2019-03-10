@@ -1,0 +1,287 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://pics/backgrounds/pipe/cleanA.png" type="Texture" id=1]
+[ext_resource path="res://pics/items/gurglerLower.png" type="Texture" id=2]
+[ext_resource path="res://pics/items/gurglerUpper.png" type="Texture" id=3]
+[ext_resource path="res://pics/items/gurglerCover.png" type="Texture" id=4]
+[ext_resource path="res://adventures/thing.gd" type="Script" id=5]
+[ext_resource path="res://pics/items/gurglerButton.png" type="Texture" id=6]
+[ext_resource path="res://adventures/characters/trolley.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sounds/gurgle.wav" type="AudioStream" id=8]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"res://adventures/room.gd\"
+
+func start():
+	if (s(\"trolleyLeftC\")): pose(1, \"trolley\")
+
+func back():
+	move(\"pipe/cleanEntrance\")
+
+func right():
+	move(\"pipe/cleanB\")
+
+func trolley():
+	$animation.play(\"trolleyExit\")
+	s(\"trolleyLeftA\", true)
+
+func gurglerButton():
+	if (ss(\"gurgler\")):
+		pose(0)
+		$spikeAnimation.stop()
+		yield(anim($animation, \"closeGurgler\"), \"animation_finished\")
+	else:
+		pose(1)
+		$spikeAnimation.play(\"gurgle\")
+		yield(anim($animation, \"openGurgler\"), \"animation_finished\")
+	ss(\"gurgler\", !ss(\"gurgler\"))"
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "closeGurgler"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("background/gurglerLid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 693.188, 55.5032 ), Vector2( 693.188, 104.238 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "openGurgler"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("background/gurglerLid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 693.188, 104.238 ), Vector2( 693.188, 55.5032 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("actives/trolley:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 720.999, 390.428 ), Vector2( 1309.47, 379.068 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.2
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("background/gurglerLower:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 591.505, 187.536 ), Vector2( 785.495, 188.617 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("background/gurglerUpper:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 748.576, 186.45 ), Vector2( 596.195, 186.99 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("spikeAnimation/audioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="room" type="Node2D" index="0"]
+
+script = SubResource( 1 )
+music = "pipes"
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+centered = false
+
+[node name="gurglerLower" type="Sprite" parent="background" index="0"]
+
+position = Vector2( 783.234, 188.604 )
+texture = ExtResource( 2 )
+
+[node name="gurglerUpper" type="Sprite" parent="background" index="1"]
+
+position = Vector2( 597.97, 186.984 )
+texture = ExtResource( 3 )
+
+[node name="gurglerLid" type="Sprite" parent="background" index="2"]
+
+position = Vector2( 693.188, 104.238 )
+texture = ExtResource( 4 )
+
+[node name="actives" type="Node2D" parent="." index="1"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="back" type="Area2D" parent="actives" index="0"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/back" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -0.438202, 602.541, 1026.48, 599.899, 928.508, 550.157, -22.2042, 548.126 )
+
+[node name="right" type="Area2D" parent="actives" index="1"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/right" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 934.537, -7.55951, 925.493, 545.635, 1031.01, 610.451, 1058.14, -27.155 )
+
+[node name="gurglerButton" type="Area2D" parent="actives" index="2"]
+
+editor/display_folded = true
+position = Vector2( 787.446, 71.7255 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+realName = "Gurgler Button"
+pointer = "use"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/gurglerButton" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -26.9815, 5.67905, -23.8038, 4.88461, 27.4369, -20.1399, 31.8063, -11.4012, 25.0536, 5.67905, -18.2428, 17.1983, -28.1732, 11.6373 )
+
+[node name="sprite" type="Sprite" parent="actives/gurglerButton" index="1"]
+
+texture = ExtResource( 6 )
+hframes = 2
+_sections_unfolded = [ "Animation" ]
+
+[node name="trolley" parent="actives" index="3" instance=ExtResource( 7 )]
+
+deathSwitch = "trolleyLeftA&!trolleyLeftC"
+
+[node name="gui" type="Node2D" parent="." index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="animation" type="AnimationPlayer" parent="." index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/closeGurgler = SubResource( 2 )
+anims/openGurgler = SubResource( 3 )
+anims/trolleyExit = SubResource( 4 )
+blend_times = [  ]
+
+[node name="spikeAnimation" type="AnimationPlayer" parent="." index="4"]
+
+editor/display_folded = true
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/gurgle = SubResource( 5 )
+blend_times = [  ]
+
+[node name="audioStreamPlayer" type="AudioStreamPlayer" parent="spikeAnimation" index="0"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+

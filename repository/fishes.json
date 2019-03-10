@@ -1,0 +1,50 @@
+{
+  "Snapper":
+  {
+    "battle": "snapperBattle",
+    "picture": "photos/snapper",
+    "item": "snapper"
+  },
+  "Flathead":
+  {
+    "battle": "flatheadBattle",
+    "picture": "photos/snapper",
+    "item": "snapper"
+  },
+  "Mackerel":
+  {
+    "battle": "mackerelBattle",
+    "picture": "photos/snapper",
+    "item": "snapper"
+  },
+  "Dolphinfish":
+  {
+    "battle": "dolphinfishBattle",
+    "picture": "photos/snapper",
+    "item": "snapper"
+  },
+  "Moray Eel":
+  {
+    "battle": "eelBattle",
+    "picture": "photos/snapper",
+    "item": "snapper"
+  },
+  "Rock Cod":
+  {
+    "battle": "rockCodBattle",
+    "picture": "photos/snapper",
+    "item": "snapper"
+  },
+  "Tuna":
+  {
+    "battle": "tunaBattle",
+    "picture": "photos/snapper",
+    "item": "snapper"
+  },
+  "Whiting":
+  {
+    "battle": "whitingBattle",
+    "picture": "photos/snapper",
+    "item": "snapper"
+  }
+}

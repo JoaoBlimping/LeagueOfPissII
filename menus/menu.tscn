@@ -8,36 +8,28 @@
 script/source = "extends Sprite
 
 func _ready():
-	sound.song(\"leagueOfScumbags\")
-
+  sound.song(\"theme\")
 
 func newGame(file):
-	global.restart()
-	global.exitBoat(\"pipe/platform\",Vector2(49,49),2)
-	global.saveFile = file
-	global.addToInventory(\"quit\")
-	global.addToInventory(\"save\")
-	global.addToInventory(\"cheat\")
-	global.addToInventory(\"tapeCollection\")
-	global.saveGame()
-
+  global.saveFile = file
+  global.state = repository.loadJson(\"res://repository/state.json\")
+  global.saveGame()
+  oldGame(global.saveFile)
 
 func oldGame(file):
-	global.saveFile = file
-	global.loadGame()
-	global.enterAdventure(global.area)
-
+  global.saveFile = file
+  global.loadGame()
+  global.enterAdventure()
 
 func instructions():
-	get_tree().change_scene(\"res://menus/instructions.tscn\")
-
+  get_tree().change_scene(\"res://menus/instructions.tscn\")
 
 func quit():
-	get_tree().quit()
+  get_tree().quit()
 "
 
-[node name="back" type="Sprite"]
-editor/display_folded = true
+[node name="back" type="Sprite" index="0"]
+
 texture = ExtResource( 1 )
 centered = false
 region_rect = Rect2( 0, 0, 1024, 600 )
@@ -48,10 +40,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 302.0
-margin_top = 455.0
-margin_right = 653.0
-margin_bottom = 599.0
+margin_left = 611.0
+margin_top = 39.0
+margin_right = 962.0
+margin_bottom = 183.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -249,6 +241,150 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 text = "Quit"
+flat = false
+align = 1
+
+[node name="Panel2" type="Panel" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 210.0
+margin_top = 398.0
+margin_right = 431.0
+margin_bottom = 684.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+_sections_unfolded = [ "Anchor", "Theme" ]
+
+[node name="Button" type="Button" parent="Panel2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_right = -24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "File A"
+flat = false
+align = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="Button3" type="Button" parent="Panel2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 29.0
+margin_right = -24.0
+margin_bottom = 51.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Play"
+flat = false
+align = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="Label" type="Label" parent="Panel2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 31.0
+margin_top = 57.0
+margin_right = 161.0
+margin_bottom = 122.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Spines Collected: 20
+Fishes Caught: 4
+Tapes Got: 3
+Helpers Found: 1
+Time Played: 4:39"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CheckBox" type="CheckBox" parent="Panel2" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 152.0
+margin_right = 199.0
+margin_bottom = 176.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "I want to Delete"
+flat = false
+align = 0
+
+[node name="Button2" type="Button" parent="Panel2" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 178.0
+margin_right = 199.0
+margin_bottom = 200.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Delete"
 flat = false
 align = 1
 

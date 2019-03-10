@@ -1,0 +1,23 @@
+{
+  "sky": "800trim",
+  "water":"horizon",
+  "actions":
+  [
+    {
+      "type": "distribution", "n": 10, "radius": 200, "actions":
+      [
+        {"mob": "island", "point": {"name": "pipe", "angle": "east"}, "to": "pipe/platform"},
+        {"type": "distribution", "n": 200, "radius": 50, "actions": [{"mob": "mangrove"}]},
+        {"type": "distribution", "n": 6, "radius": 30, "actions": [{"mob": "bird"}]},
+      ]
+    },
+    {
+      "type": "distribution",
+      "n": 11,
+      "radius": 35,
+      "actions": [{"type": "distribution", "n": 12, "radius": 4, "actions": [{"mob": "bomb"}]}]
+     },
+
+  ]
+}
+

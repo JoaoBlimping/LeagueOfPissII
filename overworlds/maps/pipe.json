@@ -1,0 +1,28 @@
+{
+  "water": "darkWater",
+  "sky":"darkWater",
+  "skyHeight": 0.1,
+  "actions":
+  [
+    {"type": "circle", "radius": 70, "actions": [{"mob": "pipeWall"}]},
+    {"mob": "sippelHouseTop", "point": {"name": "sippel", "angle": "east"}, "to": "pipe/platform" },
+    {
+      "type": "distribution",
+      "n": 11,
+      "radius": 70,
+      "actions": [{"type": "distribution", "n": 12, "radius": 4, "actions": [{"mob": "bomb"}]}]
+     },
+     {
+      "type": "polygon",
+      "points":
+      [
+        {"x": -5, "y": -5}, {"x": 5, "y": -5}, {"x": 13, "y": 4}, {"x": 5, "y": 5},
+        {"x": -5, "y": 5}
+      ],
+      "close": true,
+      "actions": [{"mob": "pipeWall"}],
+      "switch": "!pumpA"
+    }
+  ]
+}
+

@@ -20,7 +20,7 @@ func _input(event):
 	if (event.is_action_pressed(\"ui_accept\")):
 		get_tree().change_scene(\"res://menus/menu.tscn\")"
 
-[node name="VideoPlayer" type="VideoPlayer" index="0"]
+[node name="VideoPlayer" type="VideoPlayer"]
 
 anchor_left = 0.0
 anchor_top = 0.0

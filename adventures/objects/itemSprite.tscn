@@ -14,7 +14,7 @@ func _process(delta):
 	
 "
 
-[node name="itemSprite" type="Sprite" index="0"]
+[node name="itemSprite" type="Sprite"]
 
 texture = ExtResource( 1 )
 script = SubResource( 1 )

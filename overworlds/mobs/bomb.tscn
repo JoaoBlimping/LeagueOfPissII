@@ -3,8 +3,6 @@
 [ext_resource path="res://pics/mobs/bomb.png" type="Texture" id=1]
 [ext_resource path="res://overworlds/mobs/jellyfish.gd" type="Script" id=2]
 
-
-
 [node name="bomb" type="Sprite" index="0"]
 
 position = Vector2( 13.777, -242.094 )
@@ -14,6 +12,8 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 realPosition = Vector2( 0, 0 )
 width = 0.5
+noClip = false
 portal = "battle?redJelly"
+voice = "mlep"
 
 

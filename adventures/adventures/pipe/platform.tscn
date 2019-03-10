@@ -19,7 +19,7 @@
 script/source = "extends \"res://adventures/room.gd\"
 
 func boat():
-	global.enterBoat()
+	global.enterBoat(\"overworld\", \"pipe\")
 
 func aini():
 	say(\"This poor fellow only has one eye. He's still a handsome bird though.\")
@@ -28,8 +28,7 @@ func phm():
 	say(\"There's still something down there blocking the pipe.\")
 
 func magnet():
-	say(\"Looks like a big magnet, probably for lifting the shipping containers\",
-	\"phm\")
+	say(\"Looks like a big magnet, probably for lifting the shipping containers\", \"phm\")
 
 func pit():
 	if (ss(\"containersClear\")):
@@ -126,7 +125,13 @@ func crane_craneKey():
 			get_node(\"actives/craneHook\").revert()
 			say(\"Guess it didn't catch on anything\", \"phm\")
 	else:
-		say(\"It's not attached to anything haha, it better not flick back it me\", \"aini\")"
+		say(\"It's not attached to anything haha, it better not flick back it me\", \"aini\")
+
+func info():
+	global.addToInventory(\"fish\")
+
+func info_fish():
+	say(\"yes\")"
 
 [node name="room" type="Node2D" index="0"]
 
@@ -143,6 +148,7 @@ __meta__ = {
 
 [node name="actives" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -161,6 +167,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="boat" type="Area2D" parent="actives" index="2"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -457,12 +464,29 @@ polygon = PoolVector2Array( -149.276, 155.648, -147.523, 170.863, -154.141, 171.
 position = Vector2( 841.865, 294.829 )
 texture = ExtResource( 13 )
 
-[node name="gui" type="Node2D" parent="." index="2"]
+[node name="info" type="Area2D" parent="actives" index="11"]
 
-__meta__ = {
-"_edit_lock_": true
-}
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+realName = "AIIIIIIEEEEEEEEE"
+pointer = "move"
+birthSwitch = null
+deathSwitch = null
+birthSelfSwitch = null
+deathSelfSwitch = null
 
-[node name="puzzle" type="Node2D" parent="." index="3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="actives/info" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 397.679, 246.619, 394.443, 294.825, 410.943, 302.267, 421.944, 230.118, 403.179, 232.383 )
+
+[node name="puzzle" type="Node2D" parent="." index="2"]
 
 
