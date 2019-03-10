@@ -1,25 +1,13 @@
 #include "base.pov"
 #include "boats.pov"
+#include "tree.pov"
 
-
-#macro tree()
-    #local spot = <0, 0, 0>;
-    #local rad = 1;
-    union {
-        #for (i, 1, 5, 1)
-            #local bing = 5;
-            sphere {spot rad}
-
-        #end
-    }
-    texture {rusty}
-#end
 
 
 
 //niceCamera(<0, 2, 0>)
 camera {
-    location <3, 10, -15>
+    location <3, 10, -20>
     look_at <0, 0, 0>
 }
 sun(2.0)
@@ -35,5 +23,6 @@ object {ocean}
     }
 #end
 
-object {fancyHouse}
+//object {tree(2, 3, 0.7) scale 0.2 translate <-4, 0, 4>}
+object {tree(3, 4, 0.7) scale 0.2 translate <4, 0, -4>}
 //object {skip}
