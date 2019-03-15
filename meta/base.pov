@@ -12,8 +12,15 @@ global_settings {
 
 #declare thin = 0.01;
 
-
-sky_sphere {S_Cloud2}
+sky_sphere {
+    pigment {
+        image_map {
+            jpeg "assets/sky7.jpg"
+            map_type 1
+            interpolate 2
+        }
+    }
+}
 
 #macro sun(time)
     #local rad = 200;
@@ -68,6 +75,14 @@ sky_sphere {S_Cloud2}
         angle 360 180
         location at
         look_at at + <0, 0, 1>
+    }
+#end
+
+#macro normalCamera(from, to)
+    camera {
+        right image_width / image_height * x
+        location from
+        look_at to
     }
 #end
 

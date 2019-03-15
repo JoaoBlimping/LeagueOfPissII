@@ -1,5 +1,23 @@
 #declare random = seed(69);
 
+#declare tree_bark = texture {rusty}
+#declare tree_leaf = cone {<0, 0, 0> 0 <0, 1, 0> 1}
+
+/**
+ * Makes a branch of a tree.
+ * @param int  level is the number of recursion levels left allowed.
+ * @param vec3 pos   is the position of the start of the branch.
+ * @param vec2 rot   is the rotation of the branch, with first component around z axis, and second component being on x
+ *                   axis rotated around z axis.
+ */
+#macro branch(level, pos, rot)
+
+#end
+
+
+
+
+
 #macro branch(n, level, length, fall)
     #local rat = 0.6;
     #local bonusRat = 0.9;
