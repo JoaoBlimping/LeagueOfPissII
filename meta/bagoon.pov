@@ -92,6 +92,6 @@ union {
 
 sun(1.7)
 
-niceCamera(<15, 3, 28>)
+//niceCamera(<15, 3, 28>)
 //niceCamera(<15, 19, 10>)
-//niceCamera(<3, 3, -2>)
+niceCamera(<3, 3, -4>)

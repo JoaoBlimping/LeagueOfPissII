@@ -13,18 +13,19 @@ object {ocean}
 
 #declare stream = seed(2);
 #for (i, 1, 90, 1)
-    object {
+    /* object {
         canoe rotate <0, rand(stream) * 360, 0>
         translate <3 + rand(stream) * 100, 0, 0>
         rotate <0, rand(stream) * 360, 0>
-    }
+    } */
     object {
-        tree(3, 4, 0.7) scale 0.2
+        tree(2, 3, 0.7) scale 0.4
         rotate <0, rand(stream) * 360, 0>
         translate <3 + rand(stream) * 100, 0, 0>
         rotate <0, rand(stream) * 360, 0>
     }
+
 #end
 
-//object {tree(2, 3, 0.7) scale 0.2 translate <-4, 0, 4>}
-object {fancyHouse}
+//object {tree(2, 3, 0.7) scale 0.4 translate <-4, 0, 4>}
+//object {fancyHouse}
