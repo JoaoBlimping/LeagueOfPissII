@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://videos/splash.ogm" type="VideoStream" id=1]
+[gd_scene load_steps=2 format=2]
 
 [sub_resource type="GDScript" id=1]
-
 script/source = "extends VideoPlayer
 
 onready var global = get_node(\"/root/global\")
@@ -21,77 +18,32 @@ func _input(event):
 		get_tree().change_scene(\"res://menus/menu.tscn\")"
 
 [node name="VideoPlayer" type="VideoPlayer"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 1024.0
 margin_bottom = 601.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-audio_track = 0
-stream = ExtResource( 1 )
-volume_db = 0.0
 autoplay = true
-paused = false
-expand = true
-buffering_msec = 500
-bus = "Master"
 script = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Label" type="Label" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="."]
 margin_left = 235.0
 margin_top = 547.0
 margin_right = 670.0
 margin_bottom = 595.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 0
 text = "The fun never ends!
 Wipe on over to http://www.dany.bangoman.org for more wonderful content.
 100% endorsed and funded by the Australian Government, Canberra"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="Label2" type="Label" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label2" type="Label" parent="."]
 margin_left = 23.0
 margin_top = 19.0
 margin_right = 513.0
 margin_bottom = 278.0
 rect_scale = Vector2( 2, 2 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "yeet"
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-
-

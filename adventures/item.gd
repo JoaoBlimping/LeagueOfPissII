@@ -19,6 +19,6 @@ func _input(event):
 		queue_free()
 		emit_signal("grabbed")
 
-func connect(s, caller, function, args = []):
+func connect(s, caller, function, args = [], n = 0):
 	connected = true
-	.connect(s, caller, function, args)
+	.connect(s, caller, function, args, n)
